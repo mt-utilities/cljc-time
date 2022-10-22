@@ -15,8 +15,8 @@
 (defn epoch-ms
   ; @return (ms)
   []
-  (-> (clj-time.core/now
-       (clj-time.coerce/to-long))))
+  (-> (clj-time.core/now)
+      (clj-time.coerce/to-long)))
 
 (defn epoch-s
   ; @return (s)
