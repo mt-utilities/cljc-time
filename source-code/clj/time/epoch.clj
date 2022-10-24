@@ -29,7 +29,7 @@
   ; @param (ms) n
   ;
   ; @example
-  ;  (time/epoch-ms->timestamp-string 1640800860000)
+  ;  (epoch-ms->timestamp-string 1640800860000)
   ;  =>
   ;  "2021-12-29T18:01:00.000Z"
   ;
@@ -41,7 +41,7 @@
   ; @param (s) n
   ;
   ; @example
-  ;  (time/epoch-s->timestamp-string 1640800860)
+  ;  (epoch-s->timestamp-string 1640800860)
   ;  =>
   ;  "2021-12-29T18:01:00.000Z"
   ;

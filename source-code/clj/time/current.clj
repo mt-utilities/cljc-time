@@ -28,7 +28,7 @@
 
 (defn get-date
   ; @example
-  ;  (time/get-date)
+  ;  (get-date)
   ;  =>
   ;  "2020-04-20"
   ;
