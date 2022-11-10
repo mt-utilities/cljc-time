@@ -6,7 +6,7 @@
     (:require [cljs-time.core    :as cljs-time.core]
               [cljs-time.format  :as cljs-time.format]
               [mid-fruits.candy  :refer [return]]
-              [mid-fruits.format :as format]
+              [format.api        :as format]
               [mid-fruits.string :as string]))
 
 

@@ -6,7 +6,7 @@
     (:import org.joda.time.DateTime org.bson.types.BSONTimestamp)
     (:require [clj-time.core     :as clj-time.core]
               [mid-fruits.candy  :refer [return]]
-              [mid-fruits.format :as format]
+              [format.api        :as format]
               [mid-fruits.string :as string]))
 
 
