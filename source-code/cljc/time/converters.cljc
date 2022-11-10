@@ -3,8 +3,8 @@
 ;; ----------------------------------------------------------------------------
 
 (ns time.converters
-    (:require [format.api      :as format]
-              [mid-fruits.math :as math]))
+    (:require [format.api :as format]
+              [math.api   :as math]))
 
 
 
