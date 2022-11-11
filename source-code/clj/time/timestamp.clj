@@ -12,12 +12,12 @@
 (defn timestamp-object
   ; @param (string)(opt) time-zone
   ;
-  ; @example (clj)
+  ; @example
   ;  (timestamp-object)
   ;  =>
   ;  #<DateTime 2020-04-20T16:20:00.123Z>
   ;
-  ; @example (clj)
+  ; @example 
   ;  (timestamp-object "Europe/Budapest")
   ;  =>
   ;  #<DateTime 2020-04-20T16:20:00.123+02:00>
