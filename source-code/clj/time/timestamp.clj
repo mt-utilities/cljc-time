@@ -1,8 +1,8 @@
 
 (ns time.timestamp
     (:import org.joda.time.DateTime org.bson.types.BSONTimestamp)
-    (:require [clj-time.core     :as clj-time.core]
-              [mid-fruits.candy  :refer [return]]
+    (:require [candy.api         :refer [return]]
+              [clj-time.core     :as clj-time.core]
               [format.api        :as format]
               [mid-fruits.string :as string]))
 
@@ -17,7 +17,7 @@
   ;  =>
   ;  #<DateTime 2020-04-20T16:20:00.123Z>
   ;
-  ; @example 
+  ; @example
   ;  (timestamp-object "Europe/Budapest")
   ;  =>
   ;  #<DateTime 2020-04-20T16:20:00.123+02:00>

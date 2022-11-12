@@ -1,8 +1,8 @@
 
 (ns time.timestamp
-    (:require [cljs-time.core    :as cljs-time.core]
+    (:require [candy.api         :refer [return]]
+              [cljs-time.core    :as cljs-time.core]
               [cljs-time.format  :as cljs-time.format]
-              [mid-fruits.candy  :refer [return]]
               [format.api        :as format]
               [mid-fruits.string :as string]))
 

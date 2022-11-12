@@ -1,7 +1,7 @@
 
 (ns time.parse
-    (:require [clj-time.format   :as clj-time.format]
-              [mid-fruits.candy  :refer [return]]
+    (:require [candy.api         :refer [return]]
+              [clj-time.format   :as clj-time.format]
               [mid-fruits.map    :as map]
               [mid-fruits.vector :as vector]
               [time.timestamp    :as timestamp]))
