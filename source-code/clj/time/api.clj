@@ -104,3 +104,7 @@
 (def timestamp-string->time         timestamp/timestamp-string->time)
 (def timestamp-string->date-time    timestamp/timestamp-string->date-time)
 (def timestamp-string->today?       timestamp/timestamp-string->today?)
+(def timestamp-string->elapsed-ms   timestamp/timestamp-string->elapsed-ms)
+(def timestamp-object->elapsed-ms   timestamp/timestamp-object->elapsed-ms)
+(def timestamp-string->elapsed-s    timestamp/timestamp-string->elapsed-s)
+(def timestamp-object->elapsed-s    timestamp/timestamp-object->elapsed-s)
