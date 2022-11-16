@@ -8,12 +8,18 @@
 ;; ----------------------------------------------------------------------------
 
 (defn epoch-ms
+  ; @usage
+  ; (epoch-ms)
+  ;
   ; @return (ms)
   []
   (-> (clj-time.core/now)
       (clj-time.coerce/to-long)))
 
 (defn epoch-s
+  ; @usage
+  ; (epoch-s)
+  ;
   ; @return (s)
   []
   (-> (clj-time.core/now)

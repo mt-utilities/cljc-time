@@ -41,7 +41,7 @@
   ; @param (object) n
   ;
   ; @example
-  ; (parse-timestamp #<DateTime 2020-04-20T16:20:00.123Z>)
+  ; (unparse-timestamp #<DateTime 2020-04-20T16:20:00.123Z>)
   ; =>
   ; "2020-04-20T16:20:00.123"
   ;

@@ -12,6 +12,12 @@
 (defn timestamp-object
   ; @param (string)(opt) time-zone
   ;
+  ; @usage
+  ; (timestamp-object)
+  ;
+  ; @usage
+  ; (timestamp-object "Europe/Budapest")
+  ;
   ; @return (object)
   ([])
    ; TODO
@@ -101,7 +107,7 @@
   ; =>
   ; 2020
   ;
-  ; @return (integer)
+  ; @return (Y)
   [n]
   (cljs-time.core/year n))
 
@@ -125,7 +131,7 @@
   ; =>
   ; 4
   ;
-  ; @return (integer)
+  ; @return (M)
   [n]
   (cljs-time.core/month n))
 
@@ -149,7 +155,7 @@
   ; =>
   ; 20
   ;
-  ; @return (integer)
+  ; @return (D)
   [n]
   (cljs-time.core/day n))
 
@@ -173,7 +179,7 @@
   ; =>
   ; 16
   ;
-  ; @return (integer)
+  ; @return (h)
   [n]
   (cljs-time.core/hours n))
 
@@ -197,7 +203,7 @@
   ; =>
   ; 20
   ;
-  ; @return (integer)
+  ; @return (m)
   [n]
   (cljs-time.core/minutes n))
 
@@ -221,7 +227,7 @@
   ; =>
   ; 0
   ;
-  ; @return (integer)
+  ; @return (s)
   [n]
   (cljs-time.core/seconds n))
 
@@ -245,7 +251,7 @@
   ; =>
   ; 123
   ;
-  ; @return (integer)
+  ; @return (ms)
   [n]
   (cljs-time.core/milli n))
 

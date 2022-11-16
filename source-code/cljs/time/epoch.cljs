@@ -6,11 +6,17 @@
 ;; ----------------------------------------------------------------------------
 
 (defn epoch-ms
+  ; @usage
+  ; (epoch-ms)
+  ;
   ; @return (ms)
   [])
   ; TODO
 
 (defn epoch-s
+  ; @usage
+  ; (epoch-s)
+  ;
   ; @return (s)
   [])
   ; TODO

@@ -5,70 +5,117 @@
 ;; ----------------------------------------------------------------------------
 
 (defn get-year
-  ; @return (integer)
+  ; @usage
+  ; (get-year)
+  ;
+  ; @return (Y)
   []
   (.getFullYear (js/Date.)))
 
 (defn get-month
-  ; @return (integer)
+  ; @usage
+  ; (get-month)
+  ;
+  ; @return (M)
+  [])
+  ; TODO
+
+(defn get-week
+  ; @usage
+  ; (get-week)
+  ;
+  ; @return (W)
   [])
   ; TODO
 
 (defn get-day
-  ; @return (integer)
+  ; @usage
+  ; (get-day)
+  ;
+  ; @return (D)
   [])
   ; TODO
 
 (defn get-date
+  ; @usage
+  ; (get-date)
+  ;
   ; @return (string)
   [])
   ; TODO
 
 (defn get-hours
-  ; @return (integer)
+  ; @usage
+  ; (get-hours)
+  ;
+  ; @return (h)
   [])
   ; TODO
 
 (defn get-hours-left-from-this-day
-  ; @return (integer)
+  ; @usage
+  ; (get-hours-left-from-this-day)
+  ;
+  ; @return (h)
   []
   (let [hours (get-hours)]
        (- 24 hours)))
 
 (defn get-minutes
-  ; @return (integer)
+  ; @usage
+  ; (get-minutes)
+  ;
+  ; @return (m)
   [])
   ; TODO
 
 (defn get-minutes-left-from-this-hour
-  ; @return (integer)
+  ; @usage
+  ; (get-minutes-left-from-this-hour)
+  ;
+  ; @return (m)
   []
   (let [minutes (get-minutes)]
        (- 60 minutes)))
 
 (defn get-seconds
-  ; @return (integer)
+  ; @usage
+  ; (get-seconds)
+  ;
+  ; @return (s)
   [])
   ; TODO
 
 (defn get-seconds-left-from-this-minute
-  ; @return (integer)
+  ; @usage
+  ; (get-seconds-left-from-this-minute)
+  ;
+  ; @return (s)
   []
   (let [seconds (get-seconds)]
        (- 60 seconds)))
 
 (defn get-milliseconds
-  ; @return (integer)
+  ; @usage
+  ; (get-milliseconds)
+  ;
+  ; @return (ms)
   [])
   ; TODO
 
 (defn get-milliseconds-left-from-this-second
-  ; @return (integer)
+  ; @usage
+  ; (get-milliseconds-left-from-this-second)
+  ;
+  ; @return (ms)
   [])
   ; TODO
 
 (defn get-milliseconds-left-from-this-minute
-  ; @return (integer)
+  ; @usage
+  ; (get-milliseconds-left-from-this-minute)
+  ;
+  ; @return (ms)
   []
   (let [seconds-left (get-seconds-left-from-this-minute)]
        (* 1000 seconds-left)))

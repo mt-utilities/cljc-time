@@ -87,6 +87,11 @@ true
 ### elapsed
 
 ```
+@usage
+(elapsed)
+```
+
+```
 @return (ms)
 ```
 
@@ -116,6 +121,11 @@ true
 ---
 
 ### epoch-ms
+
+```
+@usage
+(epoch-ms)
+```
 
 ```
 @return (ms)
@@ -189,6 +199,11 @@ true
 ### epoch-s
 
 ```
+@usage
+(epoch-s)
+```
+
+```
 @return (s)
 ```
 
@@ -260,6 +275,11 @@ true
 ### get-date
 
 ```
+@usage
+(get-date)
+```
+
+```
 @return (string)
 ```
 
@@ -290,7 +310,12 @@ true
 ### get-day
 
 ```
-@return (integer)
+@usage
+(get-day)
+```
+
+```
+@return (D)
 ```
 
 <details>
@@ -320,7 +345,12 @@ true
 ### get-hours
 
 ```
-@return (integer)
+@usage
+(get-hours)
+```
+
+```
+@return (h)
 ```
 
 <details>
@@ -350,7 +380,12 @@ true
 ### get-hours-left-from-this-day
 
 ```
-@return (integer)
+@usage
+(get-hours-left-from-this-day)
+```
+
+```
+@return (h)
 ```
 
 <details>
@@ -382,7 +417,12 @@ true
 ### get-milliseconds
 
 ```
-@return (integer)
+@usage
+(get-milliseconds)
+```
+
+```
+@return (ms)
 ```
 
 <details>
@@ -412,7 +452,12 @@ true
 ### get-milliseconds-left-from-this-minute
 
 ```
-@return (integer)
+@usage
+(get-milliseconds-left-from-this-minute)
+```
+
+```
+@return (ms)
 ```
 
 <details>
@@ -444,7 +489,12 @@ true
 ### get-milliseconds-left-from-this-second
 
 ```
-@return (integer)
+@usage
+(get-milliseconds-left-from-this-second)
+```
+
+```
+@return (ms)
 ```
 
 <details>
@@ -474,7 +524,12 @@ true
 ### get-minutes
 
 ```
-@return (integer)
+@usage
+(get-minutes)
+```
+
+```
+@return (m)
 ```
 
 <details>
@@ -504,7 +559,12 @@ true
 ### get-minutes-left-from-this-hour
 
 ```
-@return (integer)
+@usage
+(get-minutes-left-from-this-hour)
+```
+
+```
+@return (m)
 ```
 
 <details>
@@ -536,7 +596,12 @@ true
 ### get-month
 
 ```
-@return (integer)
+@usage
+(get-month)
+```
+
+```
+@return (M)
 ```
 
 <details>
@@ -566,7 +631,12 @@ true
 ### get-seconds
 
 ```
-@return (integer)
+@usage
+(get-seconds)
+```
+
+```
+@return (s)
 ```
 
 <details>
@@ -596,7 +666,12 @@ true
 ### get-seconds-left-from-this-minute
 
 ```
-@return (integer)
+@usage
+(get-seconds-left-from-this-minute)
+```
+
+```
+@return (s)
 ```
 
 <details>
@@ -628,7 +703,12 @@ true
 ### get-year
 
 ```
-@return (integer)
+@usage
+(get-year)
+```
+
+```
+@return (Y)
 ```
 
 <details>
@@ -658,11 +738,26 @@ true
 
 ### h->D
 
+```
+@param (h) n
+```
+
+```
+@usage
+(h->D 420)
+```
+
+```
+@return (D)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn h->D
+  [n]
+  (/ n 24))
 ```
 
 </details>
@@ -673,8 +768,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [h->D]]))
 
-(time/h->D)
-(h->D)
+(time/h->D ...)
+(h->D      ...)
 ```
 
 </details>
@@ -683,11 +778,26 @@ true
 
 ### h->W
 
+```
+@param (h) n
+```
+
+```
+@usage
+(h->W 420)
+```
+
+```
+@return (W)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn h->W
+  [n]
+  (/ n 168))
 ```
 
 </details>
@@ -698,8 +808,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [h->W]]))
 
-(time/h->W)
-(h->W)
+(time/h->W ...)
+(h->W      ...)
 ```
 
 </details>
@@ -708,11 +818,26 @@ true
 
 ### h->m
 
+```
+@param (h) n
+```
+
+```
+@usage
+(h->,óm 420)
+```
+
+```
+@return (m)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn h->m
+  [n]
+  (* n 60))
 ```
 
 </details>
@@ -723,8 +848,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [h->m]]))
 
-(time/h->m)
-(h->m)
+(time/h->m ...)
+(h->m      ...)
 ```
 
 </details>
@@ -733,11 +858,26 @@ true
 
 ### h->ms
 
+```
+@param (h) n
+```
+
+```
+@usage
+(h->ms 420)
+```
+
+```
+@return (ms)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn h->ms
+  [n]
+  (* n 3600000))
 ```
 
 </details>
@@ -748,8 +888,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [h->ms]]))
 
-(time/h->ms)
-(h->ms)
+(time/h->ms ...)
+(h->ms      ...)
 ```
 
 </details>
@@ -758,11 +898,26 @@ true
 
 ### h->s
 
+```
+@param (h) n
+```
+
+```
+@usage
+(h->s 420)
+```
+
+```
+@return (s)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn h->s
+  [n]
+  (* n 3600))
 ```
 
 </details>
@@ -773,8 +928,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [h->s]]))
 
-(time/h->s)
-(h->s)
+(time/h->s ...)
+(h->s      ...)
 ```
 
 </details>
@@ -783,11 +938,26 @@ true
 
 ### m->D
 
+```
+@param (m) n
+```
+
+```
+@usage
+(m->D 420)
+```
+
+```
+@return (D)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn m->D
+  [n]
+  (/ n 1440))
 ```
 
 </details>
@@ -798,8 +968,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [m->D]]))
 
-(time/m->D)
-(m->D)
+(time/m->D ...)
+(m->D      ...)
 ```
 
 </details>
@@ -808,11 +978,26 @@ true
 
 ### m->W
 
+```
+@param (m) n
+```
+
+```
+@usage
+(m->W 420)
+```
+
+```
+@return (W)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn m->W
+  [n]
+  (/ n 10800))
 ```
 
 </details>
@@ -823,8 +1008,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [m->W]]))
 
-(time/m->W)
-(m->W)
+(time/m->W ...)
+(m->W      ...)
 ```
 
 </details>
@@ -833,11 +1018,26 @@ true
 
 ### m->h
 
+```
+@param (m) n
+```
+
+```
+@usage
+(m->h 420)
+```
+
+```
+@return (h)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn m->h
+  [n]
+  (/ n 60))
 ```
 
 </details>
@@ -848,8 +1048,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [m->h]]))
 
-(time/m->h)
-(m->h)
+(time/m->h ...)
+(m->h      ...)
 ```
 
 </details>
@@ -858,11 +1058,26 @@ true
 
 ### m->ms
 
+```
+@param (m) n
+```
+
+```
+@usage
+(m->ms 420)
+```
+
+```
+@return (ms)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn m->ms
+  [n]
+  (* n 60000))
 ```
 
 </details>
@@ -873,8 +1088,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [m->ms]]))
 
-(time/m->ms)
-(m->ms)
+(time/m->ms ...)
+(m->ms      ...)
 ```
 
 </details>
@@ -883,11 +1098,26 @@ true
 
 ### m->s
 
+```
+@param (m) n
+```
+
+```
+@usage
+(m->s 420)
+```
+
+```
+@return (s)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn m->s
+  [n]
+  (* n 60))
 ```
 
 </details>
@@ -898,8 +1128,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [m->s]]))
 
-(time/m->s)
-(m->s)
+(time/m->s ...)
+(m->s      ...)
 ```
 
 </details>
@@ -908,11 +1138,26 @@ true
 
 ### ms->D
 
+```
+@param (ms) n
+```
+
+```
+@usage
+(ms->D 420)
+```
+
+```
+@return (D)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn ms->D
+  [n]
+  (/ n 86400000))
 ```
 
 </details>
@@ -923,8 +1168,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [ms->D]]))
 
-(time/ms->D)
-(ms->D)
+(time/ms->D ...)
+(ms->D      ...)
 ```
 
 </details>
@@ -933,11 +1178,26 @@ true
 
 ### ms->W
 
+```
+@param (ms) n
+```
+
+```
+@usage
+(ms->W 420)
+```
+
+```
+@return (W)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn ms->W
+  [n]
+  (/ n 604800000))
 ```
 
 </details>
@@ -948,8 +1208,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [ms->W]]))
 
-(time/ms->W)
-(ms->W)
+(time/ms->W ...)
+(ms->W      ...)
 ```
 
 </details>
@@ -958,11 +1218,26 @@ true
 
 ### ms->h
 
+```
+@param (ms) n
+```
+
+```
+@usage
+(ms->h 420)
+```
+
+```
+@return (h)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn ms->h
+  [n]
+  (/ n 3600000))
 ```
 
 </details>
@@ -973,8 +1248,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [ms->h]]))
 
-(time/ms->h)
-(ms->h)
+(time/ms->h ...)
+(ms->h      ...)
 ```
 
 </details>
@@ -983,11 +1258,26 @@ true
 
 ### ms->m
 
+```
+@param (ms) n
+```
+
+```
+@usage
+(ms->m 420)
+```
+
+```
+@return (m)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn ms->m
+  [n]
+  (/ n 60000))
 ```
 
 </details>
@@ -998,8 +1288,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [ms->m]]))
 
-(time/ms->m)
-(ms->m)
+(time/ms->m ...)
+(ms->m      ...)
 ```
 
 </details>
@@ -1008,11 +1298,26 @@ true
 
 ### ms->s
 
+```
+@param (ms) n
+```
+
+```
+@usage
+(ms->s 420)
+```
+
+```
+@return (s)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn ms->s
+  [n]
+  (/ n 1000))
 ```
 
 </details>
@@ -1023,8 +1328,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [ms->s]]))
 
-(time/ms->s)
-(ms->s)
+(time/ms->s ...)
+(ms->s      ...)
 ```
 
 </details>
@@ -1040,21 +1345,21 @@ true
 
 ```
 @example
-(time/ms->time 260000)
+(ms->time 260000)
 =>
 "00:04:20.000"
 ```
 
 ```
 @example
-(time/ms->time 260000.123)
+(ms->time 260000.123)
 =>
 "00:04:20.000"
 ```
 
 ```
 @example
-(time/ms->time 260000 :hhmmss)
+(ms->time 260000 :hhmmss)
 =>
 "00:04:20"
 ```
@@ -1148,11 +1453,26 @@ true
 
 ### s->D
 
+```
+@param (s) n
+```
+
+```
+@usage
+(s->D 420)
+```
+
+```
+@return (D)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn s->D
+  [n]
+  (/ n 86400))
 ```
 
 </details>
@@ -1163,8 +1483,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [s->D]]))
 
-(time/s->D)
-(s->D)
+(time/s->D ...)
+(s->D      ...)
 ```
 
 </details>
@@ -1173,11 +1493,26 @@ true
 
 ### s->W
 
+```
+@param (s) n
+```
+
+```
+@usage
+(s->W 420)
+```
+
+```
+@return (W)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn s->W
+  [n]
+  (/ n 604800))
 ```
 
 </details>
@@ -1188,8 +1523,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [s->W]]))
 
-(time/s->W)
-(s->W)
+(time/s->W ...)
+(s->W      ...)
 ```
 
 </details>
@@ -1198,11 +1533,26 @@ true
 
 ### s->h
 
+```
+@param (s) n
+```
+
+```
+@usage
+(s->h 420)
+```
+
+```
+@return (h)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn s->h
+  [n]
+  (/ n 3600))
 ```
 
 </details>
@@ -1213,8 +1563,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [s->h]]))
 
-(time/s->h)
-(s->h)
+(time/s->h ...)
+(s->h      ...)
 ```
 
 </details>
@@ -1223,11 +1573,26 @@ true
 
 ### s->m
 
+```
+@param (s) n
+```
+
+```
+@usage
+(s->m 420)
+```
+
+```
+@return (m)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn s->m
+  [n]
+  (/ n 60))
 ```
 
 </details>
@@ -1238,8 +1603,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [s->m]]))
 
-(time/s->m)
-(s->m)
+(time/s->m ...)
+(s->m      ...)
 ```
 
 </details>
@@ -1248,11 +1613,26 @@ true
 
 ### s->ms
 
+```
+@param (s) n
+```
+
+```
+@usage
+(s->ms 420)
+```
+
+```
+@return (ms)
+```
+
 <details>
 <summary>Source code</summary>
 
 ```
-
+(defn s->ms
+  [n]
+  (* n 1000))
 ```
 
 </details>
@@ -1263,8 +1643,8 @@ true
 ```
 (ns my-namespace (:require [time.api :as time :refer [s->ms]]))
 
-(time/s->ms)
-(s->ms)
+(time/s->ms ...)
+(s->ms      ...)
 ```
 
 </details>
@@ -1360,6 +1740,16 @@ true
 ```
 
 ```
+@usage
+(timestamp-object)
+```
+
+```
+@usage
+(timestamp-object "Europe/Budapest")
+```
+
+```
 @return (object)
 ```
 
@@ -1403,7 +1793,7 @@ true
 ```
 
 ```
-@return (integer)
+@return (D)
 ```
 
 <details>
@@ -1445,7 +1835,7 @@ true
 ```
 
 ```
-@return (integer)
+@return (h)
 ```
 
 <details>
@@ -1487,7 +1877,7 @@ true
 ```
 
 ```
-@return (integer)
+@return (ms)
 ```
 
 <details>
@@ -1529,7 +1919,7 @@ true
 ```
 
 ```
-@return (integer)
+@return (m)
 ```
 
 <details>
@@ -1571,7 +1961,7 @@ true
 ```
 
 ```
-@return (integer)
+@return (M)
 ```
 
 <details>
@@ -1613,7 +2003,7 @@ true
 ```
 
 ```
-@return (integer)
+@return (s)
 ```
 
 <details>
@@ -1655,7 +2045,7 @@ true
 ```
 
 ```
-@return (integer)
+@return (Y)
 ```
 
 <details>

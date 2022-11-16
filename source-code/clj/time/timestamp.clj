@@ -132,7 +132,7 @@
   ; =>
   ; 2020
   ;
-  ; @return (integer)
+  ; @return (Y)
   [n]
   (clj-time.core/year n))
 
@@ -156,7 +156,7 @@
   ; =>
   ; 4
   ;
-  ; @return (integer)
+  ; @return (M)
   [n]
   (clj-time.core/month n))
 
@@ -204,7 +204,7 @@
   ; =>
   ; 16
   ;
-  ; @return (integer)
+  ; @return (h)
   [n]
   (clj-time.core/hours n))
 
@@ -228,7 +228,7 @@
   ; =>
   ; 20
   ;
-  ; @return (integer)
+  ; @return (m)
   [n]
   (clj-time.core/minutes  n))
 
@@ -252,7 +252,7 @@
   ; =>
   ; 0
   ;
-  ; @return (integer)
+  ; @return (s)
   [n]
   (clj-time.core/seconds n))
 
@@ -276,7 +276,7 @@
   ; =>
   ; 123
   ;
-  ; @return (integer)
+  ; @return (ms)
   [n]
   (clj-time.core/milli n))
 
