@@ -23,9 +23,9 @@
 
 (defn get-date
   ; @example
-  ;  (get-date)
-  ;  =>
-  ;  "2020-04-20"
+  ; (get-date)
+  ; =>
+  ; "2020-04-20"
   ;
   ; @return (string)
   []

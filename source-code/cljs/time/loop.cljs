@@ -11,11 +11,11 @@
   ; @param (integer) interval
   ;
   ; @example
-  ;  (reduce-interval my-function [:a :b :c] 500)
-  ;  =>
-  ;  (set-timeout! #(my-function :a)    0)
-  ;  (set-timeout! #(my-function :b)  500)
-  ;  (set-timeout! #(my-function :c) 1000)
+  ; (reduce-interval my-function [:a :b :c] 500)
+  ; =>
+  ; (set-timeout! #(my-function :a)    0)
+  ; (set-timeout! #(my-function :b)  500)
+  ; (set-timeout! #(my-function :c) 1000)
   ;
   ; @return (*)
   [f coll interval]

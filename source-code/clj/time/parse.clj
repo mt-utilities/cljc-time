@@ -13,9 +13,9 @@
   ; @param (string) n
   ;
   ; @example
-  ;  (parse-date "2020-04-20")
-  ;  =>
-  ;  #<DateTime 2020-04-20T00:00:00.000Z>
+  ; (parse-date "2020-04-20")
+  ; =>
+  ; #<DateTime 2020-04-20T00:00:00.000Z>
   ;
   ; @return (object)
   [n]
@@ -27,9 +27,9 @@
   ; @param (string) n
   ;
   ; @example
-  ;  (parse-timestamp "2020-04-20T16:20:00.123")
-  ;  =>
-  ;  #<DateTime 2020-04-20T16:20:00.123Z>
+  ; (parse-timestamp "2020-04-20T16:20:00.123")
+  ; =>
+  ; #<DateTime 2020-04-20T16:20:00.123Z>
   ;
   ; @return (object)
   [n]
@@ -41,9 +41,9 @@
   ; @param (object) n
   ;
   ; @example
-  ;  (parse-timestamp #<DateTime 2020-04-20T16:20:00.123Z>)
-  ;  =>
-  ;  "2020-04-20T16:20:00.123"
+  ; (parse-timestamp #<DateTime 2020-04-20T16:20:00.123Z>)
+  ; =>
+  ; "2020-04-20T16:20:00.123"
   ;
   ; @return (string)
   [n]
@@ -56,9 +56,9 @@
   ; @param (*) n
   ;
   ; @example
-  ;  (parse-date-time {:my-timestamp "2020-04-20T16:20:00.123Z"})
-  ;  =>
-  ;  {:my-timestamp #<DateTime 2020-04-20T16:20:00.123Z>}
+  ; (parse-date-time {:my-timestamp "2020-04-20T16:20:00.123Z"})
+  ; =>
+  ; {:my-timestamp #<DateTime 2020-04-20T16:20:00.123Z>}
   ;
   ; @return (*)
   [n]
@@ -72,9 +72,9 @@
   ; @param (*) n
   ;
   ; @example
-  ;  (unparse-date-time {:my-timestamp #<DateTime 2020-04-20T16:20:00.123Z>})
-  ;  =>
-  ;  {:my-timestamp "2020-04-20T16:20:00.123Z"}
+  ; (unparse-date-time {:my-timestamp #<DateTime 2020-04-20T16:20:00.123Z>})
+  ; =>
+  ; {:my-timestamp "2020-04-20T16:20:00.123Z"}
   ;
   ; @return (*)
   [n]

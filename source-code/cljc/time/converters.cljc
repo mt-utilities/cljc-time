@@ -33,22 +33,22 @@
 (defn ms->time
   ; @param (float, integer or string) n
   ; @param (keyword)(opt) format
-  ;  :hhmmssmmm, :hhmmss
+  ; :hhmmssmmm, :hhmmss
   ;
   ; @example
-  ;  (time/ms->time 260000)
-  ;  =>
-  ;  "00:04:20.000"
+  ; (time/ms->time 260000)
+  ; =>
+  ; "00:04:20.000"
   ;
   ; @example
-  ;  (time/ms->time 260000.123)
-  ;  =>
-  ;  "00:04:20.000"
+  ; (time/ms->time 260000.123)
+  ; =>
+  ; "00:04:20.000"
   ;
   ; @example
-  ;  (time/ms->time 260000 :hhmmss)
-  ;  =>
-  ;  "00:04:20"
+  ; (time/ms->time 260000 :hhmmss)
+  ; =>
+  ; "00:04:20"
   ;
   ; @return (string)
   ([n]

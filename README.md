@@ -1,6 +1,12 @@
 
 # time-api
-  "The two most powerful warriors are patience and time." – Leo Tolstoy, War and Peace.
+> "The two most powerful warriors are patience and time." – Leo Tolstoy, War and Peace.
 
-# Documentation book is releasing soon ...
-  2023.01.01.
+### Overview
+...
+
+### Current version
+The <strong>time-api</strong> is releasing soon on Clojars!
+
+### Documentation
+The <strong>time-api</strong> documentation is [available here](documentation/COVER.md).

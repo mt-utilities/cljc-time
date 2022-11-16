@@ -9,7 +9,7 @@
   ; @param (ms) timeout
   ;
   ; @usage
-  ;  (set-timeout! #(println "3 sec") 3000)
+  ; (set-timeout! #(println "3 sec") 3000)
   ;
   ; @return (integer)
   [f timeout]
@@ -20,7 +20,7 @@
   ; @param (ms) interval
   ;
   ; @usage
-  ;  (set-interval! #(println "3 sec") 3000)
+  ; (set-interval! #(println "3 sec") 3000)
   ;
   ; @return (integer)
   [f interval]
