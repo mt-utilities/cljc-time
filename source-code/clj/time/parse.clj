@@ -1,10 +1,10 @@
 
 (ns time.parse
-    (:require [candy.api         :refer [return]]
-              [clj-time.format   :as clj-time.format]
-              [mid-fruits.map    :as map]
-              [mid-fruits.vector :as vector]
-              [time.timestamp    :as timestamp]))
+    (:require [candy.api       :refer [return]]
+              [clj-time.format :as clj-time.format]
+              [map.api         :as map]
+              [time.timestamp  :as timestamp]
+              [vector.api      :as vector]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

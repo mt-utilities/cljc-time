@@ -2167,7 +2167,7 @@ true
    (timestamp-string->date n :yyyymmdd))
 
   ([n format]
-   (if (string/nonempty? n)
+   (if (string/nonblank? n)
        (let [year  (timestamp-string->year n)
              month (format/leading-zeros (timestamp-string->month n) 2)
              day   (format/leading-zeros (timestamp-string->day   n) 2)]
@@ -2224,7 +2224,7 @@ true
    (timestamp-string->date-time n :yyyymmdd time-format))
 
   ([n date-format time-format]
-   (if (string/nonempty? n)
+   (if (string/nonblank? n)
        (let [date (timestamp-string->date n date-format)
              time (timestamp-string->time n time-format)]
             (str date " - " time)))))
@@ -2525,7 +2525,7 @@ true
    (timestamp-string->time n :hhmmss))
 
   ([n format]
-   (if (string/nonempty? n)
+   (if (string/nonblank? n)
        (let [hours   (format/leading-zeros (timestamp-string->hours   n) 2)
              minutes (format/leading-zeros (timestamp-string->minutes n) 2)
              seconds (format/leading-zeros (timestamp-string->seconds n) 2)]
