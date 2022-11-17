@@ -1341,6 +1341,7 @@ true
 ```
 @param (float, integer or string) n
 @param (keyword)(opt) format
+:hhmmssmmm, :hhmmss
 ```
 
 ```
@@ -2145,6 +2146,8 @@ true
 ```
 @param (string) n
 @param (keyword)(opt) format
+:yyyymmdd, :yymmdd
+Default: :yyyymmdd
 ```
 
 ```
@@ -2198,7 +2201,11 @@ true
 ```
 @param (string) n
 @param (keyword)(opt) date-format
+:yyyymmdd, :yymmdd
+Default: :yyyymmdd
 @param (keyword)(opt) time-format
+:hhmmss, :hhmm
+Default: :hhmmss
 ```
 
 ```
@@ -2503,6 +2510,8 @@ true
 ```
 @param (string) n
 @param (keyword)(opt) format
+:hhmmss, :hhmm
+Default: :hhmmss
 ```
 
 ```
