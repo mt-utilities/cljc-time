@@ -5,7 +5,8 @@
 
 ### Overview
 
-...
+The <strong>time-api</strong> is a set of at least 100 Clojure/ClojureScript
+time/timestamp handling functions with schedulers, converters, parsers, etc.
 
 ### deps.edn
 

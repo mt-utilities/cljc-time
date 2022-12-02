@@ -1,10 +1,7 @@
 
 # <strong>time.api</strong> namespace
-<p>Documentation of the <strong>time/api.cljs</strong> file</p>
 
-<strong>[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > time.api</strong>
-
-
+<strong>[README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > </strong>source-code/cljs/time/api.cljs
 
 ### clear-interval!
 
@@ -31,10 +28,10 @@
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [clear-interval!]]))
+(ns my-namespace (:require [time.api :refer [clear-interval!]]))
 
-(time/clear-interval! ...)
-(clear-interval!      ...)
+(time.api/clear-interval! ...)
+(clear-interval!          ...)
 ```
 
 </details>
@@ -74,10 +71,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [date-string?]]))
+(ns my-namespace (:require [time.api :refer [date-string?]]))
 
-(time/date-string? ...)
-(date-string?      ...)
+(time.api/date-string? ...)
+(date-string?          ...)
 ```
 
 </details>
@@ -110,9 +107,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [elapsed]]))
+(ns my-namespace (:require [time.api :refer [elapsed]]))
 
-(time/elapsed)
+(time.api/elapsed)
 (elapsed)
 ```
 
@@ -145,9 +142,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [epoch-ms]]))
+(ns my-namespace (:require [time.api :refer [epoch-ms]]))
 
-(time/epoch-ms)
+(time.api/epoch-ms)
 (epoch-ms)
 ```
 
@@ -186,10 +183,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [epoch-ms->timestamp-string]]))
+(ns my-namespace (:require [time.api :refer [epoch-ms->timestamp-string]]))
 
-(time/epoch-ms->timestamp-string ...)
-(epoch-ms->timestamp-string      ...)
+(time.api/epoch-ms->timestamp-string ...)
+(epoch-ms->timestamp-string          ...)
 ```
 
 </details>
@@ -221,9 +218,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [epoch-s]]))
+(ns my-namespace (:require [time.api :refer [epoch-s]]))
 
-(time/epoch-s)
+(time.api/epoch-s)
 (epoch-s)
 ```
 
@@ -262,10 +259,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [epoch-s->timestamp-string]]))
+(ns my-namespace (:require [time.api :refer [epoch-s->timestamp-string]]))
 
-(time/epoch-s->timestamp-string ...)
-(epoch-s->timestamp-string      ...)
+(time.api/epoch-s->timestamp-string ...)
+(epoch-s->timestamp-string          ...)
 ```
 
 </details>
@@ -297,9 +294,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-date]]))
+(ns my-namespace (:require [time.api :refer [get-date]]))
 
-(time/get-date)
+(time.api/get-date)
 (get-date)
 ```
 
@@ -332,9 +329,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-day]]))
+(ns my-namespace (:require [time.api :refer [get-day]]))
 
-(time/get-day)
+(time.api/get-day)
 (get-day)
 ```
 
@@ -367,9 +364,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-hours]]))
+(ns my-namespace (:require [time.api :refer [get-hours]]))
 
-(time/get-hours)
+(time.api/get-hours)
 (get-hours)
 ```
 
@@ -404,9 +401,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-hours-left-from-this-day]]))
+(ns my-namespace (:require [time.api :refer [get-hours-left-from-this-day]]))
 
-(time/get-hours-left-from-this-day)
+(time.api/get-hours-left-from-this-day)
 (get-hours-left-from-this-day)
 ```
 
@@ -439,9 +436,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-milliseconds]]))
+(ns my-namespace (:require [time.api :refer [get-milliseconds]]))
 
-(time/get-milliseconds)
+(time.api/get-milliseconds)
 (get-milliseconds)
 ```
 
@@ -476,9 +473,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-milliseconds-left-from-this-minute]]))
+(ns my-namespace (:require [time.api :refer [get-milliseconds-left-from-this-minute]]))
 
-(time/get-milliseconds-left-from-this-minute)
+(time.api/get-milliseconds-left-from-this-minute)
 (get-milliseconds-left-from-this-minute)
 ```
 
@@ -511,9 +508,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-milliseconds-left-from-this-second]]))
+(ns my-namespace (:require [time.api :refer [get-milliseconds-left-from-this-second]]))
 
-(time/get-milliseconds-left-from-this-second)
+(time.api/get-milliseconds-left-from-this-second)
 (get-milliseconds-left-from-this-second)
 ```
 
@@ -546,9 +543,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-minutes]]))
+(ns my-namespace (:require [time.api :refer [get-minutes]]))
 
-(time/get-minutes)
+(time.api/get-minutes)
 (get-minutes)
 ```
 
@@ -583,9 +580,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-minutes-left-from-this-hour]]))
+(ns my-namespace (:require [time.api :refer [get-minutes-left-from-this-hour]]))
 
-(time/get-minutes-left-from-this-hour)
+(time.api/get-minutes-left-from-this-hour)
 (get-minutes-left-from-this-hour)
 ```
 
@@ -618,9 +615,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-month]]))
+(ns my-namespace (:require [time.api :refer [get-month]]))
 
-(time/get-month)
+(time.api/get-month)
 (get-month)
 ```
 
@@ -653,9 +650,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-seconds]]))
+(ns my-namespace (:require [time.api :refer [get-seconds]]))
 
-(time/get-seconds)
+(time.api/get-seconds)
 (get-seconds)
 ```
 
@@ -690,9 +687,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-seconds-left-from-this-minute]]))
+(ns my-namespace (:require [time.api :refer [get-seconds-left-from-this-minute]]))
 
-(time/get-seconds-left-from-this-minute)
+(time.api/get-seconds-left-from-this-minute)
 (get-seconds-left-from-this-minute)
 ```
 
@@ -726,9 +723,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [get-year]]))
+(ns my-namespace (:require [time.api :refer [get-year]]))
 
-(time/get-year)
+(time.api/get-year)
 (get-year)
 ```
 
@@ -766,10 +763,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [h->D]]))
+(ns my-namespace (:require [time.api :refer [h->D]]))
 
-(time/h->D ...)
-(h->D      ...)
+(time.api/h->D ...)
+(h->D          ...)
 ```
 
 </details>
@@ -806,10 +803,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [h->W]]))
+(ns my-namespace (:require [time.api :refer [h->W]]))
 
-(time/h->W ...)
-(h->W      ...)
+(time.api/h->W ...)
+(h->W          ...)
 ```
 
 </details>
@@ -846,10 +843,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [h->m]]))
+(ns my-namespace (:require [time.api :refer [h->m]]))
 
-(time/h->m ...)
-(h->m      ...)
+(time.api/h->m ...)
+(h->m          ...)
 ```
 
 </details>
@@ -886,10 +883,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [h->ms]]))
+(ns my-namespace (:require [time.api :refer [h->ms]]))
 
-(time/h->ms ...)
-(h->ms      ...)
+(time.api/h->ms ...)
+(h->ms          ...)
 ```
 
 </details>
@@ -926,10 +923,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [h->s]]))
+(ns my-namespace (:require [time.api :refer [h->s]]))
 
-(time/h->s ...)
-(h->s      ...)
+(time.api/h->s ...)
+(h->s          ...)
 ```
 
 </details>
@@ -966,10 +963,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [m->D]]))
+(ns my-namespace (:require [time.api :refer [m->D]]))
 
-(time/m->D ...)
-(m->D      ...)
+(time.api/m->D ...)
+(m->D          ...)
 ```
 
 </details>
@@ -1006,10 +1003,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [m->W]]))
+(ns my-namespace (:require [time.api :refer [m->W]]))
 
-(time/m->W ...)
-(m->W      ...)
+(time.api/m->W ...)
+(m->W          ...)
 ```
 
 </details>
@@ -1046,10 +1043,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [m->h]]))
+(ns my-namespace (:require [time.api :refer [m->h]]))
 
-(time/m->h ...)
-(m->h      ...)
+(time.api/m->h ...)
+(m->h          ...)
 ```
 
 </details>
@@ -1086,10 +1083,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [m->ms]]))
+(ns my-namespace (:require [time.api :refer [m->ms]]))
 
-(time/m->ms ...)
-(m->ms      ...)
+(time.api/m->ms ...)
+(m->ms          ...)
 ```
 
 </details>
@@ -1126,10 +1123,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [m->s]]))
+(ns my-namespace (:require [time.api :refer [m->s]]))
 
-(time/m->s ...)
-(m->s      ...)
+(time.api/m->s ...)
+(m->s          ...)
 ```
 
 </details>
@@ -1166,10 +1163,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [ms->D]]))
+(ns my-namespace (:require [time.api :refer [ms->D]]))
 
-(time/ms->D ...)
-(ms->D      ...)
+(time.api/ms->D ...)
+(ms->D          ...)
 ```
 
 </details>
@@ -1206,10 +1203,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [ms->W]]))
+(ns my-namespace (:require [time.api :refer [ms->W]]))
 
-(time/ms->W ...)
-(ms->W      ...)
+(time.api/ms->W ...)
+(ms->W          ...)
 ```
 
 </details>
@@ -1246,10 +1243,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [ms->h]]))
+(ns my-namespace (:require [time.api :refer [ms->h]]))
 
-(time/ms->h ...)
-(ms->h      ...)
+(time.api/ms->h ...)
+(ms->h          ...)
 ```
 
 </details>
@@ -1286,10 +1283,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [ms->m]]))
+(ns my-namespace (:require [time.api :refer [ms->m]]))
 
-(time/ms->m ...)
-(ms->m      ...)
+(time.api/ms->m ...)
+(ms->m          ...)
 ```
 
 </details>
@@ -1326,10 +1323,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [ms->s]]))
+(ns my-namespace (:require [time.api :refer [ms->s]]))
 
-(time/ms->s ...)
-(ms->s      ...)
+(time.api/ms->s ...)
+(ms->s          ...)
 ```
 
 </details>
@@ -1392,10 +1389,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [ms->time]]))
+(ns my-namespace (:require [time.api :refer [ms->time]]))
 
-(time/ms->time ...)
-(ms->time      ...)
+(time.api/ms->time ...)
+(ms->time          ...)
 ```
 
 </details>
@@ -1442,10 +1439,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [reduce-interval]]))
+(ns my-namespace (:require [time.api :refer [reduce-interval]]))
 
-(time/reduce-interval ...)
-(reduce-interval      ...)
+(time.api/reduce-interval ...)
+(reduce-interval          ...)
 ```
 
 </details>
@@ -1482,10 +1479,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [s->D]]))
+(ns my-namespace (:require [time.api :refer [s->D]]))
 
-(time/s->D ...)
-(s->D      ...)
+(time.api/s->D ...)
+(s->D          ...)
 ```
 
 </details>
@@ -1522,10 +1519,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [s->W]]))
+(ns my-namespace (:require [time.api :refer [s->W]]))
 
-(time/s->W ...)
-(s->W      ...)
+(time.api/s->W ...)
+(s->W          ...)
 ```
 
 </details>
@@ -1562,10 +1559,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [s->h]]))
+(ns my-namespace (:require [time.api :refer [s->h]]))
 
-(time/s->h ...)
-(s->h      ...)
+(time.api/s->h ...)
+(s->h          ...)
 ```
 
 </details>
@@ -1602,10 +1599,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [s->m]]))
+(ns my-namespace (:require [time.api :refer [s->m]]))
 
-(time/s->m ...)
-(s->m      ...)
+(time.api/s->m ...)
+(s->m          ...)
 ```
 
 </details>
@@ -1642,10 +1639,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [s->ms]]))
+(ns my-namespace (:require [time.api :refer [s->ms]]))
 
-(time/s->ms ...)
-(s->ms      ...)
+(time.api/s->ms ...)
+(s->ms          ...)
 ```
 
 </details>
@@ -1683,10 +1680,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [set-interval!]]))
+(ns my-namespace (:require [time.api :refer [set-interval!]]))
 
-(time/set-interval! ...)
-(set-interval!      ...)
+(time.api/set-interval! ...)
+(set-interval!          ...)
 ```
 
 </details>
@@ -1724,10 +1721,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [set-timeout!]]))
+(ns my-namespace (:require [time.api :refer [set-timeout!]]))
 
-(time/set-timeout! ...)
-(set-timeout!      ...)
+(time.api/set-timeout! ...)
+(set-timeout!          ...)
 ```
 
 </details>
@@ -1770,10 +1767,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-object]]))
+(ns my-namespace (:require [time.api :refer [timestamp-object]]))
 
-(time/timestamp-object ...)
-(timestamp-object      ...)
+(time.api/timestamp-object ...)
+(timestamp-object          ...)
 ```
 
 </details>
@@ -1812,10 +1809,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-object->day]]))
+(ns my-namespace (:require [time.api :refer [timestamp-object->day]]))
 
-(time/timestamp-object->day ...)
-(timestamp-object->day      ...)
+(time.api/timestamp-object->day ...)
+(timestamp-object->day          ...)
 ```
 
 </details>
@@ -1854,10 +1851,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-object->hours]]))
+(ns my-namespace (:require [time.api :refer [timestamp-object->hours]]))
 
-(time/timestamp-object->hours ...)
-(timestamp-object->hours      ...)
+(time.api/timestamp-object->hours ...)
+(timestamp-object->hours          ...)
 ```
 
 </details>
@@ -1896,10 +1893,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-object->milliseconds]]))
+(ns my-namespace (:require [time.api :refer [timestamp-object->milliseconds]]))
 
-(time/timestamp-object->milliseconds ...)
-(timestamp-object->milliseconds      ...)
+(time.api/timestamp-object->milliseconds ...)
+(timestamp-object->milliseconds          ...)
 ```
 
 </details>
@@ -1938,10 +1935,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-object->minutes]]))
+(ns my-namespace (:require [time.api :refer [timestamp-object->minutes]]))
 
-(time/timestamp-object->minutes ...)
-(timestamp-object->minutes      ...)
+(time.api/timestamp-object->minutes ...)
+(timestamp-object->minutes          ...)
 ```
 
 </details>
@@ -1980,10 +1977,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-object->month]]))
+(ns my-namespace (:require [time.api :refer [timestamp-object->month]]))
 
-(time/timestamp-object->month ...)
-(timestamp-object->month      ...)
+(time.api/timestamp-object->month ...)
+(timestamp-object->month          ...)
 ```
 
 </details>
@@ -2022,10 +2019,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-object->seconds]]))
+(ns my-namespace (:require [time.api :refer [timestamp-object->seconds]]))
 
-(time/timestamp-object->seconds ...)
-(timestamp-object->seconds      ...)
+(time.api/timestamp-object->seconds ...)
+(timestamp-object->seconds          ...)
 ```
 
 </details>
@@ -2064,10 +2061,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-object->year]]))
+(ns my-namespace (:require [time.api :refer [timestamp-object->year]]))
 
-(time/timestamp-object->year ...)
-(timestamp-object->year      ...)
+(time.api/timestamp-object->year ...)
+(timestamp-object->year          ...)
 ```
 
 </details>
@@ -2098,10 +2095,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-object?]]))
+(ns my-namespace (:require [time.api :refer [timestamp-object?]]))
 
-(time/timestamp-object? ...)
-(timestamp-object?      ...)
+(time.api/timestamp-object? ...)
+(timestamp-object?          ...)
 ```
 
 </details>
@@ -2131,9 +2128,9 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string]]))
 
-(time/timestamp-string)
+(time.api/timestamp-string)
 (timestamp-string)
 ```
 
@@ -2186,10 +2183,10 @@ Default: :yyyymmdd
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string->date]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string->date]]))
 
-(time/timestamp-string->date ...)
-(timestamp-string->date      ...)
+(time.api/timestamp-string->date ...)
+(timestamp-string->date          ...)
 ```
 
 </details>
@@ -2243,10 +2240,10 @@ Default: :hhmmss
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string->date-time]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string->date-time]]))
 
-(time/timestamp-string->date-time ...)
-(timestamp-string->date-time      ...)
+(time.api/timestamp-string->date-time ...)
+(timestamp-string->date-time          ...)
 ```
 
 </details>
@@ -2285,10 +2282,10 @@ Default: :hhmmss
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string->day]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string->day]]))
 
-(time/timestamp-string->day ...)
-(timestamp-string->day      ...)
+(time.api/timestamp-string->day ...)
+(timestamp-string->day          ...)
 ```
 
 </details>
@@ -2327,10 +2324,10 @@ Default: :hhmmss
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string->hours]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string->hours]]))
 
-(time/timestamp-string->hours ...)
-(timestamp-string->hours      ...)
+(time.api/timestamp-string->hours ...)
+(timestamp-string->hours          ...)
 ```
 
 </details>
@@ -2369,10 +2366,10 @@ Default: :hhmmss
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string->milliseconds]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string->milliseconds]]))
 
-(time/timestamp-string->milliseconds ...)
-(timestamp-string->milliseconds      ...)
+(time.api/timestamp-string->milliseconds ...)
+(timestamp-string->milliseconds          ...)
 ```
 
 </details>
@@ -2411,10 +2408,10 @@ Default: :hhmmss
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string->minutes]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string->minutes]]))
 
-(time/timestamp-string->minutes ...)
-(timestamp-string->minutes      ...)
+(time.api/timestamp-string->minutes ...)
+(timestamp-string->minutes          ...)
 ```
 
 </details>
@@ -2453,10 +2450,10 @@ Default: :hhmmss
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string->month]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string->month]]))
 
-(time/timestamp-string->month ...)
-(timestamp-string->month      ...)
+(time.api/timestamp-string->month ...)
+(timestamp-string->month          ...)
 ```
 
 </details>
@@ -2495,10 +2492,10 @@ Default: :hhmmss
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string->seconds]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string->seconds]]))
 
-(time/timestamp-string->seconds ...)
-(timestamp-string->seconds      ...)
+(time.api/timestamp-string->seconds ...)
+(timestamp-string->seconds          ...)
 ```
 
 </details>
@@ -2549,10 +2546,10 @@ Default: :hhmmss
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string->time]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string->time]]))
 
-(time/timestamp-string->time ...)
-(timestamp-string->time      ...)
+(time.api/timestamp-string->time ...)
+(timestamp-string->time          ...)
 ```
 
 </details>
@@ -2586,10 +2583,10 @@ Default: :hhmmss
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string->today?]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string->today?]]))
 
-(time/timestamp-string->today? ...)
-(timestamp-string->today?      ...)
+(time.api/timestamp-string->today? ...)
+(timestamp-string->today?          ...)
 ```
 
 </details>
@@ -2628,10 +2625,10 @@ Default: :hhmmss
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string->year]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string->year]]))
 
-(time/timestamp-string->year ...)
-(timestamp-string->year      ...)
+(time.api/timestamp-string->year ...)
+(timestamp-string->year          ...)
 ```
 
 </details>
@@ -2687,10 +2684,10 @@ true
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :as time :refer [timestamp-string?]]))
+(ns my-namespace (:require [time.api :refer [timestamp-string?]]))
 
-(time/timestamp-string? ...)
-(timestamp-string?      ...)
+(time.api/timestamp-string? ...)
+(timestamp-string?          ...)
 ```
 
 </details>

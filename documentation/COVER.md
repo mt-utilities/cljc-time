@@ -1,10 +1,12 @@
 
 # <strong>time-api</strong>
+
 <p>Documentation of the <strong>time-api</strong> Clojure / ClojureScript library</p>
 
 <strong>[README](../README.md) > DOCUMENTATION</strong>
 
 ### Public namespaces
+
 * [time.api](clj/time/API.md) [clj]
 * [time.api](cljs/time/API.md) [cljs]
 
