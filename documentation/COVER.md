@@ -5,9 +5,12 @@
 
 <strong>[README](../README.md) > DOCUMENTATION</strong>
 
-### Public namespaces
+### Clojure namespaces
 
 * [time.api](clj/time/API.md) [clj]
+
+### ClojureScript namespaces
+
 * [time.api](cljs/time/API.md) [cljs]
 
 ---

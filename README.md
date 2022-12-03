@@ -21,7 +21,7 @@ Check out the latest commit on the [release branch](https://github.com/bithandsh
 
 ### Documentation
 
-The <strong>time-api</strong> documentation is [available here](documentation/COVER.md).
+The <strong>time-api</strong> functional documentation is [available here](documentation/COVER.md).
 
 ### Changelog
 
