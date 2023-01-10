@@ -1,8 +1,7 @@
 
-
 # time-api documentation
 
-Documentation of the [time-api](https://github.com/bithandshake-hq/time-api) Clojure / ClojureScript library
+Documentation of the [time-api](https://github.com/bithandshake/time-api) Clojure / ClojureScript library
 
 ##### [README](../README.md) > DOCUMENTATION
 
