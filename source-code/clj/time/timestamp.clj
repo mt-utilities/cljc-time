@@ -1,9 +1,9 @@
 
 (ns time.timestamp
     (:import org.joda.time.DateTime org.bson.types.BSONTimestamp)
-    (:require [candy.api     :refer [return]]
-              [clj-time.core :as clj-time.core]
+    (:require [clj-time.core :as clj-time.core]
               [format.api    :as format]
+              [noop.api      :refer [return]]
               [string.api    :as string]))
 
 ;; ----------------------------------------------------------------------------

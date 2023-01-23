@@ -1,9 +1,9 @@
 
 (ns time.timestamp
-    (:require [candy.api        :refer [return]]
-              [cljs-time.core   :as cljs-time.core]
+    (:require [cljs-time.core   :as cljs-time.core]
               [cljs-time.format :as cljs-time.format]
               [format.api       :as format]
+              [noop.api         :refer [return]]
               [string.api       :as string]))
 
 ;; ----------------------------------------------------------------------------
