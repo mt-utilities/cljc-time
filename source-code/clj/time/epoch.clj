@@ -26,6 +26,9 @@
       (clj-time.coerce/to-long)
       (quot 1000)))
 
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
 (defn epoch-ms->timestamp-string
   ; @param (ms) n
   ;
@@ -49,3 +52,30 @@
   ; @return (string)
   [n]
   (if n (-> n converters/s->ms clj-time.coerce/from-long str)))
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+(defn timestamp-string->epoch-ms
+  ; @param (string) n
+  ;
+  ; @example
+  ; (timestamp-string->epoch-ms "2021-12-29T18:01:00.000Z")
+  ; =>
+  ; 1640800860000
+  ;
+  ; @return (ms)
+  [n]
+  (if n (-> n clj-time.coerce/to-epoch converters/s->ms)))
+
+(defn timestamp-string->epoch-s
+  ; @param (string) n
+  ;
+  ; @example
+  ; (timestamp-string->epoch-s "2021-12-29T18:01:00.000Z")
+  ; =>
+  ; 1640800860
+  ;
+  ; @return (s)
+  [n]
+  (if n (-> n clj-time.coerce/to-epoch)))
