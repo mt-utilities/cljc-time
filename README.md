@@ -6,7 +6,7 @@
 ### Overview
 
 The <strong>cljc-time</strong> is a set of at least 100 Clojure/ClojureScript
-time/timestamp handling functions with schedulers, converters, parsers, etc.
+time/timestamp handling functions including schedulers, converters, parsers, etc.
 
 ### deps.edn
 
