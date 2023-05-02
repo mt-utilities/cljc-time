@@ -63,6 +63,8 @@
 (def epoch-s->timestamp-string  epoch/epoch-s->timestamp-string)
 (def timestamp-string->epoch-ms epoch/timestamp-string->epoch-ms)
 (def timestamp-string->epoch-s  epoch/timestamp-string->epoch-s)
+(def date->epoch-ms             epoch/date->epoch-ms)
+(def epoch-ms->date             epoch/epoch-ms->date)
 
 ; time.loop
 (def reduce-interval loop/reduce-interval)

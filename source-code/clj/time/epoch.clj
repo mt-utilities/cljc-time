@@ -2,6 +2,7 @@
 (ns time.epoch
     (:require [clj-time.coerce :as clj-time.coerce]
               [clj-time.core   :as clj-time.core]
+              [string.api      :as string]
               [time.converters :as converters]))
 
 ;; ----------------------------------------------------------------------------
@@ -79,3 +80,46 @@
   ; @return (s)
   [n]
   (if n (-> n clj-time.coerce/to-epoch)))
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+(defn date->epoch-ms
+  ; @description
+  ; Converts the given date to timestamp-string than converts the result to epoch-ms.
+  ;
+  ; @param (string) date
+  ;
+  ; @usage
+  ; (date->epoch-ms "2020-04-20")
+  ;
+  ; @example
+  ; (date->epoch-ms "2020-04-20")
+  ; =>
+  ; 1587340800000
+  ;
+  ; @return (ms)
+  ; The very first millisec of the given date.
+  [date]
+  (-> date (str "T00:00:00.000Z") timestamp-string->epoch-ms))
+
+(defn epoch-ms->date
+  ; @ignore
+  ;
+  ; @description
+  ; Converts the given date to timestamp-string than converts the result to epoch-ms.
+  ;
+  ; @param (ms) start-ms
+  ;
+  ; @usage
+  ; (epoch-ms->date 1587340800000)
+  ;
+  ; @example
+  ; (epoch-ms->date 1587340800000)
+  ; =>
+  ; "2020-04-20"
+  ;
+  ; @return (string)
+  ; The date of the given millisec.
+  [start-ms]
+  (-> start-ms epoch-ms->timestamp-string (string/part 0 10)))
