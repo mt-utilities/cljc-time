@@ -7,11 +7,15 @@
 
 - [clear-interval!](#clear-interval)
 
+- [date->epoch-ms](#date-epoch-ms)
+
 - [date-string?](#date-string)
 
 - [elapsed](#elapsed)
 
 - [epoch-ms](#epoch-ms)
+
+- [epoch-ms->date](#epoch-ms-date)
 
 - [epoch-ms->timestamp-string](#epoch-ms-timestamp-string)
 
@@ -193,6 +197,59 @@
 
 ---
 
+### date->epoch-ms
+
+```
+@description
+Converts the given date to timestamp-string than converts the result to epoch-ms.
+```
+
+```
+@param (string) date
+```
+
+```
+@usage
+(date->epoch-ms "2020-04-20")
+```
+
+```
+@example
+(date->epoch-ms "2020-04-20")
+=>
+1587340800000
+```
+
+```
+@return (ms)
+The very first millisec of the given date.
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn date->epoch-ms
+  [date]
+  (-> date (str "T00:00:00.000Z") timestamp-string->epoch-ms))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [date->epoch-ms]]))
+
+(time.api/date->epoch-ms ...)
+(date->epoch-ms          ...)
+```
+
+</details>
+
+---
+
 ### date-string?
 
 ```
@@ -302,6 +359,59 @@ true
 
 (time.api/epoch-ms)
 (epoch-ms)
+```
+
+</details>
+
+---
+
+### epoch-ms->date
+
+```
+@description
+Converts the given date to timestamp-string than converts the result to epoch-ms.
+```
+
+```
+@param (ms) start-ms
+```
+
+```
+@usage
+(epoch-ms->date 1587340800000)
+```
+
+```
+@example
+(epoch-ms->date 1587340800000)
+=>
+"2020-04-20"
+```
+
+```
+@return (string)
+The date of the given millisec.
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn epoch-ms->date
+  [start-ms]
+  (-> start-ms epoch-ms->timestamp-string (string/part 0 10)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [epoch-ms->date]]))
+
+(time.api/epoch-ms->date ...)
+(epoch-ms->date          ...)
 ```
 
 </details>

@@ -4,4 +4,4 @@
          com.andrewmcveigh/cljs-time {:mvn/version "0.5.2"}
          tea-time/tea-time           {:mvn/version "1.0.1"}
          bithandshake/cljc-fruits    {:git/url "https://github.com/bithandshake/cljc-fruits"
-                                      :sha     "786f0c748e65d455846d078b2b4715409db2f0d6"}}}
+                                      :sha     "aad6e1d6d74899054bfe515a2acc5f80a171c31b"}}}
