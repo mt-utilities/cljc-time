@@ -1,5 +1,5 @@
 
-(ns time.converters
+(ns iso.time.convert
     (:require [format.api :as format]
               [math.api   :as math]))
 

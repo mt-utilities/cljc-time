@@ -1,38 +1,38 @@
 
 (ns time.api
-    (:require [time.converters :as converters]
-              [time.current    :as current]
-              [time.epoch      :as epoch]
-              [time.loop       :as loop]
-              [time.now        :as now]
-              [time.schedule   :as schedule]
-              [time.timestamp  :as timestamp]))
+    (:require [iso.time.convert :as convert]
+              [time.current     :as current]
+              [time.epoch       :as epoch]
+              [time.loop        :as loop]
+              [time.now         :as now]
+              [time.schedule    :as schedule]
+              [time.timestamp   :as timestamp]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-; time.converters
-(def ms->s    converters/ms->s)
-(def ms->m    converters/ms->m)
-(def ms->h    converters/ms->h)
-(def ms->D    converters/ms->D)
-(def ms->W    converters/ms->W)
-(def s->ms    converters/s->ms)
-(def s->m     converters/s->m)
-(def s->h     converters/s->h)
-(def s->D     converters/s->D)
-(def s->W     converters/s->W)
-(def m->ms    converters/m->ms)
-(def m->s     converters/m->s)
-(def m->h     converters/m->h)
-(def m->D     converters/m->D)
-(def m->W     converters/m->W)
-(def h->ms    converters/h->ms)
-(def h->s     converters/h->s)
-(def h->m     converters/h->m)
-(def h->D     converters/h->D)
-(def h->W     converters/h->W)
-(def ms->time converters/ms->time)
+; iso.time.convert
+(def ms->s    convert/ms->s)
+(def ms->m    convert/ms->m)
+(def ms->h    convert/ms->h)
+(def ms->D    convert/ms->D)
+(def ms->W    convert/ms->W)
+(def s->ms    convert/s->ms)
+(def s->m     convert/s->m)
+(def s->h     convert/s->h)
+(def s->D     convert/s->D)
+(def s->W     convert/s->W)
+(def m->ms    convert/m->ms)
+(def m->s     convert/m->s)
+(def m->h     convert/m->h)
+(def m->D     convert/m->D)
+(def m->W     convert/m->W)
+(def h->ms    convert/h->ms)
+(def h->s     convert/h->s)
+(def h->m     convert/h->m)
+(def h->D     convert/h->D)
+(def h->W     convert/h->W)
+(def ms->time convert/ms->time)
 
 ; time.current
 (def get-year                               current/get-year)

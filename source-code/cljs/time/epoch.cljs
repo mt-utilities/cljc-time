@@ -1,7 +1,6 @@
 
 (ns time.epoch
-    (:require [string.api      :as string]
-              [time.converters :as converters]))
+    (:require [string.api :as string]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

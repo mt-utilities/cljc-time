@@ -1,10 +1,12 @@
 
 (ns time.timestamp
     (:import org.joda.time.DateTime org.bson.types.BSONTimestamp)
-    (:require [clj-time.core :as clj-time.core]
-              [format.api    :as format]
-              [noop.api      :refer [return]]
-              [string.api    :as string]))
+    (:require [clj-time.core    :as clj-time.core]
+              [format.api       :as format]
+              [iso.time.convert :as convert]
+              [noop.api         :refer [return]]
+              [string.api       :as string]
+              [time.epoch       :as epoch]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -380,51 +382,43 @@
 (defn timestamp-string->elapsed-ms
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->elapsed-ms "2020-04-20T16:20:00.123Z")
-  ; =>
-  ; "00"
   ;
   ; @return (ms)
   [n]
-  ; TODO
-  0)
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-string->epoch-ms (- epoch-ms))))
 
 (defn timestamp-object->elapsed-ms
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->elapsed-ms #<DateTime 2020-04-20T16:20:00.123Z>)
-  ; =>
-  ; "00"
   ;
   ; @return (ms)
   [n]
-  ; TODO
-  0)
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-object->epoch-ms (- epoch-ms))))
 
 (defn timestamp-string->elapsed-s
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->elapsed-s "2020-04-20T16:20:00.123Z")
-  ; =>
-  ; "00"
   ;
   ; @return (s)
   [n]
-  ; TODO
-  0)
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-string->epoch-ms (- epoch-ms) convert/ms->s)))
 
 (defn timestamp-object->elapsed-s
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->elapsed-s #<DateTime 2020-04-20T16:20:00.123Z>)
-  ; =>
-  ; "00"
   ;
   ; @return (s)
   [n]
-  ; TODO
-  0)
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-object->epoch-ms (- epoch-ms) convert/ms->s)))

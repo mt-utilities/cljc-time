@@ -1,9 +1,9 @@
 
 (ns time.epoch
-    (:require [clj-time.coerce :as clj-time.coerce]
-              [clj-time.core   :as clj-time.core]
-              [string.api      :as string]
-              [time.converters :as converters]))
+    (:require [clj-time.coerce  :as clj-time.coerce]
+              [clj-time.core    :as clj-time.core]
+              [iso.time.convert :as convert]
+              [string.api       :as string]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -52,7 +52,7 @@
   ;
   ; @return (string)
   [n]
-  (if n (-> n converters/s->ms clj-time.coerce/from-long str)))
+  (if n (-> n convert/s->ms clj-time.coerce/from-long str)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -67,7 +67,7 @@
   ;
   ; @return (ms)
   [n]
-  (if n (-> n clj-time.coerce/to-epoch converters/s->ms)))
+  (if n (-> n clj-time.coerce/to-epoch convert/s->ms)))
 
 (defn timestamp-string->epoch-s
   ; @param (string) n
@@ -80,6 +80,33 @@
   ; @return (s)
   [n]
   (if n (-> n clj-time.coerce/to-epoch)))
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+(defn timestamp-object->epoch-ms
+  ; @param (string) n
+  ;
+  ; @example
+  ; (timestamp-object->epoch-ms #<DateTime 2021-12-29T18:01:00.000+02:00>)
+  ; =>
+  ; 1640800860000
+  ;
+  ; @return (ms)
+  [n]
+  (if n (-> n str clj-time.coerce/to-epoch convert/s->ms)))
+
+(defn timestamp-object->epoch-s
+  ; @param (string) n
+  ;
+  ; @example
+  ; (timestamp-object->epoch-s #<DateTime 2021-12-29T18:01:00.000+02:00>)
+  ; =>
+  ; 1640800860
+  ;
+  ; @return (s)
+  [n]
+  (if n (-> n str clj-time.coerce/to-epoch)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

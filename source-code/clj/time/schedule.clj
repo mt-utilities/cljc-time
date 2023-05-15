@@ -1,7 +1,8 @@
 
 (ns time.schedule
-    (:require [tea-time.core   :as tea-time.core]
-              [time.converters :as converters]))
+    (:require [iso.time.convert :as convert]
+              [tea-time.core    :as tea-time.core]))
+
 
 ;; -- aphyr/tea-time ----------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -21,7 +22,7 @@
   ;
   ; @return (tea_time.core.Once object)
   [f timeout]
-  (tea-time.core/after! (converters/ms->s timeout) f))
+  (tea-time.core/after! (convert/ms->s timeout) f))
 
 (defn set-interval!
   ; @param (function) f
@@ -32,7 +33,7 @@
   ;
   ; @return (tea_time.core.Every object)
   [f interval]
-  (tea-time.core/every! (converters/ms->s interval) 0 f))
+  (tea-time.core/every! (convert/ms->s interval) 0 f))
 
 (defn clear-interval!
   ; @param (integer) interval-id
