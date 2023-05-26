@@ -131,12 +131,10 @@
   (-> date (str "T00:00:00.000Z") timestamp-string->epoch-ms))
 
 (defn epoch-ms->date
-  ; @ignore
-  ;
   ; @description
-  ; Converts the given date to timestamp-string than converts the result to epoch-ms.
+  ; Converts the given epoch-ms to timestamp-string than converts the result to date.
   ;
-  ; @param (ms) start-ms
+  ; @param (ms) epoch-ms
   ;
   ; @usage
   ; (epoch-ms->date 1587340800000)
@@ -147,6 +145,119 @@
   ; "2020-04-20"
   ;
   ; @return (string)
-  ; The date of the given millisec.
-  [start-ms]
-  (-> start-ms epoch-ms->timestamp-string (string/part 0 10)))
+  ; The date that contains the given epoch-ms.
+  [epoch-ms]
+  (-> epoch-ms epoch-ms->timestamp-string (string/part 0 10)))
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
+(defn date-contains-epoch-ms?
+  ; @description
+  ; Returns true if the given epoch-ms is ...
+  ; ... >= the first ms of the given date, and
+  ; ... <= the last ms of the given date.
+  ;
+  ; @param (string) date
+  ; @param (ms) epoch-ms
+  ;
+  ; @usage
+  ; (date-contains-epoch-ms? "2020-04-20" 1587344200000)
+  ;
+  ; @example
+  ; (date-contains-epoch-ms? "2020-04-20" 1587344200000)
+  ; =>
+  ; true
+  ;
+  ; @return (boolean)
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)
+        date-end-ms   (+ date-start-ms 86399999)]
+       (and (>= epoch-ms date-start-ms)
+            (<= epoch-ms date-end-ms))))
+
+(defn date-starts-before-epoch-ms?
+  ; @description
+  ; Returns true if the given epoch-ms is ...
+  ; ... >= the first ms of the given date.
+  ;
+  ; @param (string) date
+  ; @param (ms) epoch-ms
+  ;
+  ; @usage
+  ; (date-starts-before-epoch-ms? "2020-04-20" 1587344200000)
+  ;
+  ; @example
+  ; (date-starts-before-epoch-ms? "2020-04-20" 1587344200000)
+  ; =>
+  ; true
+  ;
+  ; @return (boolean)
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)]
+       (>= epoch-ms date-start-ms)))
+
+(defn date-starts-after-epoch-ms?
+  ; @description
+  ; Returns true if the given epoch-ms is ...
+  ; ... < the first ms of the given date.
+  ;
+  ; @param (string) date
+  ; @param (ms) epoch-ms
+  ;
+  ; @usage
+  ; (date-starts-after-epoch-ms? "2020-04-21" 1587344200000)
+  ;
+  ; @example
+  ; (date-starts-after-epoch-ms? "2020-04-21" 1587344200000)
+  ; =>
+  ; true
+  ;
+  ; @return (boolean)
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)]
+       (< epoch-ms date-start-ms)))
+
+(defn date-ends-before-epoch-ms?
+  ; @description
+  ; Returns true if the given epoch-ms is ...
+  ; ... > the last ms of the given date.
+  ;
+  ; @param (string) date
+  ; @param (ms) epoch-ms
+  ;
+  ; @usage
+  ; (date-ends-before-epoch-ms? "2020-04-19" 1587344200000)
+  ;
+  ; @example
+  ; (date-ends-before-epoch-ms? "2020-04-19" 1587344200000)
+  ; =>
+  ; true
+  ;
+  ; @return (boolean)
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)
+        date-end-ms   (+ date-start-ms 86399999)]
+       (> epoch-ms date-end-ms)))
+
+(defn date-ends-after-epoch-ms?
+  ; @description
+  ; Returns true if the given epoch-ms is ...
+  ; ... <= the last ms of the given date.
+  ;
+  ; @param (string) date
+  ; @param (ms) epoch-ms
+  ;
+  ; @usage
+  ; (date-ends-after-epoch-ms? "2020-04-20" 1587344200000)
+  ;
+  ; @example
+  ; (date-ends-after-epoch-ms? "2020-04-20" 1587344200000)
+  ; =>
+  ; true
+  ;
+  ; @return (boolean)
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)
+        date-end-ms   (+ date-start-ms 86399999)]
+       (<= epoch-ms date-end-ms)))
