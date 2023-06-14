@@ -9,6 +9,16 @@
 
 - [date->epoch-ms](#date-epoch-ms)
 
+- [date-contains-epoch-ms?](#date-contains-epoch-ms)
+
+- [date-ends-after-epoch-ms?](#date-ends-after-epoch-ms)
+
+- [date-ends-before-epoch-ms?](#date-ends-before-epoch-ms)
+
+- [date-starts-after-epoch-ms?](#date-starts-after-epoch-ms)
+
+- [date-starts-before-epoch-ms?](#date-starts-before-epoch-ms)
+
 - [date-string?](#date-string)
 
 - [elapsed](#elapsed)
@@ -110,6 +120,10 @@
 - [timestamp-object->elapsed-ms](#timestamp-object-elapsed-ms)
 
 - [timestamp-object->elapsed-s](#timestamp-object-elapsed-s)
+
+- [timestamp-object->epoch-ms](#timestamp-object-epoch-ms)
+
+- [timestamp-object->epoch-s](#timestamp-object-epoch-s)
 
 - [timestamp-object->hours](#timestamp-object-hours)
 
@@ -250,6 +264,286 @@ The very first millisec of the given date.
 
 ---
 
+### date-contains-epoch-ms?
+
+```
+@description
+Returns true if the given epoch-ms is ...
+... >= the first ms of the given date, and
+... <= the last ms of the given date.
+```
+
+```
+@param (string) date
+@param (ms) epoch-ms
+```
+
+```
+@usage
+(date-contains-epoch-ms? "2020-04-20" 1587344200000)
+```
+
+```
+@example
+(date-contains-epoch-ms? "2020-04-20" 1587344200000)
+=>
+true
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn date-contains-epoch-ms?
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)
+        date-end-ms   (+ date-start-ms 86399999)]
+       (and (>= epoch-ms date-start-ms)
+            (<= epoch-ms date-end-ms))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [date-contains-epoch-ms?]]))
+
+(time.api/date-contains-epoch-ms? ...)
+(date-contains-epoch-ms?          ...)
+```
+
+</details>
+
+---
+
+### date-ends-after-epoch-ms?
+
+```
+@description
+Returns true if the given epoch-ms is ...
+... <= the last ms of the given date.
+```
+
+```
+@param (string) date
+@param (ms) epoch-ms
+```
+
+```
+@usage
+(date-ends-after-epoch-ms? "2020-04-20" 1587344200000)
+```
+
+```
+@example
+(date-ends-after-epoch-ms? "2020-04-20" 1587344200000)
+=>
+true
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn date-ends-after-epoch-ms?
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)
+        date-end-ms   (+ date-start-ms 86399999)]
+       (<= epoch-ms date-end-ms)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [date-ends-after-epoch-ms?]]))
+
+(time.api/date-ends-after-epoch-ms? ...)
+(date-ends-after-epoch-ms?          ...)
+```
+
+</details>
+
+---
+
+### date-ends-before-epoch-ms?
+
+```
+@description
+Returns true if the given epoch-ms is ...
+... > the last ms of the given date.
+```
+
+```
+@param (string) date
+@param (ms) epoch-ms
+```
+
+```
+@usage
+(date-ends-before-epoch-ms? "2020-04-19" 1587344200000)
+```
+
+```
+@example
+(date-ends-before-epoch-ms? "2020-04-19" 1587344200000)
+=>
+true
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn date-ends-before-epoch-ms?
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)
+        date-end-ms   (+ date-start-ms 86399999)]
+       (> epoch-ms date-end-ms)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [date-ends-before-epoch-ms?]]))
+
+(time.api/date-ends-before-epoch-ms? ...)
+(date-ends-before-epoch-ms?          ...)
+```
+
+</details>
+
+---
+
+### date-starts-after-epoch-ms?
+
+```
+@description
+Returns true if the given epoch-ms is ...
+... < the first ms of the given date.
+```
+
+```
+@param (string) date
+@param (ms) epoch-ms
+```
+
+```
+@usage
+(date-starts-after-epoch-ms? "2020-04-21" 1587344200000)
+```
+
+```
+@example
+(date-starts-after-epoch-ms? "2020-04-21" 1587344200000)
+=>
+true
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn date-starts-after-epoch-ms?
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)]
+       (< epoch-ms date-start-ms)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [date-starts-after-epoch-ms?]]))
+
+(time.api/date-starts-after-epoch-ms? ...)
+(date-starts-after-epoch-ms?          ...)
+```
+
+</details>
+
+---
+
+### date-starts-before-epoch-ms?
+
+```
+@description
+Returns true if the given epoch-ms is ...
+... >= the first ms of the given date.
+```
+
+```
+@param (string) date
+@param (ms) epoch-ms
+```
+
+```
+@usage
+(date-starts-before-epoch-ms? "2020-04-20" 1587344200000)
+```
+
+```
+@example
+(date-starts-before-epoch-ms? "2020-04-20" 1587344200000)
+=>
+true
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn date-starts-before-epoch-ms?
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)]
+       (>= epoch-ms date-start-ms)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [date-starts-before-epoch-ms?]]))
+
+(time.api/date-starts-before-epoch-ms? ...)
+(date-starts-before-epoch-ms?          ...)
+```
+
+</details>
+
+---
+
 ### date-string?
 
 ```
@@ -369,11 +663,11 @@ true
 
 ```
 @description
-Converts the given date to timestamp-string than converts the result to epoch-ms.
+Converts the given epoch-ms to timestamp-string than converts the result to date.
 ```
 
 ```
-@param (ms) start-ms
+@param (ms) epoch-ms
 ```
 
 ```
@@ -390,7 +684,7 @@ Converts the given date to timestamp-string than converts the result to epoch-ms
 
 ```
 @return (string)
-The date of the given millisec.
+The date that contains the given epoch-ms.
 ```
 
 <details>
@@ -398,8 +692,8 @@ The date of the given millisec.
 
 ```
 (defn epoch-ms->date
-  [start-ms]
-  (-> start-ms epoch-ms->timestamp-string (string/part 0 10)))
+  [epoch-ms]
+  (-> epoch-ms epoch-ms->timestamp-string (string/part 0 10)))
 ```
 
 </details>
@@ -521,7 +815,7 @@ The date of the given millisec.
 ```
 (defn epoch-s->timestamp-string
   [n]
-  (if n (-> n converters/s->ms clj-time.coerce/from-long str)))
+  (if n (-> n convert/s->ms clj-time.coerce/from-long str)))
 ```
 
 </details>
@@ -2081,7 +2375,7 @@ The date of the given millisec.
 ```
 (defn set-interval!
   [f interval]
-  (tea-time.core/every! (converters/ms->s interval) 0 f))
+  (tea-time.core/every! (convert/ms->s interval) 0 f))
 ```
 
 </details>
@@ -2122,7 +2416,7 @@ The date of the given millisec.
 ```
 (defn set-timeout!
   [f timeout]
-  (tea-time.core/after! (converters/ms->s timeout) f))
+  (tea-time.core/after! (convert/ms->s timeout) f))
 ```
 
 </details>
@@ -2244,10 +2538,8 @@ The date of the given millisec.
 ```
 
 ```
-@example
+@usage
 (timestamp-object->elapsed-ms #<DateTime 2020-04-20T16:20:00.123Z>)
-=>
-"00"
 ```
 
 ```
@@ -2260,7 +2552,8 @@ The date of the given millisec.
 ```
 (defn timestamp-object->elapsed-ms
   [n]
-  0)
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-object->epoch-ms (- epoch-ms))))
 ```
 
 </details>
@@ -2286,10 +2579,8 @@ The date of the given millisec.
 ```
 
 ```
-@example
+@usage
 (timestamp-object->elapsed-s #<DateTime 2020-04-20T16:20:00.123Z>)
-=>
-"00"
 ```
 
 ```
@@ -2302,7 +2593,8 @@ The date of the given millisec.
 ```
 (defn timestamp-object->elapsed-s
   [n]
-  0)
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-object->epoch-ms (- epoch-ms) convert/ms->s)))
 ```
 
 </details>
@@ -2315,6 +2607,90 @@ The date of the given millisec.
 
 (time.api/timestamp-object->elapsed-s ...)
 (timestamp-object->elapsed-s          ...)
+```
+
+</details>
+
+---
+
+### timestamp-object->epoch-ms
+
+```
+@param (string) n
+```
+
+```
+@example
+(timestamp-object->epoch-ms #<DateTime 2021-12-29T18:01:00.000+02:00>)
+=>
+1640800860000
+```
+
+```
+@return (ms)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn timestamp-object->epoch-ms
+  [n]
+  (if n (-> n str clj-time.coerce/to-epoch convert/s->ms)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [timestamp-object->epoch-ms]]))
+
+(time.api/timestamp-object->epoch-ms ...)
+(timestamp-object->epoch-ms          ...)
+```
+
+</details>
+
+---
+
+### timestamp-object->epoch-s
+
+```
+@param (string) n
+```
+
+```
+@example
+(timestamp-object->epoch-s #<DateTime 2021-12-29T18:01:00.000+02:00>)
+=>
+1640800860
+```
+
+```
+@return (s)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn timestamp-object->epoch-s
+  [n]
+  (if n (-> n str clj-time.coerce/to-epoch)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [timestamp-object->epoch-s]]))
+
+(time.api/timestamp-object->epoch-s ...)
+(timestamp-object->epoch-s          ...)
 ```
 
 </details>
@@ -2831,10 +3207,8 @@ Default: :hhmmss
 ```
 
 ```
-@example
+@usage
 (timestamp-string->elapsed-ms "2020-04-20T16:20:00.123Z")
-=>
-"00"
 ```
 
 ```
@@ -2847,7 +3221,8 @@ Default: :hhmmss
 ```
 (defn timestamp-string->elapsed-ms
   [n]
-  0)
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-string->epoch-ms (- epoch-ms))))
 ```
 
 </details>
@@ -2873,10 +3248,8 @@ Default: :hhmmss
 ```
 
 ```
-@example
+@usage
 (timestamp-string->elapsed-s "2020-04-20T16:20:00.123Z")
-=>
-"00"
 ```
 
 ```
@@ -2889,7 +3262,8 @@ Default: :hhmmss
 ```
 (defn timestamp-string->elapsed-s
   [n]
-  0)
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-string->epoch-ms (- epoch-ms) convert/ms->s)))
 ```
 
 </details>
@@ -2931,7 +3305,7 @@ Default: :hhmmss
 ```
 (defn timestamp-string->epoch-ms
   [n]
-  (if n (-> n clj-time.coerce/to-epoch converters/s->ms)))
+  (if n (-> n clj-time.coerce/to-epoch convert/s->ms)))
 ```
 
 </details>
