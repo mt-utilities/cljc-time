@@ -7,6 +7,22 @@
 
 - [clear-interval!](#clear-interval)
 
+- [current-date](#current-date)
+
+- [current-day](#current-day)
+
+- [current-hour](#current-hour)
+
+- [current-millisecond](#current-millisecond)
+
+- [current-minute](#current-minute)
+
+- [current-month](#current-month)
+
+- [current-second](#current-second)
+
+- [current-year](#current-year)
+
 - [date->epoch-ms](#date-epoch-ms)
 
 - [date-string?](#date-string)
@@ -23,32 +39,6 @@
 
 - [epoch-s->timestamp-string](#epoch-s-timestamp-string)
 
-- [get-date](#get-date)
-
-- [get-day](#get-day)
-
-- [get-hours](#get-hours)
-
-- [get-hours-left-from-this-day](#get-hours-left-from-this-day)
-
-- [get-milliseconds](#get-milliseconds)
-
-- [get-milliseconds-left-from-this-minute](#get-milliseconds-left-from-this-minute)
-
-- [get-milliseconds-left-from-this-second](#get-milliseconds-left-from-this-second)
-
-- [get-minutes](#get-minutes)
-
-- [get-minutes-left-from-this-hour](#get-minutes-left-from-this-hour)
-
-- [get-month](#get-month)
-
-- [get-seconds](#get-seconds)
-
-- [get-seconds-left-from-this-minute](#get-seconds-left-from-this-minute)
-
-- [get-year](#get-year)
-
 - [h->D](#h-d)
 
 - [h->W](#h-w)
@@ -59,6 +49,8 @@
 
 - [h->s](#h-s)
 
+- [hours-left-from-this-day](#hours-left-from-this-day)
+
 - [m->D](#m-d)
 
 - [m->W](#m-w)
@@ -68,6 +60,12 @@
 - [m->ms](#m-ms)
 
 - [m->s](#m-s)
+
+- [milliseconds-left-from-this-minute](#milliseconds-left-from-this-minute)
+
+- [milliseconds-left-from-this-second](#milliseconds-left-from-this-second)
+
+- [minutes-left-from-this-hour](#minutes-left-from-this-hour)
 
 - [ms->D](#ms-d)
 
@@ -93,6 +91,8 @@
 
 - [s->ms](#s-ms)
 
+- [seconds-left-from-this-minute](#seconds-left-from-this-minute)
+
 - [set-interval!](#set-interval)
 
 - [set-timeout!](#set-timeout)
@@ -110,6 +110,8 @@
 - [timestamp-object->month](#timestamp-object-month)
 
 - [timestamp-object->seconds](#timestamp-object-seconds)
+
+- [timestamp-object->week](#timestamp-object-week)
 
 - [timestamp-object->year](#timestamp-object-year)
 
@@ -140,6 +142,8 @@
 - [timestamp-string->time](#timestamp-string-time)
 
 - [timestamp-string->today?](#timestamp-string-today)
+
+- [timestamp-string->week](#timestamp-string-week)
 
 - [timestamp-string->year](#timestamp-string-year)
 
@@ -174,6 +178,302 @@
 
 (time.api/clear-interval! ...)
 (clear-interval!          ...)
+```
+
+</details>
+
+---
+
+### current-date
+
+```
+@usage
+(current-date)
+```
+
+```
+@return (string)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn current-date
+  []
+  (-> (timestamp/timestamp-string)
+      (timestamp/timestamp-string->date)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [current-date]]))
+
+(time.api/current-date)
+(current-date)
+```
+
+</details>
+
+---
+
+### current-day
+
+```
+@usage
+(current-day)
+```
+
+```
+@return (D)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn current-day
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->day)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [current-day]]))
+
+(time.api/current-day)
+(current-day)
+```
+
+</details>
+
+---
+
+### current-hour
+
+```
+@usage
+(current-hour)
+```
+
+```
+@return (h)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn current-hour
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->hours)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [current-hour]]))
+
+(time.api/current-hour)
+(current-hour)
+```
+
+</details>
+
+---
+
+### current-millisecond
+
+```
+@usage
+(current-millisecond)
+```
+
+```
+@return (ms)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn current-millisecond
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->milliseconds)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [current-millisecond]]))
+
+(time.api/current-millisecond)
+(current-millisecond)
+```
+
+</details>
+
+---
+
+### current-minute
+
+```
+@usage
+(current-minute)
+```
+
+```
+@return (m)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn current-minute
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->minutes)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [current-minute]]))
+
+(time.api/current-minute)
+(current-minute)
+```
+
+</details>
+
+---
+
+### current-month
+
+```
+@usage
+(current-month)
+```
+
+```
+@return (M)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn current-month
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->month)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [current-month]]))
+
+(time.api/current-month)
+(current-month)
+```
+
+</details>
+
+---
+
+### current-second
+
+```
+@usage
+(current-second)
+```
+
+```
+@return (s)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn current-second
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->seconds)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [current-second]]))
+
+(time.api/current-second)
+(current-second)
+```
+
+</details>
+
+---
+
+### current-year
+
+```
+@usage
+(current-year)
+```
+
+```
+@return (Y)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn current-year
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->year)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [current-year]]))
+
+(time.api/current-year)
+(current-year)
 ```
 
 </details>
@@ -517,470 +817,6 @@ The date of the given millisec.
 
 ---
 
-### get-date
-
-```
-@usage
-(get-date)
-```
-
-```
-@return (string)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-date
-  [])
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-date]]))
-
-(time.api/get-date)
-(get-date)
-```
-
-</details>
-
----
-
-### get-day
-
-```
-@usage
-(get-day)
-```
-
-```
-@return (D)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-day
-  [])
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-day]]))
-
-(time.api/get-day)
-(get-day)
-```
-
-</details>
-
----
-
-### get-hours
-
-```
-@usage
-(get-hours)
-```
-
-```
-@return (h)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-hours
-  [])
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-hours]]))
-
-(time.api/get-hours)
-(get-hours)
-```
-
-</details>
-
----
-
-### get-hours-left-from-this-day
-
-```
-@usage
-(get-hours-left-from-this-day)
-```
-
-```
-@return (h)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-hours-left-from-this-day
-  []
-  (let [hours (get-hours)]
-       (- 24 hours)))
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-hours-left-from-this-day]]))
-
-(time.api/get-hours-left-from-this-day)
-(get-hours-left-from-this-day)
-```
-
-</details>
-
----
-
-### get-milliseconds
-
-```
-@usage
-(get-milliseconds)
-```
-
-```
-@return (ms)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-milliseconds
-  [])
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-milliseconds]]))
-
-(time.api/get-milliseconds)
-(get-milliseconds)
-```
-
-</details>
-
----
-
-### get-milliseconds-left-from-this-minute
-
-```
-@usage
-(get-milliseconds-left-from-this-minute)
-```
-
-```
-@return (ms)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-milliseconds-left-from-this-minute
-  []
-  (let [seconds-left (get-seconds-left-from-this-minute)]
-       (* 1000 seconds-left)))
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-milliseconds-left-from-this-minute]]))
-
-(time.api/get-milliseconds-left-from-this-minute)
-(get-milliseconds-left-from-this-minute)
-```
-
-</details>
-
----
-
-### get-milliseconds-left-from-this-second
-
-```
-@usage
-(get-milliseconds-left-from-this-second)
-```
-
-```
-@return (ms)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-milliseconds-left-from-this-second
-  [])
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-milliseconds-left-from-this-second]]))
-
-(time.api/get-milliseconds-left-from-this-second)
-(get-milliseconds-left-from-this-second)
-```
-
-</details>
-
----
-
-### get-minutes
-
-```
-@usage
-(get-minutes)
-```
-
-```
-@return (m)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-minutes
-  [])
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-minutes]]))
-
-(time.api/get-minutes)
-(get-minutes)
-```
-
-</details>
-
----
-
-### get-minutes-left-from-this-hour
-
-```
-@usage
-(get-minutes-left-from-this-hour)
-```
-
-```
-@return (m)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-minutes-left-from-this-hour
-  []
-  (let [minutes (get-minutes)]
-       (- 60 minutes)))
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-minutes-left-from-this-hour]]))
-
-(time.api/get-minutes-left-from-this-hour)
-(get-minutes-left-from-this-hour)
-```
-
-</details>
-
----
-
-### get-month
-
-```
-@usage
-(get-month)
-```
-
-```
-@return (M)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-month
-  [])
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-month]]))
-
-(time.api/get-month)
-(get-month)
-```
-
-</details>
-
----
-
-### get-seconds
-
-```
-@usage
-(get-seconds)
-```
-
-```
-@return (s)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-seconds
-  [])
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-seconds]]))
-
-(time.api/get-seconds)
-(get-seconds)
-```
-
-</details>
-
----
-
-### get-seconds-left-from-this-minute
-
-```
-@usage
-(get-seconds-left-from-this-minute)
-```
-
-```
-@return (s)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-seconds-left-from-this-minute
-  []
-  (let [seconds (get-seconds)]
-       (- 60 seconds)))
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-seconds-left-from-this-minute]]))
-
-(time.api/get-seconds-left-from-this-minute)
-(get-seconds-left-from-this-minute)
-```
-
-</details>
-
----
-
-### get-year
-
-```
-@usage
-(get-year)
-```
-
-```
-@return (Y)
-```
-
-<details>
-<summary>Source code</summary>
-
-```
-(defn get-year
-  []
-  (.getFullYear (js/Date.)))
-```
-
-</details>
-
-<details>
-<summary>Require</summary>
-
-```
-(ns my-namespace (:require [time.api :refer [get-year]]))
-
-(time.api/get-year)
-(get-year)
-```
-
-</details>
-
----
-
 ### h->D
 
 ```
@@ -1181,6 +1017,43 @@ The date of the given millisec.
 
 ---
 
+### hours-left-from-this-day
+
+```
+@usage
+(hours-left-from-this-day)
+```
+
+```
+@return (h)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn hours-left-from-this-day
+  []
+  (let [current-hour (current-hour)]
+       (- 24 current-hour)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [hours-left-from-this-day]]))
+
+(time.api/hours-left-from-this-day)
+(hours-left-from-this-day)
+```
+
+</details>
+
+---
+
 ### m->D
 
 ```
@@ -1375,6 +1248,117 @@ The date of the given millisec.
 
 (time.api/m->s ...)
 (m->s          ...)
+```
+
+</details>
+
+---
+
+### milliseconds-left-from-this-minute
+
+```
+@usage
+(milliseconds-left-from-this-minute)
+```
+
+```
+@return (ms)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn milliseconds-left-from-this-minute
+  []
+  (let [seconds-left-from-this-minute (seconds-left-from-this-minute)]
+       (* 1000 seconds-left-from-this-minute)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [milliseconds-left-from-this-minute]]))
+
+(time.api/milliseconds-left-from-this-minute)
+(milliseconds-left-from-this-minute)
+```
+
+</details>
+
+---
+
+### milliseconds-left-from-this-second
+
+```
+@usage
+(milliseconds-left-from-this-second)
+```
+
+```
+@return (ms)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn milliseconds-left-from-this-second
+  []
+  (let [current-millisecond (current-millisecond)]
+       (- 1000 current-millisecond)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [milliseconds-left-from-this-second]]))
+
+(time.api/milliseconds-left-from-this-second)
+(milliseconds-left-from-this-second)
+```
+
+</details>
+
+---
+
+### minutes-left-from-this-hour
+
+```
+@usage
+(minutes-left-from-this-hour)
+```
+
+```
+@return (m)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn minutes-left-from-this-hour
+  []
+  (let [current-minute (current-minute)]
+       (- 60 current-minute)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [minutes-left-from-this-hour]]))
+
+(time.api/minutes-left-from-this-hour)
+(minutes-left-from-this-hour)
 ```
 
 </details>
@@ -1897,6 +1881,43 @@ The date of the given millisec.
 
 ---
 
+### seconds-left-from-this-minute
+
+```
+@usage
+(seconds-left-from-this-minute)
+```
+
+```
+@return (s)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn seconds-left-from-this-minute
+  []
+  (let [current-second (current-second)]
+       (- 60 current-second)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [seconds-left-from-this-minute]]))
+
+(time.api/seconds-left-from-this-minute)
+(seconds-left-from-this-minute)
+```
+
+</details>
+
+---
+
 ### set-interval!
 
 ```
@@ -2004,7 +2025,8 @@ The date of the given millisec.
 
 ```
 (defn timestamp-object
-  ([])
+  ([]
+   (cljs-time.core/now))
 
   ([time-zone]))
 ```
@@ -2090,7 +2112,7 @@ The date of the given millisec.
 ```
 (defn timestamp-object->hours
   [n]
-  (cljs-time.core/hours n))
+  (cljs-time.core/hour n))
 ```
 
 </details>
@@ -2174,7 +2196,7 @@ The date of the given millisec.
 ```
 (defn timestamp-object->minutes
   [n]
-  (cljs-time.core/minutes n))
+  (cljs-time.core/minute n))
 ```
 
 </details>
@@ -2258,7 +2280,7 @@ The date of the given millisec.
 ```
 (defn timestamp-object->seconds
   [n]
-  (cljs-time.core/seconds n))
+  (cljs-time.core/sec n))
 ```
 
 </details>
@@ -2271,6 +2293,48 @@ The date of the given millisec.
 
 (time.api/timestamp-object->seconds ...)
 (timestamp-object->seconds          ...)
+```
+
+</details>
+
+---
+
+### timestamp-object->week
+
+```
+@param (object) n
+```
+
+```
+@example
+(timestamp->week #<DateTime 2020-04-20T16:20:00.123Z>)
+=>
+16
+```
+
+```
+@return (W)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn timestamp-object->week
+  [n]
+  (cljs-time.core/week-number-of-year n))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [timestamp-object->week]]))
+
+(time.api/timestamp-object->week ...)
+(timestamp-object->week          ...)
 ```
 
 </details>
@@ -2917,6 +2981,47 @@ Default: :hhmmss
 
 (time.api/timestamp-string->today? ...)
 (timestamp-string->today?          ...)
+```
+
+</details>
+
+---
+
+### timestamp-string->week
+
+```
+@param (string) n
+```
+
+```
+@example
+(timestamp-string->week "2020-04-20T16:20:00.123Z")
+=>
+"?"
+```
+
+```
+@return (string)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn timestamp-string->week
+  [n])
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [timestamp-string->week]]))
+
+(time.api/timestamp-string->week ...)
+(timestamp-string->week          ...)
 ```
 
 </details>

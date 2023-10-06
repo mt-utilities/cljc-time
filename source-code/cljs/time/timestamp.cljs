@@ -19,8 +19,8 @@
   ; (timestamp-object "Europe/Budapest")
   ;
   ; @return (object)
-  ([])
-   ; TODO
+  ([]
+   (cljs-time.core/now))
 
   ([time-zone]))
    ; TODO
@@ -29,9 +29,9 @@
   ; @return (string)
   []
   ; XXX#0081
-  ; A CLJS névterekben az időbélyegző formátuma megegyezik a Java időbélyegző-objektum
-  ; string típussá alakításának formátumával ("2020-04-20T16:20:00.123Z").
-  ; Így a CLJS és a CLJ névterekben az string típusú időbélyegzők formátuma megegyezik.
+  ; In CLJS namespaces, the timestamp format is the same as the format used for converting
+  ; Java timestamp objects to strings ("2020-04-20T16:20:00.123Z").
+  ; Therefore, in CLJS and CLJ namespaces, the format of timestamp strings is the same.
   (let [formatter (cljs-time.format/formatter "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
         timestamp (cljs-time.core/now)]
        (cljs-time.format/unparse formatter timestamp)))
@@ -135,6 +135,30 @@
   [n]
   (cljs-time.core/month n))
 
+(defn timestamp-string->week
+  ; @param (string) n
+  ;
+  ; @example
+  ; (timestamp-string->week "2020-04-20T16:20:00.123Z")
+  ; =>
+  ; "?"
+  ;
+  ; @return (string)
+  [n])
+  ; TODO
+
+(defn timestamp-object->week
+  ; @param (object) n
+  ;
+  ; @example
+  ; (timestamp->week #<DateTime 2020-04-20T16:20:00.123Z>)
+  ; =>
+  ; 16
+  ;
+  ; @return (W)
+  [n]
+  (cljs-time.core/week-number-of-year n))
+
 (defn timestamp-string->day
   ; @param (string) n
   ;
@@ -181,7 +205,7 @@
   ;
   ; @return (h)
   [n]
-  (cljs-time.core/hours n))
+  (cljs-time.core/hour n))
 
 (defn timestamp-string->minutes
   ; @param (string) n
@@ -205,7 +229,7 @@
   ;
   ; @return (m)
   [n]
-  (cljs-time.core/minutes n))
+  (cljs-time.core/minute n))
 
 (defn timestamp-string->seconds
   ; @param (string) n
@@ -229,7 +253,7 @@
   ;
   ; @return (s)
   [n]
-  (cljs-time.core/seconds n))
+  (cljs-time.core/sec n))
 
 (defn timestamp-string->milliseconds
   ; @param (string) n

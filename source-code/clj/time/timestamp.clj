@@ -162,6 +162,30 @@
   [n]
   (clj-time.core/month n))
 
+(defn timestamp-string->week
+  ; @param (string) n
+  ;
+  ; @example
+  ; (timestamp-string->week "2020-04-20T16:20:00.123Z")
+  ; =>
+  ; "?"
+  ;
+  ; @return (string)
+  [n])
+  ; TODO
+
+(defn timestamp-object->week
+  ; @param (object) n
+  ;
+  ; @example
+  ; (timestamp-object->week #<DateTime 2020-04-20T16:20:00.123Z>)
+  ; =>
+  ; 4
+  ;
+  ; @return (W)
+  [n]
+  (clj-time.core/week-number-of-year n))
+
 (defn timestamp-string->day
   ; @param (string) n
   ;

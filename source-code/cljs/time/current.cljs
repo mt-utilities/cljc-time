@@ -1,121 +1,132 @@
 
-(ns time.current)
+(ns time.current
+    (:require [time.timestamp :as timestamp]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-(defn get-year
+(defn current-year
   ; @usage
-  ; (get-year)
+  ; (current-year)
   ;
   ; @return (Y)
   []
-  (.getFullYear (js/Date.)))
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->year)))
 
-(defn get-month
+(defn current-month
   ; @usage
-  ; (get-month)
+  ; (current-month)
   ;
   ; @return (M)
-  [])
-  ; TODO
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->month)))
 
-(defn get-week
+(defn current-week
   ; @usage
-  ; (get-week)
+  ; (current-week)
   ;
   ; @return (W)
-  [])
-  ; TODO
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->week)))
 
-(defn get-day
+(defn current-day
   ; @usage
-  ; (get-day)
+  ; (current-day)
   ;
   ; @return (D)
-  [])
-  ; TODO
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->day)))
 
-(defn get-date
+(defn current-date
   ; @usage
-  ; (get-date)
+  ; (current-date)
   ;
   ; @return (string)
-  [])
-  ; TODO
+  []
+  (-> (timestamp/timestamp-string)
+      (timestamp/timestamp-string->date)))
 
-(defn get-hours
+(defn current-hour
   ; @usage
-  ; (get-hours)
-  ;
-  ; @return (h)
-  [])
-  ; TODO
-
-(defn get-hours-left-from-this-day
-  ; @usage
-  ; (get-hours-left-from-this-day)
+  ; (current-hour)
   ;
   ; @return (h)
   []
-  (let [hours (get-hours)]
-       (- 24 hours)))
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->hours)))
 
-(defn get-minutes
+(defn hours-left-from-this-day
   ; @usage
-  ; (get-minutes)
+  ; (hours-left-from-this-day)
+  ;
+  ; @return (h)
+  []
+  (let [current-hour (current-hour)]
+       (- 24 current-hour)))
+
+(defn current-minute
+  ; @usage
+  ; (current-minute)
   ;
   ; @return (m)
-  [])
-  ; TODO
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->minutes)))
 
-(defn get-minutes-left-from-this-hour
+(defn minutes-left-from-this-hour
   ; @usage
-  ; (get-minutes-left-from-this-hour)
+  ; (minutes-left-from-this-hour)
   ;
   ; @return (m)
   []
-  (let [minutes (get-minutes)]
-       (- 60 minutes)))
+  (let [current-minute (current-minute)]
+       (- 60 current-minute)))
 
-(defn get-seconds
+(defn current-second
   ; @usage
-  ; (get-seconds)
-  ;
-  ; @return (s)
-  [])
-  ; TODO
-
-(defn get-seconds-left-from-this-minute
-  ; @usage
-  ; (get-seconds-left-from-this-minute)
+  ; (current-second)
   ;
   ; @return (s)
   []
-  (let [seconds (get-seconds)]
-       (- 60 seconds)))
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->seconds)))
 
-(defn get-milliseconds
+(defn seconds-left-from-this-minute
   ; @usage
-  ; (get-milliseconds)
+  ; (seconds-left-from-this-minute)
   ;
-  ; @return (ms)
-  [])
-  ; TODO
+  ; @return (s)
+  []
+  (let [current-second (current-second)]
+       (- 60 current-second)))
 
-(defn get-milliseconds-left-from-this-second
+(defn current-millisecond
   ; @usage
-  ; (get-milliseconds-left-from-this-second)
-  ;
-  ; @return (ms)
-  [])
-  ; TODO
-
-(defn get-milliseconds-left-from-this-minute
-  ; @usage
-  ; (get-milliseconds-left-from-this-minute)
+  ; (current-millisecond)
   ;
   ; @return (ms)
   []
-  (let [seconds-left (get-seconds-left-from-this-minute)]
-       (* 1000 seconds-left)))
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->milliseconds)))
+
+(defn milliseconds-left-from-this-second
+  ; @usage
+  ; (milliseconds-left-from-this-second)
+  ;
+  ; @return (ms)
+  []
+  (let [current-millisecond (current-millisecond)]
+       (- 1000 current-millisecond)))
+
+(defn milliseconds-left-from-this-minute
+  ; @usage
+  ; (milliseconds-left-from-this-minute)
+  ;
+  ; @return (ms)
+  []
+  (let [seconds-left-from-this-minute (seconds-left-from-this-minute)]
+       (* 1000 seconds-left-from-this-minute)))
