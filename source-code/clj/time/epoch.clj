@@ -30,6 +30,39 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
+(defn epoch-ms-age
+  ; @description
+  ; How many milliseconds elapsed since the given epoch-ms value.
+  ;
+  ; @param (ms) n
+  ;
+  ; @example
+  ; (epoch-ms-age 1640800860000)
+  ; =>
+  ; 420000
+  ;
+  ; @return (ms)
+  [n]
+  (- (epoch-ms) n))
+
+(defn epoch-s-age
+  ; @description
+  ; How many seconds elapsed since the given epoch-s value.
+  ;
+  ; @param (s) n
+  ;
+  ; @example
+  ; (epoch-s-age 1640800860)
+  ; =>
+  ; 420
+  ;
+  ; @return (s)
+  [n]
+  (- (epoch-s) n))
+
+;; ----------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+
 (defn epoch-ms->timestamp-string
   ; @param (ms) n
   ;

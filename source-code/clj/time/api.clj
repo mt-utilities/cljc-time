@@ -59,6 +59,8 @@
 ; time.epoch
 (def epoch-ms                     epoch/epoch-ms)
 (def epoch-s                      epoch/epoch-s)
+(def epoch-ms-age                 epoch/epoch-ms-age)
+(def epoch-s-age                  epoch/epoch-s-age)
 (def epoch-ms->timestamp-string   epoch/epoch-ms->timestamp-string)
 (def epoch-s->timestamp-string    epoch/epoch-s->timestamp-string)
 (def timestamp-string->epoch-ms   epoch/timestamp-string->epoch-ms)
