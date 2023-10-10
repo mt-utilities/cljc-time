@@ -45,9 +45,13 @@
 
 - [epoch-ms->timestamp-string](#epoch-ms-timestamp-string)
 
+- [epoch-ms-age](#epoch-ms-age)
+
 - [epoch-s](#epoch-s)
 
 - [epoch-s->timestamp-string](#epoch-s-timestamp-string)
+
+- [epoch-s-age](#epoch-s-age)
 
 - [h->D](#h-d)
 
@@ -1056,6 +1060,53 @@ The date that contains the given epoch-ms.
 
 ---
 
+### epoch-ms-age
+
+```
+@description
+How many milliseconds elapsed since the given epoch-ms value.
+```
+
+```
+@param (ms) n
+```
+
+```
+@example
+(epoch-ms-age 1640800860000)
+=>
+420000
+```
+
+```
+@return (ms)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn epoch-ms-age
+  [n]
+  (- (epoch-ms) n))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [epoch-ms-age]]))
+
+(time.api/epoch-ms-age ...)
+(epoch-ms-age          ...)
+```
+
+</details>
+
+---
+
 ### epoch-s
 
 ```
@@ -1130,6 +1181,53 @@ The date that contains the given epoch-ms.
 
 (time.api/epoch-s->timestamp-string ...)
 (epoch-s->timestamp-string          ...)
+```
+
+</details>
+
+---
+
+### epoch-s-age
+
+```
+@description
+How many seconds elapsed since the given epoch-s value.
+```
+
+```
+@param (s) n
+```
+
+```
+@example
+(epoch-s-age 1640800860)
+=>
+420
+```
+
+```
+@return (s)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn epoch-s-age
+  [n]
+  (- (epoch-s) n))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [epoch-s-age]]))
+
+(time.api/epoch-s-age ...)
+(epoch-s-age          ...)
 ```
 
 </details>
