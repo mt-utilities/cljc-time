@@ -3,7 +3,6 @@
     (:require [cljs-time.core   :as cljs-time.core]
               [cljs-time.format :as cljs-time.format]
               [format.api       :as format]
-              [noop.api         :refer [return]]
               [string.api       :as string]))
 
 ;; ----------------------------------------------------------------------------
@@ -305,7 +304,7 @@
             (case format :yyyymmdd (str year "-" month "-" day)
                          :yymmdd   (let [year (string/part year 2 2)]
                                         (str year "-" month "-" day))
-                         (return n))))))
+                         (-> n))))))
 
 (defn timestamp-string->time
   ; @param (string) n
@@ -329,7 +328,7 @@
              seconds (format/leading-zeros (timestamp-string->seconds n) 2)]
             (case format :hhmmss (str hours ":" minutes ":" seconds)
                          :hhmm   (str hours ":" minutes)
-                         (return n))))))
+                         (-> n))))))
 
 (defn timestamp-string->date-time
   ; @param (string) n

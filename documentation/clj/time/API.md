@@ -3240,7 +3240,7 @@ Default: :yyyymmdd
             (case format :yyyymmdd (str year "-" month "-" day)
                          :yymmdd   (let [year (string/part year 2 2)]
                                         (str year "-" month "-" day))
-                         (return n))))))
+                         (-> n))))))
 ```
 
 </details>
@@ -3769,7 +3769,7 @@ Default: :hhmmss
              seconds (format/leading-zeros (timestamp-string->seconds n) 2)]
             (case format :hhmmss (str hours ":" minutes ":" seconds)
                          :hhmm   (str hours ":" minutes)
-                         (return n))))))
+                         (-> n))))))
 ```
 
 </details>

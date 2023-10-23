@@ -4,7 +4,6 @@
     (:require [clj-time.core    :as clj-time.core]
               [format.api       :as format]
               [iso.time.convert :as convert]
-              [noop.api         :refer [return]]
               [string.api       :as string]
               [time.epoch       :as epoch]))
 
@@ -332,7 +331,7 @@
             (case format :yyyymmdd (str year "-" month "-" day)
                          :yymmdd   (let [year (string/part year 2 2)]
                                         (str year "-" month "-" day))
-                         (return n))))))
+                         (-> n))))))
 
 (defn timestamp-string->time
   ; @param (string) n
@@ -356,7 +355,7 @@
              seconds (format/leading-zeros (timestamp-string->seconds n) 2)]
             (case format :hhmmss (str hours ":" minutes ":" seconds)
                          :hhmm   (str hours ":" minutes)
-                         (return n))))))
+                         (-> n))))))
 
 (defn timestamp-string->date-time
   ; @param (string) n
