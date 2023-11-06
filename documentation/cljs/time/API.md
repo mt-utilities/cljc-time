@@ -1,5 +1,9 @@
 
-# time.api ClojureScript namespace
+### time.api
+
+Functional documentation of the time.api ClojureScript namespace
+
+---
 
 ##### [README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > time.api
 
@@ -148,6 +152,8 @@
 - [timestamp-string->year](#timestamp-string-year)
 
 - [timestamp-string?](#timestamp-string)
+
+---
 
 ### clear-interval!
 
@@ -3129,5 +3135,5 @@ true
 
 ---
 
-This documentation is generated with the [clj-docs-generator](https://github.com/bithandshake/clj-docs-generator) engine.
+<sub>This documentation is generated with the [clj-docs-generator](https://github.com/bithandshake/clj-docs-generator) engine.</sub>
 

@@ -1,5 +1,9 @@
 
-# time.api Clojure namespace
+### time.api
+
+Functional documentation of the time.api Clojure namespace
+
+---
 
 ##### [README](../../../README.md) > [DOCUMENTATION](../../COVER.md) > time.api
 
@@ -184,6 +188,8 @@
 - [unparse-date-time](#unparse-date-time)
 
 - [unparse-timestamp](#unparse-timestamp)
+
+---
 
 ### clear-interval!
 
@@ -4058,5 +4064,5 @@ true
 
 ---
 
-This documentation is generated with the [clj-docs-generator](https://github.com/bithandshake/clj-docs-generator) engine.
+<sub>This documentation is generated with the [clj-docs-generator](https://github.com/bithandshake/clj-docs-generator) engine.</sub>
 
