@@ -6,6 +6,10 @@
 ;; ----------------------------------------------------------------------------
 
 (defn reduce-interval
+  ; @description
+  ; Iterates over the given 'coll' collection and applies the given 'f' function on each item
+  ; while taking an 'interval' long pause between them.
+  ;
   ; @param (function) f
   ; @param (collection) coll
   ; @param (integer) interval

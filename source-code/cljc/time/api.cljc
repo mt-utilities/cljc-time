@@ -1,19 +1,19 @@
 
 (ns time.api
-    (:require [iso.time.convert :as convert]
-              [time.core        :as core]
-              [time.current     :as current]
-              [time.epoch       :as epoch]
-              [time.loop        :as loop]
-              [time.now         :as now]
-              [time.parse       :as parse]
-              [time.schedule    :as schedule]
-              [time.timestamp   :as timestamp]))
+    (:require [time.convert   :as convert]
+              [time.core      :as core]
+              [time.current   :as current]
+              [time.epoch     :as epoch]
+              [time.loop      :as loop]
+              [time.now       :as now]
+              [time.parse     :as parse]
+              [time.schedule  :as schedule]
+              [time.timestamp :as timestamp]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-; iso.time.convert
+; time.convert
 (def ms->s    convert/ms->s)
 (def ms->m    convert/ms->m)
 (def ms->h    convert/ms->h)
@@ -42,19 +42,20 @@
 (def plus  core/plus)
 
 ; time.current
-(def current-year                       current/current-year)
-(def current-month                      current/current-month)
-(def current-day                        current/current-day)
-(def current-date                       current/current-date)
-(def current-hours                      current/current-hour)
-(def hours-left-from-this-day           current/hours-left-from-this-day)
-(def current-minutes                    current/current-minute)
-(def minutes-left-from-this-hour        current/minutes-left-from-this-hour)
-(def current-seconds                    current/current-second)
-(def seconds-left-from-this-minute      current/seconds-left-from-this-minute)
-(def current-millisecond                current/current-millisecond)
-(def milliseconds-left-from-this-second current/milliseconds-left-from-this-second)
-(def milliseconds-left-from-this-minute current/milliseconds-left-from-this-minute)
+(def current-year                          current/current-year)
+(def current-month                         current/current-month)
+(def current-week                          current/current-week)
+(def current-day                           current/current-day)
+(def current-date                          current/current-date)
+(def current-hour                          current/current-hour)
+(def hours-left-from-current-day           current/hours-left-from-current-day)
+(def current-minute                        current/current-minute)
+(def minutes-left-from-current-hour        current/minutes-left-from-current-hour)
+(def current-second                        current/current-second)
+(def seconds-left-from-current-minute      current/seconds-left-from-current-minute)
+(def current-millisecond                   current/current-millisecond)
+(def milliseconds-left-from-current-second current/milliseconds-left-from-current-second)
+(def milliseconds-left-from-current-minute current/milliseconds-left-from-current-minute)
 
 ; time.epoch
 (def epoch-ms                     epoch/epoch-ms)
@@ -82,11 +83,11 @@
 (def elapsed now/elapsed)
 
 ; time.parse
-(def parse-date        parse/parse-date)
-(def parse-timestamp   parse/parse-timestamp)
-(def unparse-timestamp parse/unparse-timestamp)
-(def parse-date-time   parse/parse-date-time)
-(def unparse-date-time parse/unparse-date-time)
+(def parse-date         parse/parse-date)
+(def parse-timestamp    parse/parse-timestamp)
+(def unparse-timestamp  parse/unparse-timestamp)
+(def parse-timestamps   parse/parse-timestamps)
+(def unparse-timestamps parse/unparse-timestamps)
 
 ; time.schedule
 (def set-timeout!    schedule/set-timeout!)

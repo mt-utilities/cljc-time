@@ -9,13 +9,9 @@ Functional documentation of the [cljc-time](https://github.com/bithandshake/cljc
 
 ##### [README](../README.md) > DOCUMENTATION
 
-### Clojure namespaces
+### Isomorphic namespaces
 
-* [time.api](clj/time/API.md)
-
-### ClojureScript namespaces
-
-* [time.api](cljs/time/API.md)
+* [time.api](cljc/time/API.md)
 
 ---
 

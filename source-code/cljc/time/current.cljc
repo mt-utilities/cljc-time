@@ -6,6 +6,9 @@
 ;; ----------------------------------------------------------------------------
 
 (defn current-year
+  ; @description
+  ; Returns the actual year.
+  ;
   ; @usage
   ; (current-year)
   ;
@@ -15,6 +18,9 @@
       (timestamp/timestamp-object->year)))
 
 (defn current-month
+  ; @description
+  ; Returns the actual month.
+  ;
   ; @usage
   ; (current-month)
   ;
@@ -24,6 +30,9 @@
       (timestamp/timestamp-object->month)))
 
 (defn current-week
+  ; @description
+  ; Returns the actual week.
+  ;
   ; @usage
   ; (current-week)
   ;
@@ -33,6 +42,9 @@
       (timestamp/timestamp-object->week)))
 
 (defn current-day
+  ; @description
+  ; Returns the actual day.
+  ;
   ; @usage
   ; (current-day)
   ;
@@ -42,6 +54,9 @@
       (timestamp/timestamp-object->day)))
 
 (defn current-date
+  ; @description
+  ; Returns the actual date.
+  ;
   ; @usage
   ; (current-date)
   ;
@@ -51,6 +66,9 @@
       (timestamp/timestamp-string->date)))
 
 (defn current-hour
+  ; @description
+  ; Returns the actual hour.
+  ;
   ; @usage
   ; (current-hour)
   ;
@@ -59,9 +77,12 @@
   (-> (timestamp/timestamp-object)
       (timestamp/timestamp-object->hours)))
 
-(defn hours-left-from-this-day
+(defn hours-left-from-current-day
+  ; @description
+  ; Returns how many hours left from the actual day.
+  ;
   ; @usage
-  ; (hours-left-from-this-day)
+  ; (hours-left-from-current-day)
   ;
   ; @return (h)
   []
@@ -69,6 +90,9 @@
        (- 24 current-hour)))
 
 (defn current-minute
+  ; @description
+  ; Returns the actual minute.
+  ;
   ; @usage
   ; (current-minute)
   ;
@@ -77,9 +101,12 @@
   (-> (timestamp/timestamp-object)
       (timestamp/timestamp-object->minutes)))
 
-(defn minutes-left-from-this-hour
+(defn minutes-left-from-current-hour
+  ; @description
+  ; Returns how many minutes left from the actual hour.
+  ;
   ; @usage
-  ; (minutes-left-from-this-hour)
+  ; (minutes-left-from-current-hour)
   ;
   ; @return (m)
   []
@@ -87,6 +114,9 @@
        (- 60 current-minute)))
 
 (defn current-second
+  ; @description
+  ; Returns the actual second.
+  ;
   ; @usage
   ; (current-second)
   ;
@@ -95,9 +125,12 @@
   (-> (timestamp/timestamp-object)
       (timestamp/timestamp-object->seconds)))
 
-(defn seconds-left-from-this-minute
+(defn seconds-left-from-current-minute
+  ; @description
+  ; Returns how many seconds left from the actual minute.
+  ;
   ; @usage
-  ; (seconds-left-from-this-minute)
+  ; (seconds-left-from-current-minute)
   ;
   ; @return (s)
   []
@@ -105,6 +138,9 @@
        (- 60 current-second)))
 
 (defn current-millisecond
+  ; @description
+  ; Returns the actual millisecond.
+  ;
   ; @usage
   ; (current-millisecond)
   ;
@@ -113,20 +149,26 @@
   (-> (timestamp/timestamp-object)
       (timestamp/timestamp-object->milliseconds)))
 
-(defn milliseconds-left-from-this-second
+(defn milliseconds-left-from-current-second
+  ; @description
+  ; Returns how many milliseconds left from the actual second.
+  ;
   ; @usage
-  ; (milliseconds-left-from-this-second)
+  ; (milliseconds-left-from-current-second)
   ;
   ; @return (ms)
   []
   (let [current-millisecond (current-millisecond)]
        (- 1000 current-millisecond)))
 
-(defn milliseconds-left-from-this-minute
+(defn milliseconds-left-from-current-minute
+  ; @description
+  ; Returns how many milliseconds left from the actual minute.
+  ;
   ; @usage
-  ; (milliseconds-left-from-this-minute)
+  ; (milliseconds-left-from-current-minute)
   ;
   ; @return (ms)
   []
-  (let [seconds-left-from-this-minute (seconds-left-from-this-minute)]
-       (* 1000 seconds-left-from-this-minute)))
+  (let [seconds-left-from-current-minute (seconds-left-from-current-minute)]
+       (* 1000 seconds-left-from-current-minute)))

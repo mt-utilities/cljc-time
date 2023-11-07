@@ -1,38 +1,44 @@
 
 (ns time.epoch
-    (:require [clj-time.coerce  :as clj-time.coerce]
-              [clj-time.core    :as clj-time.core]
-              [iso.time.convert :as convert]
-              [string.api       :as string]))
+    (:require #?(:clj [clj-time.coerce])
+              #?(:clj [clj-time.core])
+              [string.api   :as string]
+              [time.convert :as convert]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn epoch-ms
+  ; @description
+  ; Returns the actual epoch milliseconds.
+  ;
   ; @usage
   ; (epoch-ms)
   ;
   ; @return (ms)
   []
-  (-> (clj-time.core/now)
-      (clj-time.coerce/to-long)))
+  #?(:clj (-> (clj-time.core/now)
+              (clj-time.coerce/to-long))))
 
 (defn epoch-s
+  ; @description
+  ; Returns the actual epoch seconds.
+  ;
   ; @usage
   ; (epoch-s)
   ;
   ; @return (s)
   []
-  (-> (clj-time.core/now)
-      (clj-time.coerce/to-long)
-      (quot 1000)))
+  #?(:clj (-> (clj-time.core/now)
+              (clj-time.coerce/to-long)
+              (quot 1000))))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn epoch-ms-age
   ; @description
-  ; How many milliseconds elapsed since the given epoch-ms value.
+  ; Returns how many milliseconds elapsed since the given epoch milliseconds.
   ;
   ; @param (ms) n
   ;
@@ -47,7 +53,7 @@
 
 (defn epoch-s-age
   ; @description
-  ; How many seconds elapsed since the given epoch-s value.
+  ; Returns how many seconds elapsed since the given epoch seconds.
   ;
   ; @param (s) n
   ;
@@ -64,6 +70,9 @@
 ;; ----------------------------------------------------------------------------
 
 (defn epoch-ms->timestamp-string
+  ; @description
+  ; Converts the given epoch milliseconds to timestamp string.
+  ;
   ; @param (ms) n
   ;
   ; @example
@@ -73,9 +82,12 @@
   ;
   ; @return (string)
   [n]
-  (if n (-> n clj-time.coerce/from-long str)))
+  #?(:clj (if n (-> n clj-time.coerce/from-long str))))
 
 (defn epoch-s->timestamp-string
+  ; @description
+  ; Converts the given epoch seconds to timestamp string.
+  ;
   ; @param (s) n
   ;
   ; @example
@@ -85,12 +97,15 @@
   ;
   ; @return (string)
   [n]
-  (if n (-> n convert/s->ms clj-time.coerce/from-long str)))
+  #?(:clj (if n (-> n convert/s->ms clj-time.coerce/from-long str))))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn timestamp-string->epoch-ms
+  ; @description
+  ; Converts the given timestamp string to epoch milliseconds.
+  ;
   ; @param (string) n
   ;
   ; @example
@@ -100,9 +115,12 @@
   ;
   ; @return (ms)
   [n]
-  (if n (-> n clj-time.coerce/to-epoch convert/s->ms)))
+  #?(:clj (if n (-> n clj-time.coerce/to-epoch convert/s->ms))))
 
 (defn timestamp-string->epoch-s
+  ; @description
+  ; Converts the given timestamp string to epoch seconds.
+  ;
   ; @param (string) n
   ;
   ; @example
@@ -112,12 +130,15 @@
   ;
   ; @return (s)
   [n]
-  (if n (-> n clj-time.coerce/to-epoch)))
+  #?(:clj (if n (-> n clj-time.coerce/to-epoch))))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn timestamp-object->epoch-ms
+  ; @description
+  ; Converts the given timestamp object to epoch milliseconds.
+  ;
   ; @param (string) n
   ;
   ; @example
@@ -127,9 +148,12 @@
   ;
   ; @return (ms)
   [n]
-  (if n (-> n str clj-time.coerce/to-epoch convert/s->ms)))
+  #?(:clj (if n (-> n str clj-time.coerce/to-epoch convert/s->ms))))
 
 (defn timestamp-object->epoch-s
+  ; @description
+  ; Converts the given timestamp object to epoch seconds.
+  ;
   ; @param (string) n
   ;
   ; @example
@@ -139,14 +163,14 @@
   ;
   ; @return (s)
   [n]
-  (if n (-> n str clj-time.coerce/to-epoch)))
+  #?(:clj (if n (-> n str clj-time.coerce/to-epoch))))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn date->epoch-ms
   ; @description
-  ; Converts the given date to timestamp-string than converts the result to epoch-ms.
+  ; Converts the given date string to an epoch milliseconds value.
   ;
   ; @param (string) date
   ;
@@ -165,7 +189,7 @@
 
 (defn epoch-ms->date
   ; @description
-  ; Converts the given epoch-ms to timestamp-string than converts the result to date.
+  ; Converts the given epoch milliseconds value to a date string.
   ;
   ; @param (ms) epoch-ms
   ;
@@ -187,9 +211,9 @@
 
 (defn date-contains-epoch-ms?
   ; @description
-  ; Returns true if the given epoch-ms is ...
-  ; ... >= the first ms of the given date, and
-  ; ... <= the last ms of the given date.
+  ; Returns TRUE if the given epoch milliseconds value is ...
+  ; ... >= the first ms of the given date string,
+  ; ... <= the last ms of the given date string.
   ;
   ; @param (string) date
   ; @param (ms) epoch-ms
@@ -211,8 +235,8 @@
 
 (defn date-starts-before-epoch-ms?
   ; @description
-  ; Returns true if the given epoch-ms is ...
-  ; ... >= the first ms of the given date.
+  ; Returns TRUE if the given epoch milliseconds value is ...
+  ; ... >= the first ms of the given date string.
   ;
   ; @param (string) date
   ; @param (ms) epoch-ms
@@ -232,8 +256,8 @@
 
 (defn date-starts-after-epoch-ms?
   ; @description
-  ; Returns true if the given epoch-ms is ...
-  ; ... < the first ms of the given date.
+  ; Returns TRUE if the given epoch milliseconds value is ...
+  ; ... < the first ms of the given date string.
   ;
   ; @param (string) date
   ; @param (ms) epoch-ms
@@ -253,8 +277,8 @@
 
 (defn date-ends-before-epoch-ms?
   ; @description
-  ; Returns true if the given epoch-ms is ...
-  ; ... > the last ms of the given date.
+  ; Returns TRUE if the given epoch milliseconds value is ...
+  ; ... > the last ms of the given date string.
   ;
   ; @param (string) date
   ; @param (ms) epoch-ms
@@ -275,8 +299,8 @@
 
 (defn date-ends-after-epoch-ms?
   ; @description
-  ; Returns true if the given epoch-ms is ...
-  ; ... <= the last ms of the given date.
+  ; Returns TRUE if the given epoch milliseconds value is ...
+  ; ... <= the last ms of the given date string.
   ;
   ; @param (string) date
   ; @param (ms) epoch-ms

@@ -1,7 +1,7 @@
 
 ### time.api
 
-Functional documentation of the time.api ClojureScript namespace
+Functional documentation of the time.api isomorphic namespace
 
 ---
 
@@ -25,9 +25,21 @@ Functional documentation of the time.api ClojureScript namespace
 
 - [current-second](#current-second)
 
+- [current-week](#current-week)
+
 - [current-year](#current-year)
 
 - [date->epoch-ms](#date-epoch-ms)
+
+- [date-contains-epoch-ms?](#date-contains-epoch-ms)
+
+- [date-ends-after-epoch-ms?](#date-ends-after-epoch-ms)
+
+- [date-ends-before-epoch-ms?](#date-ends-before-epoch-ms)
+
+- [date-starts-after-epoch-ms?](#date-starts-after-epoch-ms)
+
+- [date-starts-before-epoch-ms?](#date-starts-before-epoch-ms)
 
 - [date-string?](#date-string)
 
@@ -39,9 +51,13 @@ Functional documentation of the time.api ClojureScript namespace
 
 - [epoch-ms->timestamp-string](#epoch-ms-timestamp-string)
 
+- [epoch-ms-age](#epoch-ms-age)
+
 - [epoch-s](#epoch-s)
 
 - [epoch-s->timestamp-string](#epoch-s-timestamp-string)
+
+- [epoch-s-age](#epoch-s-age)
 
 - [h->D](#h-d)
 
@@ -53,7 +69,7 @@ Functional documentation of the time.api ClojureScript namespace
 
 - [h->s](#h-s)
 
-- [hours-left-from-this-day](#hours-left-from-this-day)
+- [hours-left-from-current-day](#hours-left-from-current-day)
 
 - [m->D](#m-d)
 
@@ -65,11 +81,11 @@ Functional documentation of the time.api ClojureScript namespace
 
 - [m->s](#m-s)
 
-- [milliseconds-left-from-this-minute](#milliseconds-left-from-this-minute)
+- [milliseconds-left-from-current-minute](#milliseconds-left-from-current-minute)
 
-- [milliseconds-left-from-this-second](#milliseconds-left-from-this-second)
+- [milliseconds-left-from-current-second](#milliseconds-left-from-current-second)
 
-- [minutes-left-from-this-hour](#minutes-left-from-this-hour)
+- [minutes-left-from-current-hour](#minutes-left-from-current-hour)
 
 - [ms->D](#ms-d)
 
@@ -83,6 +99,12 @@ Functional documentation of the time.api ClojureScript namespace
 
 - [ms->time](#ms-time)
 
+- [parse-date](#parse-date)
+
+- [parse-timestamp](#parse-timestamp)
+
+- [parse-timestamps](#parse-timestamps)
+
 - [reduce-interval](#reduce-interval)
 
 - [s->D](#s-d)
@@ -95,7 +117,7 @@ Functional documentation of the time.api ClojureScript namespace
 
 - [s->ms](#s-ms)
 
-- [seconds-left-from-this-minute](#seconds-left-from-this-minute)
+- [seconds-left-from-current-minute](#seconds-left-from-current-minute)
 
 - [set-interval!](#set-interval)
 
@@ -104,6 +126,14 @@ Functional documentation of the time.api ClojureScript namespace
 - [timestamp-object](#timestamp-object)
 
 - [timestamp-object->day](#timestamp-object-day)
+
+- [timestamp-object->elapsed-ms](#timestamp-object-elapsed-ms)
+
+- [timestamp-object->elapsed-s](#timestamp-object-elapsed-s)
+
+- [timestamp-object->epoch-ms](#timestamp-object-epoch-ms)
+
+- [timestamp-object->epoch-s](#timestamp-object-epoch-s)
 
 - [timestamp-object->hours](#timestamp-object-hours)
 
@@ -129,6 +159,10 @@ Functional documentation of the time.api ClojureScript namespace
 
 - [timestamp-string->day](#timestamp-string-day)
 
+- [timestamp-string->elapsed-ms](#timestamp-string-elapsed-ms)
+
+- [timestamp-string->elapsed-s](#timestamp-string-elapsed-s)
+
 - [timestamp-string->epoch-ms](#timestamp-string-epoch-ms)
 
 - [timestamp-string->epoch-s](#timestamp-string-epoch-s)
@@ -153,6 +187,10 @@ Functional documentation of the time.api ClojureScript namespace
 
 - [timestamp-string?](#timestamp-string)
 
+- [unparse-timestamp](#unparse-timestamp)
+
+- [unparse-timestamps](#unparse-timestamps)
+
 ---
 
 ### clear-interval!
@@ -162,7 +200,7 @@ Functional documentation of the time.api ClojureScript namespace
 ```
 
 ```
-@return (nil)
+@return (clj: ?, cljs: integer)
 ```
 
 <details>
@@ -171,7 +209,7 @@ Functional documentation of the time.api ClojureScript namespace
 ```
 (defn clear-interval!
   [interval-id]
-  (.clearInterval js/window interval-id))
+  #?(:cljs (.clearInterval js/window interval-id)))
 ```
 
 </details>
@@ -191,6 +229,11 @@ Functional documentation of the time.api ClojureScript namespace
 ---
 
 ### current-date
+
+```
+@description
+Returns the actual date.
+```
 
 ```
 @usage
@@ -230,6 +273,11 @@ Functional documentation of the time.api ClojureScript namespace
 ### current-day
 
 ```
+@description
+Returns the actual day.
+```
+
+```
 @usage
 (current-day)
 ```
@@ -265,6 +313,11 @@ Functional documentation of the time.api ClojureScript namespace
 ---
 
 ### current-hour
+
+```
+@description
+Returns the actual hour.
+```
 
 ```
 @usage
@@ -304,6 +357,11 @@ Functional documentation of the time.api ClojureScript namespace
 ### current-millisecond
 
 ```
+@description
+Returns the actual millisecond.
+```
+
+```
 @usage
 (current-millisecond)
 ```
@@ -339,6 +397,11 @@ Functional documentation of the time.api ClojureScript namespace
 ---
 
 ### current-minute
+
+```
+@description
+Returns the actual minute.
+```
 
 ```
 @usage
@@ -378,6 +441,11 @@ Functional documentation of the time.api ClojureScript namespace
 ### current-month
 
 ```
+@description
+Returns the actual month.
+```
+
+```
 @usage
 (current-month)
 ```
@@ -415,6 +483,11 @@ Functional documentation of the time.api ClojureScript namespace
 ### current-second
 
 ```
+@description
+Returns the actual second.
+```
+
+```
 @usage
 (current-second)
 ```
@@ -449,7 +522,54 @@ Functional documentation of the time.api ClojureScript namespace
 
 ---
 
+### current-week
+
+```
+@description
+Returns the actual week.
+```
+
+```
+@usage
+(current-week)
+```
+
+```
+@return (W)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn current-week
+  []
+  (-> (timestamp/timestamp-object)
+      (timestamp/timestamp-object->week)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [current-week]]))
+
+(time.api/current-week)
+(current-week)
+```
+
+</details>
+
+---
+
 ### current-year
+
+```
+@description
+Returns the actual year.
+```
 
 ```
 @usage
@@ -490,7 +610,7 @@ Functional documentation of the time.api ClojureScript namespace
 
 ```
 @description
-Converts the given date to timestamp-string than converts the result to epoch-ms.
+Converts the given date string to an epoch milliseconds value.
 ```
 
 ```
@@ -539,7 +659,292 @@ The very first millisec of the given date.
 
 ---
 
+### date-contains-epoch-ms?
+
+```
+@description
+Returns TRUE if the given epoch milliseconds value is ...
+... >= the first ms of the given date string,
+... <= the last ms of the given date string.
+```
+
+```
+@param (string) date
+@param (ms) epoch-ms
+```
+
+```
+@usage
+(date-contains-epoch-ms? "2020-04-20" 1587344200000)
+```
+
+```
+@example
+(date-contains-epoch-ms? "2020-04-20" 1587344200000)
+=>
+true
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn date-contains-epoch-ms?
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)
+        date-end-ms   (+ date-start-ms 86399999)]
+       (and (>= epoch-ms date-start-ms)
+            (<= epoch-ms date-end-ms))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [date-contains-epoch-ms?]]))
+
+(time.api/date-contains-epoch-ms? ...)
+(date-contains-epoch-ms?          ...)
+```
+
+</details>
+
+---
+
+### date-ends-after-epoch-ms?
+
+```
+@description
+Returns TRUE if the given epoch milliseconds value is ...
+... <= the last ms of the given date string.
+```
+
+```
+@param (string) date
+@param (ms) epoch-ms
+```
+
+```
+@usage
+(date-ends-after-epoch-ms? "2020-04-20" 1587344200000)
+```
+
+```
+@example
+(date-ends-after-epoch-ms? "2020-04-20" 1587344200000)
+=>
+true
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn date-ends-after-epoch-ms?
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)
+        date-end-ms   (+ date-start-ms 86399999)]
+       (<= epoch-ms date-end-ms)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [date-ends-after-epoch-ms?]]))
+
+(time.api/date-ends-after-epoch-ms? ...)
+(date-ends-after-epoch-ms?          ...)
+```
+
+</details>
+
+---
+
+### date-ends-before-epoch-ms?
+
+```
+@description
+Returns TRUE if the given epoch milliseconds value is ...
+... > the last ms of the given date string.
+```
+
+```
+@param (string) date
+@param (ms) epoch-ms
+```
+
+```
+@usage
+(date-ends-before-epoch-ms? "2020-04-19" 1587344200000)
+```
+
+```
+@example
+(date-ends-before-epoch-ms? "2020-04-19" 1587344200000)
+=>
+true
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn date-ends-before-epoch-ms?
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)
+        date-end-ms   (+ date-start-ms 86399999)]
+       (> epoch-ms date-end-ms)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [date-ends-before-epoch-ms?]]))
+
+(time.api/date-ends-before-epoch-ms? ...)
+(date-ends-before-epoch-ms?          ...)
+```
+
+</details>
+
+---
+
+### date-starts-after-epoch-ms?
+
+```
+@description
+Returns TRUE if the given epoch milliseconds value is ...
+... < the first ms of the given date string.
+```
+
+```
+@param (string) date
+@param (ms) epoch-ms
+```
+
+```
+@usage
+(date-starts-after-epoch-ms? "2020-04-21" 1587344200000)
+```
+
+```
+@example
+(date-starts-after-epoch-ms? "2020-04-21" 1587344200000)
+=>
+true
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn date-starts-after-epoch-ms?
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)]
+       (< epoch-ms date-start-ms)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [date-starts-after-epoch-ms?]]))
+
+(time.api/date-starts-after-epoch-ms? ...)
+(date-starts-after-epoch-ms?          ...)
+```
+
+</details>
+
+---
+
+### date-starts-before-epoch-ms?
+
+```
+@description
+Returns TRUE if the given epoch milliseconds value is ...
+... >= the first ms of the given date string.
+```
+
+```
+@param (string) date
+@param (ms) epoch-ms
+```
+
+```
+@usage
+(date-starts-before-epoch-ms? "2020-04-20" 1587344200000)
+```
+
+```
+@example
+(date-starts-before-epoch-ms? "2020-04-20" 1587344200000)
+=>
+true
+```
+
+```
+@return (boolean)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn date-starts-before-epoch-ms?
+  [date epoch-ms]
+  (let [date-start-ms (date->epoch-ms date)]
+       (>= epoch-ms date-start-ms)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [date-starts-before-epoch-ms?]]))
+
+(time.api/date-starts-before-epoch-ms? ...)
+(date-starts-before-epoch-ms?          ...)
+```
+
+</details>
+
+---
+
 ### date-string?
+
+```
+@description
+Returns TRUE if the given 'n' value is a date string.
+```
 
 ```
 @param (*) n
@@ -585,6 +990,13 @@ true
 ### elapsed
 
 ```
+@description
+Returns a high resolution timestamp in milliseconds that represents the time elapsed since
+the time when navigation has started in window contexts, or the time when the worker is run
+in Worker and ServiceWorker contexts.
+```
+
+```
 @usage
 (elapsed)
 ```
@@ -599,7 +1011,7 @@ true
 ```
 (defn elapsed
   []
-  (.now js/performance))
+  #?(:cljs (.now js/performance)))
 ```
 
 </details>
@@ -621,6 +1033,11 @@ true
 ### epoch-ms
 
 ```
+@description
+Returns the actual epoch milliseconds.
+```
+
+```
 @usage
 (epoch-ms)
 ```
@@ -634,7 +1051,9 @@ true
 
 ```
 (defn epoch-ms
-  [])
+  []
+  #?(:clj (-> (clj-time.core/now)
+              (clj-time.coerce/to-long))))
 ```
 
 </details>
@@ -657,7 +1076,7 @@ true
 
 ```
 @description
-Converts the given date to timestamp-string than converts the result to epoch-ms.
+Converts the given epoch milliseconds value to a date string.
 ```
 
 ```
@@ -678,7 +1097,7 @@ Converts the given date to timestamp-string than converts the result to epoch-ms
 
 ```
 @return (string)
-The date of the given millisec.
+The date that contains the given epoch-ms.
 ```
 
 <details>
@@ -709,6 +1128,11 @@ The date of the given millisec.
 ### epoch-ms->timestamp-string
 
 ```
+@description
+Converts the given epoch milliseconds to timestamp string.
+```
+
+```
 @param (ms) n
 ```
 
@@ -728,7 +1152,8 @@ The date of the given millisec.
 
 ```
 (defn epoch-ms->timestamp-string
-  [n])
+  [n]
+  #?(:clj (if n (-> n clj-time.coerce/from-long str))))
 ```
 
 </details>
@@ -747,7 +1172,59 @@ The date of the given millisec.
 
 ---
 
+### epoch-ms-age
+
+```
+@description
+Returns how many milliseconds elapsed since the given epoch milliseconds.
+```
+
+```
+@param (ms) n
+```
+
+```
+@example
+(epoch-ms-age 1640800860000)
+=>
+420000
+```
+
+```
+@return (ms)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn epoch-ms-age
+  [n]
+  (- (epoch-ms) n))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [epoch-ms-age]]))
+
+(time.api/epoch-ms-age ...)
+(epoch-ms-age          ...)
+```
+
+</details>
+
+---
+
 ### epoch-s
+
+```
+@description
+Returns the actual epoch seconds.
+```
 
 ```
 @usage
@@ -763,7 +1240,10 @@ The date of the given millisec.
 
 ```
 (defn epoch-s
-  [])
+  []
+  #?(:clj (-> (clj-time.core/now)
+              (clj-time.coerce/to-long)
+              (quot 1000))))
 ```
 
 </details>
@@ -785,6 +1265,11 @@ The date of the given millisec.
 ### epoch-s->timestamp-string
 
 ```
+@description
+Converts the given epoch seconds to timestamp string.
+```
+
+```
 @param (s) n
 ```
 
@@ -804,7 +1289,8 @@ The date of the given millisec.
 
 ```
 (defn epoch-s->timestamp-string
-  [n])
+  [n]
+  #?(:clj (if n (-> n convert/s->ms clj-time.coerce/from-long str))))
 ```
 
 </details>
@@ -823,7 +1309,59 @@ The date of the given millisec.
 
 ---
 
+### epoch-s-age
+
+```
+@description
+Returns how many seconds elapsed since the given epoch seconds.
+```
+
+```
+@param (s) n
+```
+
+```
+@example
+(epoch-s-age 1640800860)
+=>
+420
+```
+
+```
+@return (s)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn epoch-s-age
+  [n]
+  (- (epoch-s) n))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [epoch-s-age]]))
+
+(time.api/epoch-s-age ...)
+(epoch-s-age          ...)
+```
+
+</details>
+
+---
+
 ### h->D
+
+```
+@description
+Converts the given hours to days.
+```
 
 ```
 @param (h) n
@@ -832,6 +1370,13 @@ The date of the given millisec.
 ```
 @usage
 (h->D 420)
+```
+
+```
+@example
+(h->D 420)
+=>
+17.5
 ```
 
 ```
@@ -866,12 +1411,24 @@ The date of the given millisec.
 ### h->W
 
 ```
+@description
+Converts the given hours to weeks.
+```
+
+```
 @param (h) n
 ```
 
 ```
 @usage
 (h->W 420)
+```
+
+```
+@example
+(h->W 420)
+=>
+2.5
 ```
 
 ```
@@ -906,12 +1463,24 @@ The date of the given millisec.
 ### h->m
 
 ```
+@description
+Converts the given hours to minutes.
+```
+
+```
 @param (h) n
 ```
 
 ```
 @usage
-(h->,óm 420)
+(h->m 420)
+```
+
+```
+@example
+(h->m 420)
+=>
+25200
 ```
 
 ```
@@ -946,12 +1515,24 @@ The date of the given millisec.
 ### h->ms
 
 ```
+@description
+Converts the given hours to milliseconds.
+```
+
+```
 @param (h) n
 ```
 
 ```
 @usage
 (h->ms 420)
+```
+
+```
+@example
+(h->ms 420)
+=>
+1521000000
 ```
 
 ```
@@ -986,12 +1567,24 @@ The date of the given millisec.
 ### h->s
 
 ```
+@description
+Converts the given hours to seconds.
+```
+
+```
 @param (h) n
 ```
 
 ```
 @usage
 (h->s 420)
+```
+
+```
+@example
+(h->s 420)
+=>
+1512000
 ```
 
 ```
@@ -1023,11 +1616,16 @@ The date of the given millisec.
 
 ---
 
-### hours-left-from-this-day
+### hours-left-from-current-day
+
+```
+@description
+Returns how many hours left from the actual day.
+```
 
 ```
 @usage
-(hours-left-from-this-day)
+(hours-left-from-current-day)
 ```
 
 ```
@@ -1038,7 +1636,7 @@ The date of the given millisec.
 <summary>Source code</summary>
 
 ```
-(defn hours-left-from-this-day
+(defn hours-left-from-current-day
   []
   (let [current-hour (current-hour)]
        (- 24 current-hour)))
@@ -1050,10 +1648,10 @@ The date of the given millisec.
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :refer [hours-left-from-this-day]]))
+(ns my-namespace (:require [time.api :refer [hours-left-from-current-day]]))
 
-(time.api/hours-left-from-this-day)
-(hours-left-from-this-day)
+(time.api/hours-left-from-current-day)
+(hours-left-from-current-day)
 ```
 
 </details>
@@ -1063,12 +1661,24 @@ The date of the given millisec.
 ### m->D
 
 ```
+@description
+Converts the given minutes to days.
+```
+
+```
 @param (m) n
 ```
 
 ```
 @usage
-(m->D 420)
+(m->h 420)
+```
+
+```
+@example
+(m->h 420)
+=>
+0.291666'
 ```
 
 ```
@@ -1103,12 +1713,24 @@ The date of the given millisec.
 ### m->W
 
 ```
+@description
+Converts the given minutes to weeks.
+```
+
+```
 @param (m) n
 ```
 
 ```
 @usage
 (m->W 420)
+```
+
+```
+@example
+(m->W 420)
+=>
+0.3888'
 ```
 
 ```
@@ -1143,12 +1765,24 @@ The date of the given millisec.
 ### m->h
 
 ```
+@description
+Converts the given minutes to hours.
+```
+
+```
 @param (m) n
 ```
 
 ```
 @usage
 (m->h 420)
+```
+
+```
+@example
+(m->h 420)
+=>
+7
 ```
 
 ```
@@ -1183,12 +1817,24 @@ The date of the given millisec.
 ### m->ms
 
 ```
+@description
+Converts the given minutes to milliseconds.
+```
+
+```
 @param (m) n
 ```
 
 ```
 @usage
 (m->ms 420)
+```
+
+```
+@example
+(m->ms 420)
+=>
+25200000
 ```
 
 ```
@@ -1223,12 +1869,24 @@ The date of the given millisec.
 ### m->s
 
 ```
+@description
+Converts the given minutes to seconds.
+```
+
+```
 @param (m) n
 ```
 
 ```
 @usage
 (m->s 420)
+```
+
+```
+@example
+(m->s 420)
+=>
+25200
 ```
 
 ```
@@ -1260,11 +1918,16 @@ The date of the given millisec.
 
 ---
 
-### milliseconds-left-from-this-minute
+### milliseconds-left-from-current-minute
+
+```
+@description
+Returns how many milliseconds left from the actual minute.
+```
 
 ```
 @usage
-(milliseconds-left-from-this-minute)
+(milliseconds-left-from-current-minute)
 ```
 
 ```
@@ -1275,10 +1938,10 @@ The date of the given millisec.
 <summary>Source code</summary>
 
 ```
-(defn milliseconds-left-from-this-minute
+(defn milliseconds-left-from-current-minute
   []
-  (let [seconds-left-from-this-minute (seconds-left-from-this-minute)]
-       (* 1000 seconds-left-from-this-minute)))
+  (let [seconds-left-from-current-minute (seconds-left-from-current-minute)]
+       (* 1000 seconds-left-from-current-minute)))
 ```
 
 </details>
@@ -1287,21 +1950,26 @@ The date of the given millisec.
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :refer [milliseconds-left-from-this-minute]]))
+(ns my-namespace (:require [time.api :refer [milliseconds-left-from-current-minute]]))
 
-(time.api/milliseconds-left-from-this-minute)
-(milliseconds-left-from-this-minute)
+(time.api/milliseconds-left-from-current-minute)
+(milliseconds-left-from-current-minute)
 ```
 
 </details>
 
 ---
 
-### milliseconds-left-from-this-second
+### milliseconds-left-from-current-second
+
+```
+@description
+Returns how many milliseconds left from the actual second.
+```
 
 ```
 @usage
-(milliseconds-left-from-this-second)
+(milliseconds-left-from-current-second)
 ```
 
 ```
@@ -1312,7 +1980,7 @@ The date of the given millisec.
 <summary>Source code</summary>
 
 ```
-(defn milliseconds-left-from-this-second
+(defn milliseconds-left-from-current-second
   []
   (let [current-millisecond (current-millisecond)]
        (- 1000 current-millisecond)))
@@ -1324,21 +1992,26 @@ The date of the given millisec.
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :refer [milliseconds-left-from-this-second]]))
+(ns my-namespace (:require [time.api :refer [milliseconds-left-from-current-second]]))
 
-(time.api/milliseconds-left-from-this-second)
-(milliseconds-left-from-this-second)
+(time.api/milliseconds-left-from-current-second)
+(milliseconds-left-from-current-second)
 ```
 
 </details>
 
 ---
 
-### minutes-left-from-this-hour
+### minutes-left-from-current-hour
+
+```
+@description
+Returns how many minutes left from the actual hour.
+```
 
 ```
 @usage
-(minutes-left-from-this-hour)
+(minutes-left-from-current-hour)
 ```
 
 ```
@@ -1349,7 +2022,7 @@ The date of the given millisec.
 <summary>Source code</summary>
 
 ```
-(defn minutes-left-from-this-hour
+(defn minutes-left-from-current-hour
   []
   (let [current-minute (current-minute)]
        (- 60 current-minute)))
@@ -1361,10 +2034,10 @@ The date of the given millisec.
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :refer [minutes-left-from-this-hour]]))
+(ns my-namespace (:require [time.api :refer [minutes-left-from-current-hour]]))
 
-(time.api/minutes-left-from-this-hour)
-(minutes-left-from-this-hour)
+(time.api/minutes-left-from-current-hour)
+(minutes-left-from-current-hour)
 ```
 
 </details>
@@ -1374,12 +2047,24 @@ The date of the given millisec.
 ### ms->D
 
 ```
+@description
+Converts the given milliseconds to days.
+```
+
+```
 @param (ms) n
 ```
 
 ```
 @usage
 (ms->D 420)
+```
+
+```
+@example
+(ms->D 420)
+=>
+0.00000486111'
 ```
 
 ```
@@ -1414,12 +2099,24 @@ The date of the given millisec.
 ### ms->W
 
 ```
+@description
+Converts the given milliseconds to weeks.
+```
+
+```
 @param (ms) n
 ```
 
 ```
 @usage
 (ms->W 420)
+```
+
+```
+@example
+(ms->W 420)
+=>
+0.00000069444'
 ```
 
 ```
@@ -1454,12 +2151,24 @@ The date of the given millisec.
 ### ms->h
 
 ```
+@description
+Converts the given milliseconds to hours.
+```
+
+```
 @param (ms) n
 ```
 
 ```
 @usage
 (ms->h 420)
+```
+
+```
+@example
+(ms->h 420)
+=>
+0.00011666'
 ```
 
 ```
@@ -1494,12 +2203,24 @@ The date of the given millisec.
 ### ms->m
 
 ```
+@description
+Converts the given milliseconds to minutes.
+```
+
+```
 @param (ms) n
 ```
 
 ```
 @usage
 (ms->m 420)
+```
+
+```
+@example
+(ms->m 420)
+=>
+0.007
 ```
 
 ```
@@ -1534,12 +2255,24 @@ The date of the given millisec.
 ### ms->s
 
 ```
+@description
+Converts the given milliseconds to seconds.
+```
+
+```
 @param (ms) n
 ```
 
 ```
 @usage
 (ms->s 420)
+```
+
+```
+@example
+(ms->s 420)
+=>
+0.42
 ```
 
 ```
@@ -1574,9 +2307,15 @@ The date of the given millisec.
 ### ms->time
 
 ```
+@description
+Converts the given milliseconds to time string.
+```
+
+```
 @param (float, integer or string) n
 @param (keyword)(opt) format
-:hhmmssmmm, :hhmmss
+:hhmm, :hhmmss, :hhmmssmmm
+Default: :hhmmssmmm
 ```
 
 ```
@@ -1614,11 +2353,12 @@ The date of the given millisec.
 
   ([n format]
    (if n (let [hours        (format/leading-zeros      (-> n ms->h math/floor)       2)
-               minutes      (format/leading-zeros (rem (-> n ms->m math/floor) 60)   2)
-               seconds      (format/leading-zeros (rem (-> n ms->s math/floor) 60)   2)
+               minutes      (format/leading-zeros (rem (-> n ms->m math/floor)   60) 2)
+               seconds      (format/leading-zeros (rem (-> n ms->s math/floor)   60) 2)
                milliseconds (format/leading-zeros (rem (-> n       math/floor) 1000) 3)]
-              (case format :hhmmssmmm (str hours ":" minutes ":" seconds "." milliseconds)
-                           :hhmmss    (str hours ":" minutes ":" seconds))))))
+              (case format :hhmmssmmm (str hours":"minutes":"seconds"."milliseconds)
+                           :hhmmss    (str hours":"minutes":"seconds)
+                           :hhmm      (str hours":"minutes))))))
 ```
 
 </details>
@@ -1637,7 +2377,162 @@ The date of the given millisec.
 
 ---
 
+### parse-date
+
+```
+@description
+Converts the given date string to timestamp object.
+```
+
+```
+@param (string) n
+```
+
+```
+@example
+(parse-date "2020-04-20")
+=>
+#<DateTime 2020-04-20T00:00:00.000Z>
+```
+
+```
+@return (object)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn parse-date
+  [n]
+  #?(:clj (try (let [formatter (clj-time.format/formatter "yyyy-MM-dd")]
+                    (clj-time.format/parse formatter n))
+               (catch Exception e (println e)))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [parse-date]]))
+
+(time.api/parse-date ...)
+(parse-date          ...)
+```
+
+</details>
+
+---
+
+### parse-timestamp
+
+```
+@description
+Converts the given timestamp string to timestamp object.
+```
+
+```
+@param (string) n
+```
+
+```
+@example
+(parse-timestamp "2020-04-20T16:20:00.123")
+=>
+#<DateTime 2020-04-20T16:20:00.123Z>
+```
+
+```
+@return (object)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn parse-timestamp
+  [n]
+  #?(:clj (try (let [formatter (clj-time.format/formatters :date-time)]
+                    (clj-time.format/parse formatter n))
+               (catch Exception e (println e)))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [parse-timestamp]]))
+
+(time.api/parse-timestamp ...)
+(parse-timestamp          ...)
+```
+
+</details>
+
+---
+
+### parse-timestamps
+
+```
+@description
+Converts the timestamp strings in the given data structure to timestamp objects.
+```
+
+```
+@param (*) n
+```
+
+```
+@example
+(parse-timestamps {:my-timestamp "2020-04-20T16:20:00.123Z"})
+=>
+{:my-timestamp #<DateTime 2020-04-20T16:20:00.123Z>}
+```
+
+```
+@return (*)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn parse-timestamps
+  [n]
+  (cond (timestamp/date-string?      n) (parse-date      n)
+        (timestamp/timestamp-string? n) (parse-timestamp n)
+        (map?                        n) (map/->values    n parse-timestamps)
+        (vector?                     n) (vector/->items  n parse-timestamps)
+        :return n))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [parse-timestamps]]))
+
+(time.api/parse-timestamps ...)
+(parse-timestamps          ...)
+```
+
+</details>
+
+---
+
 ### reduce-interval
+
+```
+@description
+Iterates over the given 'coll' collection and applies the given 'f' function on each item
+while taking an 'interval' long pause between them.
+```
 
 ```
 @param (function) f
@@ -1690,12 +2585,24 @@ The date of the given millisec.
 ### s->D
 
 ```
+@description
+Converts the given seconds to milliseconds.
+```
+
+```
 @param (s) n
 ```
 
 ```
 @usage
 (s->D 420)
+```
+
+```
+@example
+(s->D 420)
+=>
+0.00486111'
 ```
 
 ```
@@ -1730,12 +2637,24 @@ The date of the given millisec.
 ### s->W
 
 ```
+@description
+Converts the given seconds to milliseconds.
+```
+
+```
 @param (s) n
 ```
 
 ```
 @usage
 (s->W 420)
+```
+
+```
+@example
+(s->W 420)
+=>
+0.00069444'
 ```
 
 ```
@@ -1770,12 +2689,24 @@ The date of the given millisec.
 ### s->h
 
 ```
+@description
+Converts the given seconds to milliseconds.
+```
+
+```
 @param (s) n
 ```
 
 ```
 @usage
 (s->h 420)
+```
+
+```
+@example
+(s->h 420)
+=>
+0.11666'
 ```
 
 ```
@@ -1810,12 +2741,24 @@ The date of the given millisec.
 ### s->m
 
 ```
+@description
+Converts the given seconds to milliseconds.
+```
+
+```
 @param (s) n
 ```
 
 ```
 @usage
 (s->m 420)
+```
+
+```
+@example
+(s->m 420)
+=>
+7
 ```
 
 ```
@@ -1850,12 +2793,24 @@ The date of the given millisec.
 ### s->ms
 
 ```
+@description
+Converts the given seconds to milliseconds.
+```
+
+```
 @param (s) n
 ```
 
 ```
 @usage
 (s->ms 420)
+```
+
+```
+@example
+(s->ms 420)
+=>
+420000
 ```
 
 ```
@@ -1887,11 +2842,16 @@ The date of the given millisec.
 
 ---
 
-### seconds-left-from-this-minute
+### seconds-left-from-current-minute
+
+```
+@description
+Returns how many seconds left from the actual minute.
+```
 
 ```
 @usage
-(seconds-left-from-this-minute)
+(seconds-left-from-current-minute)
 ```
 
 ```
@@ -1902,7 +2862,7 @@ The date of the given millisec.
 <summary>Source code</summary>
 
 ```
-(defn seconds-left-from-this-minute
+(defn seconds-left-from-current-minute
   []
   (let [current-second (current-second)]
        (- 60 current-second)))
@@ -1914,10 +2874,10 @@ The date of the given millisec.
 <summary>Require</summary>
 
 ```
-(ns my-namespace (:require [time.api :refer [seconds-left-from-this-minute]]))
+(ns my-namespace (:require [time.api :refer [seconds-left-from-current-minute]]))
 
-(time.api/seconds-left-from-this-minute)
-(seconds-left-from-this-minute)
+(time.api/seconds-left-from-current-minute)
+(seconds-left-from-current-minute)
 ```
 
 </details>
@@ -1937,7 +2897,7 @@ The date of the given millisec.
 ```
 
 ```
-@return (integer)
+@return (clj: tea_time.core.Every object, cljs: integer)
 ```
 
 <details>
@@ -1946,7 +2906,8 @@ The date of the given millisec.
 ```
 (defn set-interval!
   [f interval]
-  (.setInterval js/window f interval))
+  #?(:clj  (tea-time.core/every! (convert/ms->s interval) 0 f)
+     :cljs (.setInterval js/window f interval)))
 ```
 
 </details>
@@ -1978,7 +2939,7 @@ The date of the given millisec.
 ```
 
 ```
-@return (integer)
+@return (clj: tea_time.core.Once object, cljs: integer)
 ```
 
 <details>
@@ -1987,7 +2948,8 @@ The date of the given millisec.
 ```
 (defn set-timeout!
   [f timeout]
-  (.setTimeout js/window f timeout))
+  #?(:clj  (tea-time.core/after! (convert/ms->s timeout) f)
+     :cljs (.setTimeout js/window f timeout)))
 ```
 
 </details>
@@ -2009,17 +2971,26 @@ The date of the given millisec.
 ### timestamp-object
 
 ```
+@description
+Returns a timestamp object.
+```
+
+```
 @param (string)(opt) time-zone
 ```
 
 ```
-@usage
+@example
 (timestamp-object)
+=>
+#<DateTime 2020-04-20T16:20:00.123Z>
 ```
 
 ```
-@usage
+@example
 (timestamp-object "Europe/Budapest")
+=>
+#<DateTime 2020-04-20T16:20:00.123+02:00>
 ```
 
 ```
@@ -2032,9 +3003,13 @@ The date of the given millisec.
 ```
 (defn timestamp-object
   ([]
-   (cljs-time.core/now))
+   #?(:clj  (clj-time.core/now)
+      :cljs (cljs-time.core/now)))
 
-  ([time-zone]))
+  ([time-zone]
+   #?(:clj (let [timestamp (clj-time.core/now)
+                 time-zone (clj-time.core/time-zone-for-id time-zone)]
+                (clj-time.core/to-time-zone timestamp time-zone)))))
 ```
 
 </details>
@@ -2056,18 +3031,23 @@ The date of the given millisec.
 ### timestamp-object->day
 
 ```
+@description
+Converts the given timestamp object to day.
+```
+
+```
 @param (object) n
 ```
 
 ```
 @example
-(timestamp->day #<DateTime 2020-04-20T16:20:00.123Z>)
+(timestamp-object->day #<DateTime 2020-04-20T16:20:00.123Z>)
 =>
 20
 ```
 
 ```
-@return (D)
+@return (integer)
 ```
 
 <details>
@@ -2076,7 +3056,8 @@ The date of the given millisec.
 ```
 (defn timestamp-object->day
   [n]
-  (cljs-time.core/day n))
+  #?(:clj  (clj-time.core/day  n)
+     :cljs (cljs-time.core/day n)))
 ```
 
 </details>
@@ -2095,7 +3076,198 @@ The date of the given millisec.
 
 ---
 
+### timestamp-object->elapsed-ms
+
+```
+@description
+Returns how many milliseconds elapsed since the given timestamp object.
+```
+
+```
+@param (string) n
+```
+
+```
+@usage
+(timestamp-object->elapsed-ms #<DateTime 2020-04-20T16:20:00.123Z>)
+```
+
+```
+@return (ms)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn timestamp-object->elapsed-ms
+  [n]
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-object->epoch-ms (- epoch-ms))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [timestamp-object->elapsed-ms]]))
+
+(time.api/timestamp-object->elapsed-ms ...)
+(timestamp-object->elapsed-ms          ...)
+```
+
+</details>
+
+---
+
+### timestamp-object->elapsed-s
+
+```
+@description
+Returns how many seconds elapsed since the given timestamp object.
+```
+
+```
+@param (string) n
+```
+
+```
+@usage
+(timestamp-object->elapsed-s #<DateTime 2020-04-20T16:20:00.123Z>)
+```
+
+```
+@return (s)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn timestamp-object->elapsed-s
+  [n]
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-object->epoch-ms (- epoch-ms) convert/ms->s)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [timestamp-object->elapsed-s]]))
+
+(time.api/timestamp-object->elapsed-s ...)
+(timestamp-object->elapsed-s          ...)
+```
+
+</details>
+
+---
+
+### timestamp-object->epoch-ms
+
+```
+@description
+Converts the given timestamp object to epoch milliseconds.
+```
+
+```
+@param (string) n
+```
+
+```
+@example
+(timestamp-object->epoch-ms #<DateTime 2021-12-29T18:01:00.000+02:00>)
+=>
+1640800860000
+```
+
+```
+@return (ms)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn timestamp-object->epoch-ms
+  [n]
+  #?(:clj (if n (-> n str clj-time.coerce/to-epoch convert/s->ms))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [timestamp-object->epoch-ms]]))
+
+(time.api/timestamp-object->epoch-ms ...)
+(timestamp-object->epoch-ms          ...)
+```
+
+</details>
+
+---
+
+### timestamp-object->epoch-s
+
+```
+@description
+Converts the given timestamp object to epoch seconds.
+```
+
+```
+@param (string) n
+```
+
+```
+@example
+(timestamp-object->epoch-s #<DateTime 2021-12-29T18:01:00.000+02:00>)
+=>
+1640800860
+```
+
+```
+@return (s)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn timestamp-object->epoch-s
+  [n]
+  #?(:clj (if n (-> n str clj-time.coerce/to-epoch))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [timestamp-object->epoch-s]]))
+
+(time.api/timestamp-object->epoch-s ...)
+(timestamp-object->epoch-s          ...)
+```
+
+</details>
+
+---
+
 ### timestamp-object->hours
+
+```
+@description
+Converts the given timestamp object to hours.
+```
 
 ```
 @param (object) n
@@ -2103,7 +3275,7 @@ The date of the given millisec.
 
 ```
 @example
-(timestamp->hours #<DateTime 2020-04-20T16:20:00.123Z>)
+(timestamp-object->hours #<DateTime 2020-04-20T16:20:00.123Z>)
 =>
 16
 ```
@@ -2118,7 +3290,8 @@ The date of the given millisec.
 ```
 (defn timestamp-object->hours
   [n]
-  (cljs-time.core/hour n))
+  #?(:clj  (clj-time.core/hours n)
+     :cljs (cljs-time.core/hour n)))
 ```
 
 </details>
@@ -2140,12 +3313,17 @@ The date of the given millisec.
 ### timestamp-object->milliseconds
 
 ```
+@description
+Converts the given timestamp object to milliseconds.
+```
+
+```
 @param (object) n
 ```
 
 ```
 @example
-(timestamp->milliseconds #<DateTime 2020-04-20T16:20:00.123Z>)
+(timestamp-object->milliseconds #<DateTime 2020-04-20T16:20:00.123Z>)
 =>
 123
 ```
@@ -2160,7 +3338,8 @@ The date of the given millisec.
 ```
 (defn timestamp-object->milliseconds
   [n]
-  (cljs-time.core/milli n))
+  #?(:clj  (clj-time.core/milli  n)
+     :cljs (cljs-time.core/milli n)))
 ```
 
 </details>
@@ -2182,12 +3361,17 @@ The date of the given millisec.
 ### timestamp-object->minutes
 
 ```
+@description
+Converts the given timestamp object to minutes.
+```
+
+```
 @param (object) n
 ```
 
 ```
 @example
-(timestamp->minutes #<DateTime 2020-04-20T16:20:00.123Z>)
+(timestamp-object->minutes #<DateTime 2020-04-20T16:20:00.123Z>)
 =>
 20
 ```
@@ -2202,7 +3386,8 @@ The date of the given millisec.
 ```
 (defn timestamp-object->minutes
   [n]
-  (cljs-time.core/minute n))
+  #?(:clj  (clj-time.core/minutes n)
+     :cljs (cljs-time.core/minute n)))
 ```
 
 </details>
@@ -2224,12 +3409,17 @@ The date of the given millisec.
 ### timestamp-object->month
 
 ```
+@description
+Converts the given timestamp object to month.
+```
+
+```
 @param (object) n
 ```
 
 ```
 @example
-(timestamp->month #<DateTime 2020-04-20T16:20:00.123Z>)
+(timestamp-object->month #<DateTime 2020-04-20T16:20:00.123Z>)
 =>
 4
 ```
@@ -2244,7 +3434,8 @@ The date of the given millisec.
 ```
 (defn timestamp-object->month
   [n]
-  (cljs-time.core/month n))
+  #?(:clj  (clj-time.core/month  n)
+     :cljs (cljs-time.core/month n)))
 ```
 
 </details>
@@ -2266,12 +3457,17 @@ The date of the given millisec.
 ### timestamp-object->seconds
 
 ```
+@description
+Converts the given timestamp object to seconds.
+```
+
+```
 @param (object) n
 ```
 
 ```
 @example
-(timestamp->seconds #<DateTime 2020-04-20T16:20:00.123Z>)
+(timestamp-object->seconds #<DateTime 2020-04-20T16:20:00.123Z>)
 =>
 0
 ```
@@ -2286,7 +3482,8 @@ The date of the given millisec.
 ```
 (defn timestamp-object->seconds
   [n]
-  (cljs-time.core/sec n))
+  #?(:clj  (clj-time.core/seconds n)
+     :cljs (cljs-time.core/sec    n)))
 ```
 
 </details>
@@ -2308,14 +3505,19 @@ The date of the given millisec.
 ### timestamp-object->week
 
 ```
+@description
+Converts the given timestamp object to week.
+```
+
+```
 @param (object) n
 ```
 
 ```
 @example
-(timestamp->week #<DateTime 2020-04-20T16:20:00.123Z>)
+(timestamp-object->week #<DateTime 2020-04-20T16:20:00.123Z>)
 =>
-16
+4
 ```
 
 ```
@@ -2328,7 +3530,8 @@ The date of the given millisec.
 ```
 (defn timestamp-object->week
   [n]
-  (cljs-time.core/week-number-of-year n))
+  #?(:clj  (clj-time.core/week-number-of-year  n)
+     :cljs (cljs-time.core/week-number-of-year n)))
 ```
 
 </details>
@@ -2350,12 +3553,17 @@ The date of the given millisec.
 ### timestamp-object->year
 
 ```
+@description
+Converts the given timestamp object to year.
+```
+
+```
 @param (object) n
 ```
 
 ```
 @example
-(timestamp->year #<DateTime 2020-04-20T16:20:00.123Z>)
+(timestamp-object->year #<DateTime 2020-04-20T16:20:00.123Z>)
 =>
 2020
 ```
@@ -2370,7 +3578,8 @@ The date of the given millisec.
 ```
 (defn timestamp-object->year
   [n]
-  (cljs-time.core/year n))
+  #?(:clj  (clj-time.core/year  n)
+     :cljs (cljs-time.core/year n)))
 ```
 
 </details>
@@ -2392,7 +3601,19 @@ The date of the given millisec.
 ### timestamp-object?
 
 ```
+@description
+Returns TRUE if the given 'n' value is a timestamp object.
+```
+
+```
 @param (*) n
+```
+
+```
+@example
+(timestamp-object? #<DateTime 2020-04-20T16:20:00.123+02:00>)
+=>
+true
 ```
 
 ```
@@ -2404,7 +3625,9 @@ The date of the given millisec.
 
 ```
 (defn timestamp-object?
-  [n])
+  [n]
+  #?(:clj (let [type (type n)]
+               (= type org.joda.time.DateTime))))
 ```
 
 </details>
@@ -2426,6 +3649,29 @@ The date of the given millisec.
 ### timestamp-string
 
 ```
+@description
+Returns a timestamp string.
+```
+
+```
+@param (string)(opt) time-zone
+```
+
+```
+@example
+(timestamp-string)
+=>
+"2020-04-20T16:20:00.123Z"
+```
+
+```
+@example
+(timestamp-string "Europe/Budapest")
+=>
+"2020-04-20T16:20:00.123+02:00"
+```
+
+```
 @return (string)
 ```
 
@@ -2434,10 +3680,16 @@ The date of the given millisec.
 
 ```
 (defn timestamp-string
-  []
-  (let [formatter (cljs-time.format/formatter "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-        timestamp (cljs-time.core/now)]
-       (cljs-time.format/unparse formatter timestamp)))
+  ([]
+   #?(:clj  (let [timestamp-object (timestamp-object)]
+                 (str timestamp-object))
+      :cljs (let [formatter (cljs-time.format/formatter "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                  timestamp (cljs-time.core/now)]
+                 (cljs-time.format/unparse formatter timestamp))))
+
+  ([time-zone]
+   #?(:clj (let [timestamp-object (timestamp-object time-zone)]
+                (str timestamp-object)))))
 ```
 
 </details>
@@ -2448,8 +3700,8 @@ The date of the given millisec.
 ```
 (ns my-namespace (:require [time.api :refer [timestamp-string]]))
 
-(time.api/timestamp-string)
-(timestamp-string)
+(time.api/timestamp-string ...)
+(timestamp-string          ...)
 ```
 
 </details>
@@ -2459,9 +3711,14 @@ The date of the given millisec.
 ### timestamp-string->date
 
 ```
+@description
+Converts the given timestamp string to date string.
+```
+
+```
 @param (string) n
 @param (keyword)(opt) format
-:yyyymmdd, :yymmdd
+:mmdd, :yymmdd, :yyyymmdd
 Default: :yyyymmdd
 ```
 
@@ -2486,12 +3743,13 @@ Default: :yyyymmdd
 
   ([n format]
    (if (string/nonblank? n)
-       (let [year  (timestamp-string->year n)
+       (let [year                        (timestamp-string->year  n)
              month (format/leading-zeros (timestamp-string->month n) 2)
              day   (format/leading-zeros (timestamp-string->day   n) 2)]
-            (case format :yyyymmdd (str year "-" month "-" day)
-                         :yymmdd   (let [year (string/part year 2 2)]
-                                        (str year "-" month "-" day))
+            (case format :yyyymmdd (str year"-"month"-"day)
+                         :yymmdd   (let [year (string/part year 2 4)]
+                                        (str year"-"month"-"day))
+                         :mmdd     (str month"-"day)
                          (-> n))))))
 ```
 
@@ -2514,18 +3772,23 @@ Default: :yyyymmdd
 ### timestamp-string->date-time
 
 ```
+@description
+Converts the given timestamp string to date and time string.
+```
+
+```
 @param (string) n
 @param (keyword)(opt) date-format
-:yyyymmdd, :yymmdd
+:mmdd, :yymmdd, :yyyymmdd
 Default: :yyyymmdd
 @param (keyword)(opt) time-format
-:hhmmss, :hhmm
+:hhmm, :hhmmss, :hhmmssmmm
 Default: :hhmmss
 ```
 
 ```
 @example
-(timestamp->date-time "2020-04-20T16:20:00.123Z" :yyyymmdd :hhmmss)
+(timestamp-string->date-time "2020-04-20T16:20:00.123Z" :yyyymmdd :hhmmss)
 =>
 "2020-04-20 - 16:20:00"
 ```
@@ -2549,7 +3812,7 @@ Default: :hhmmss
    (if (string/nonblank? n)
        (let [date (timestamp-string->date n date-format)
              time (timestamp-string->time n time-format)]
-            (str date " - " time)))))
+            (str date" - "time)))))
 ```
 
 </details>
@@ -2569,6 +3832,11 @@ Default: :hhmmss
 ---
 
 ### timestamp-string->day
+
+```
+@description
+Converts the given timestamp string to day.
+```
 
 ```
 @param (string) n
@@ -2610,7 +3878,104 @@ Default: :hhmmss
 
 ---
 
+### timestamp-string->elapsed-ms
+
+```
+@description
+Returns how many milliseconds elapsed since the given timestamp string.
+```
+
+```
+@param (string) n
+```
+
+```
+@usage
+(timestamp-string->elapsed-ms "2020-04-20T16:20:00.123Z")
+```
+
+```
+@return (ms)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn timestamp-string->elapsed-ms
+  [n]
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-string->epoch-ms (- epoch-ms))))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [timestamp-string->elapsed-ms]]))
+
+(time.api/timestamp-string->elapsed-ms ...)
+(timestamp-string->elapsed-ms          ...)
+```
+
+</details>
+
+---
+
+### timestamp-string->elapsed-s
+
+```
+@description
+Returns how many seconds elapsed since the given timestamp string.
+```
+
+```
+@param (string) n
+```
+
+```
+@usage
+(timestamp-string->elapsed-s "2020-04-20T16:20:00.123Z")
+```
+
+```
+@return (s)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn timestamp-string->elapsed-s
+  [n]
+  (let [epoch-ms (epoch/epoch-ms)]
+       (->> n epoch/timestamp-string->epoch-ms (- epoch-ms) convert/ms->s)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [timestamp-string->elapsed-s]]))
+
+(time.api/timestamp-string->elapsed-s ...)
+(timestamp-string->elapsed-s          ...)
+```
+
+</details>
+
+---
+
 ### timestamp-string->epoch-ms
+
+```
+@description
+Converts the given timestamp string to epoch milliseconds.
+```
 
 ```
 @param (string) n
@@ -2632,7 +3997,8 @@ Default: :hhmmss
 
 ```
 (defn timestamp-string->epoch-ms
-  [n])
+  [n]
+  #?(:clj (if n (-> n clj-time.coerce/to-epoch convert/s->ms))))
 ```
 
 </details>
@@ -2654,6 +4020,11 @@ Default: :hhmmss
 ### timestamp-string->epoch-s
 
 ```
+@description
+Converts the given timestamp string to epoch seconds.
+```
+
+```
 @param (string) n
 ```
 
@@ -2673,7 +4044,8 @@ Default: :hhmmss
 
 ```
 (defn timestamp-string->epoch-s
-  [n])
+  [n]
+  #?(:clj (if n (-> n clj-time.coerce/to-epoch))))
 ```
 
 </details>
@@ -2693,6 +4065,11 @@ Default: :hhmmss
 ---
 
 ### timestamp-string->hours
+
+```
+@description
+Converts the given timestamp string to hours.
+```
 
 ```
 @param (string) n
@@ -2737,12 +4114,17 @@ Default: :hhmmss
 ### timestamp-string->milliseconds
 
 ```
+@description
+Converts the given timestamp string to milliseconds.
+```
+
+```
 @param (string) n
 ```
 
 ```
 @example
-(timestamp->milliseconds "2020-04-20T16:20:00.123Z")
+(timestamp-string->milliseconds "2020-04-20T16:20:00.123Z")
 =>
 "123"
 ```
@@ -2777,6 +4159,11 @@ Default: :hhmmss
 ---
 
 ### timestamp-string->minutes
+
+```
+@description
+Converts the given timestamp string to minutes.
+```
 
 ```
 @param (string) n
@@ -2821,6 +4208,11 @@ Default: :hhmmss
 ### timestamp-string->month
 
 ```
+@description
+Converts the given timestamp string to month.
+```
+
+```
 @param (string) n
 ```
 
@@ -2863,12 +4255,17 @@ Default: :hhmmss
 ### timestamp-string->seconds
 
 ```
+@description
+Converts the given timestamp string to seconds.
+```
+
+```
 @param (string) n
 ```
 
 ```
 @example
-(timestamp->seconds "2020-04-20T16:20:00.123Z")
+(timestamp-string->seconds "2020-04-20T16:20:00.123Z")
 =>
 "00"
 ```
@@ -2905,9 +4302,14 @@ Default: :hhmmss
 ### timestamp-string->time
 
 ```
+@description
+Converts the given timestamp string to time string.
+```
+
+```
 @param (string) n
 @param (keyword)(opt) format
-:hhmmss, :hhmm
+:hhmm, :hhmmss, :hhmmssmmm
 Default: :hhmmss
 ```
 
@@ -2932,11 +4334,13 @@ Default: :hhmmss
 
   ([n format]
    (if (string/nonblank? n)
-       (let [hours   (format/leading-zeros (timestamp-string->hours   n) 2)
-             minutes (format/leading-zeros (timestamp-string->minutes n) 2)
-             seconds (format/leading-zeros (timestamp-string->seconds n) 2)]
-            (case format :hhmmss (str hours ":" minutes ":" seconds)
-                         :hhmm   (str hours ":" minutes)
+       (let [hours        (format/leading-zeros (timestamp-string->hours        n) 2)
+             minutes      (format/leading-zeros (timestamp-string->minutes      n) 2)
+             seconds      (format/leading-zeros (timestamp-string->seconds      n) 2)
+             milliseconds (format/leading-zeros (timestamp-string->milliseconds n) 3)]
+            (case format :hhmmssmmm (str hours":"minutes":"seconds"."milliseconds)
+                         :hhmmss    (str hours":"minutes":"seconds)
+                         :hhmm      (str hours":"minutes)
                          (-> n))))))
 ```
 
@@ -2959,7 +4363,19 @@ Default: :hhmmss
 ### timestamp-string->today?
 
 ```
+@description
+Returns TRUE if the given timestamp string corresponds to the actual day.
+```
+
+```
 @param (string) n
+```
+
+```
+@example
+(timestamp-string->today "2020-04-20T16:20:00.123Z")
+=>
+true
 ```
 
 ```
@@ -2996,6 +4412,11 @@ Default: :hhmmss
 ### timestamp-string->week
 
 ```
+@description
+Converts the given timestamp string to week.
+```
+
+```
 @param (string) n
 ```
 
@@ -3003,7 +4424,7 @@ Default: :hhmmss
 @example
 (timestamp-string->week "2020-04-20T16:20:00.123Z")
 =>
-"?"
+"4"
 ```
 
 ```
@@ -3035,6 +4456,11 @@ Default: :hhmmss
 ---
 
 ### timestamp-string->year
+
+```
+@description
+Converts the given timestamp string to year.
+```
 
 ```
 @param (string) n
@@ -3077,6 +4503,11 @@ Default: :hhmmss
 ---
 
 ### timestamp-string?
+
+```
+@description
+Returns TRUE if the given 'n' value is a timestamp string.
+```
 
 ```
 @param (*) n
@@ -3129,6 +4560,103 @@ true
 
 (time.api/timestamp-string? ...)
 (timestamp-string?          ...)
+```
+
+</details>
+
+---
+
+### unparse-timestamp
+
+```
+@description
+Converts the given timestamp object to timestamp string.
+```
+
+```
+@param (object) n
+```
+
+```
+@example
+(unparse-timestamp #<DateTime 2020-04-20T16:20:00.123Z>)
+=>
+"2020-04-20T16:20:00.123"
+```
+
+```
+@return (string)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn unparse-timestamp
+  [n]
+  #?(:clj (str n)))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [unparse-timestamp]]))
+
+(time.api/unparse-timestamp ...)
+(unparse-timestamp          ...)
+```
+
+</details>
+
+---
+
+### unparse-timestamps
+
+```
+@description
+Converts the timestamp objects in the given data structure to timestamp strings.
+```
+
+```
+@param (*) n
+```
+
+```
+@example
+(unparse-timestamps {:my-timestamp #<DateTime 2020-04-20T16:20:00.123Z>})
+=>
+{:my-timestamp "2020-04-20T16:20:00.123Z"}
+```
+
+```
+@return (*)
+```
+
+<details>
+<summary>Source code</summary>
+
+```
+(defn unparse-timestamps
+  [n]
+  (cond (timestamp/timestamp-object? n) (unparse-timestamp n)
+        (map?                        n) (map/->values      n unparse-timestamps)
+        (vector?                     n) (vector/->items    n unparse-timestamps)
+        :return n))
+```
+
+</details>
+
+<details>
+<summary>Require</summary>
+
+```
+(ns my-namespace (:require [time.api :refer [unparse-timestamps]]))
+
+(time.api/unparse-timestamps ...)
+(unparse-timestamps          ...)
 ```
 
 </details>
