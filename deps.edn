@@ -1,7 +1,9 @@
 
 {:paths ["source-code/clj" "source-code/cljc" "source-code/cljs"]
- :deps  {clj-time/clj-time           {:mvn/version "0.15.1"}
+ :deps  {bithandshake/cljc-fruits    {:git/url "https://github.com/bithandshake/cljc-fruits"
+                                      :sha     "debf8b6ee95bd0b6eb55287e4de86bc8c4f58f2c"}
+         clj-time/clj-time           {:mvn/version "0.15.1"}
          com.andrewmcveigh/cljs-time {:mvn/version "0.5.2"}
-         tea-time/tea-time           {:mvn/version "1.0.1"}
-         bithandshake/cljc-fruits    {:git/url "https://github.com/bithandshake/cljc-fruits"
-                                      :sha     "debf8b6ee95bd0b6eb55287e4de86bc8c4f58f2c"}}}
+         org.clojure/clojure         {:mvn/version "1.10.1"}
+         org.clojure/clojurescript   {:mvn/version "1.10.891"}
+         tea-time/tea-time           {:mvn/version "1.0.1"}}}
