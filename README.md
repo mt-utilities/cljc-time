@@ -1,8 +1,6 @@
 
 # cljc-time
 
-> "The two most powerful warriors are patience and time." – Leo Tolstoy, War and Peace.
-
 ### Overview
 
 The <strong>cljc-time</strong> is a set of at least 100 Clojure/ClojureScript
