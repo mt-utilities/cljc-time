@@ -19,8 +19,9 @@ Check out the latest commit on the [release branch](https://github.com/bithandsh
 
 ### Documentation
 
-The <strong>cljc-time</strong> functional documentation is [available here](documentation/COVER.md). 
+The <strong>cljc-time</strong> functional documentation is [available here](documentation/COVER.md).
 
 ### Changelog
 
 You can track the changes of the <strong>cljc-time</strong> library [here](CHANGES.md).
+x
