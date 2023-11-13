@@ -148,7 +148,7 @@
   ;
   ; @return (string)
   [n]
-  (string/part n 0 4))
+  (string/keep-range n 0 4))
 
 (defn timestamp-object->year
   ; @description
@@ -179,7 +179,7 @@
   ;
   ; @return (string)
   [n]
-  (string/part n 5 7))
+  (string/keep-range n 5 7))
 
 (defn timestamp-object->month
   ; @description
@@ -241,7 +241,7 @@
   ;
   ; @return (string)
   [n]
-  (string/part n 8 10))
+  (string/keep-range n 8 10))
 
 (defn timestamp-object->day
   ; @description
@@ -272,7 +272,7 @@
   ;
   ; @return (string)
   [n]
-  (string/part n 11 13))
+  (string/keep-range n 11 13))
 
 (defn timestamp-object->hours
   ; @description
@@ -303,7 +303,7 @@
   ;
   ; @return (string)
   [n]
-  (string/part n 14 16))
+  (string/keep-range n 14 16))
 
 (defn timestamp-object->minutes
   ; @description
@@ -334,7 +334,7 @@
   ;
   ; @return (string)
   [n]
-  (string/part n 17 19))
+  (string/keep-range n 17 19))
 
 (defn timestamp-object->seconds
   ; @description
@@ -365,7 +365,7 @@
   ;
   ; @return (string)
   [n]
-  (string/part n 20 23))
+  (string/keep-range n 20 23))
 
 (defn timestamp-object->milliseconds
   ; @description
@@ -410,7 +410,7 @@
              month (format/leading-zeros (timestamp-string->month n) 2)
              day   (format/leading-zeros (timestamp-string->day   n) 2)]
             (case format :yyyymmdd (str year"-"month"-"day)
-                         :yymmdd   (let [year (string/part year 2 4)]
+                         :yymmdd   (let [year (string/keep-range year 2 4)]
                                         (str year"-"month"-"day))
                          :mmdd     (str month"-"day)
                          (-> n))))))
@@ -491,8 +491,8 @@
   ; @return (boolean)
   [n]
   (let [x (timestamp-string)]
-       (= (string/part n 0 10)
-          (string/part x 0 10))))
+       (= (string/keep-range n 0 10)
+          (string/keep-range x 0 10))))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

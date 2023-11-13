@@ -204,7 +204,7 @@
   ; @return (string)
   ; The date that contains the given epoch-ms.
   [epoch-ms]
-  (-> epoch-ms epoch-ms->timestamp-string (string/part 0 10)))
+  (-> epoch-ms epoch-ms->timestamp-string (string/keep-range 0 10)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
