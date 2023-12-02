@@ -8,7 +8,7 @@
 
 (defn ms->s
   ; @description
-  ; Converts the given milliseconds to seconds.
+  ; Converts the given milliseconds value into seconds value.
   ;
   ; @param (ms) n
   ;
@@ -26,7 +26,7 @@
 
 (defn ms->m
   ; @description
-  ; Converts the given milliseconds to minutes.
+  ; Converts the given milliseconds value into minutes value.
   ;
   ; @param (ms) n
   ;
@@ -44,7 +44,7 @@
 
 (defn ms->h
   ; @description
-  ; Converts the given milliseconds to hours.
+  ; Converts the given milliseconds value into hours value.
   ;
   ; @param (ms) n
   ;
@@ -62,7 +62,7 @@
 
 (defn ms->D
   ; @description
-  ; Converts the given milliseconds to days.
+  ; Converts the given milliseconds value into days value.
   ;
   ; @param (ms) n
   ;
@@ -80,7 +80,7 @@
 
 (defn ms->W
   ; @description
-  ; Converts the given milliseconds to weeks.
+  ; Converts the given milliseconds value into weeks value.
   ;
   ; @param (ms) n
   ;
@@ -98,7 +98,7 @@
 
 (defn s->ms
   ; @description
-  ; Converts the given seconds to milliseconds.
+  ; Converts the given seconds value into milliseconds value.
   ;
   ; @param (s) n
   ;
@@ -116,7 +116,7 @@
 
 (defn s->m
   ; @description
-  ; Converts the given seconds to milliseconds.
+  ; Converts the given seconds value into milliseconds value.
   ;
   ; @param (s) n
   ;
@@ -134,7 +134,7 @@
 
 (defn s->h
   ; @description
-  ; Converts the given seconds to milliseconds.
+  ; Converts the given seconds value into milliseconds value.
   ;
   ; @param (s) n
   ;
@@ -152,7 +152,7 @@
 
 (defn s->D
   ; @description
-  ; Converts the given seconds to milliseconds.
+  ; Converts the given seconds value into milliseconds value.
   ;
   ; @param (s) n
   ;
@@ -170,7 +170,7 @@
 
 (defn s->W
   ; @description
-  ; Converts the given seconds to milliseconds.
+  ; Converts the given seconds value into milliseconds value.
   ;
   ; @param (s) n
   ;
@@ -188,7 +188,7 @@
 
 (defn m->ms
   ; @description
-  ; Converts the given minutes to milliseconds.
+  ; Converts the given minutes value into milliseconds value.
   ;
   ; @param (m) n
   ;
@@ -206,7 +206,7 @@
 
 (defn m->s
   ; @description
-  ; Converts the given minutes to seconds.
+  ; Converts the given minutes value into seconds value.
   ;
   ; @param (m) n
   ;
@@ -224,7 +224,7 @@
 
 (defn m->h
   ; @description
-  ; Converts the given minutes to hours.
+  ; Converts the given minutes value into hours value.
   ;
   ; @param (m) n
   ;
@@ -242,7 +242,7 @@
 
 (defn m->D
   ; @description
-  ; Converts the given minutes to days.
+  ; Converts the given minutes value into days value.
   ;
   ; @param (m) n
   ;
@@ -260,7 +260,7 @@
 
 (defn m->W
   ; @description
-  ; Converts the given minutes to weeks.
+  ; Converts the given minutes value into weeks value.
   ;
   ; @param (m) n
   ;
@@ -278,7 +278,7 @@
 
 (defn h->ms
   ; @description
-  ; Converts the given hours to milliseconds.
+  ; Converts the given hours value into milliseconds value.
   ;
   ; @param (h) n
   ;
@@ -296,7 +296,7 @@
 
 (defn h->s
   ; @description
-  ; Converts the given hours to seconds.
+  ; Converts the given hours value into seconds value.
   ;
   ; @param (h) n
   ;
@@ -314,7 +314,7 @@
 
 (defn h->m
   ; @description
-  ; Converts the given hours to minutes.
+  ; Converts the given hours value into minutes value.
   ;
   ; @param (h) n
   ;
@@ -332,7 +332,7 @@
 
 (defn h->D
   ; @description
-  ; Converts the given hours to days.
+  ; Converts the given hours value into days value.
   ;
   ; @param (h) n
   ;
@@ -350,7 +350,7 @@
 
 (defn h->W
   ; @description
-  ; Converts the given hours to weeks.
+  ; Converts the given hours value into weeks value.
   ;
   ; @param (h) n
   ;
@@ -371,7 +371,7 @@
 
 (defn ms->time
   ; @description
-  ; Converts the given milliseconds to time string.
+  ; Converts the given milliseconds value into a formatted time string.
   ;
   ; @param (float, integer or string) n
   ; @param (keyword)(opt) format

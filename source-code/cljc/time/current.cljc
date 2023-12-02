@@ -7,7 +7,7 @@
 
 (defn current-year
   ; @description
-  ; Returns the actual year.
+  ; Returns the actual year value.
   ;
   ; @usage
   ; (current-year)
@@ -19,7 +19,7 @@
 
 (defn current-month
   ; @description
-  ; Returns the actual month.
+  ; Returns the actual month value.
   ;
   ; @usage
   ; (current-month)
@@ -31,7 +31,7 @@
 
 (defn current-week
   ; @description
-  ; Returns the actual week.
+  ; Returns the actual week value.
   ;
   ; @usage
   ; (current-week)
@@ -43,7 +43,7 @@
 
 (defn current-day
   ; @description
-  ; Returns the actual day.
+  ; Returns the actual day value.
   ;
   ; @usage
   ; (current-day)
@@ -55,7 +55,7 @@
 
 (defn current-date
   ; @description
-  ; Returns the actual date.
+  ; Returns the actual formatted date string.
   ;
   ; @usage
   ; (current-date)
@@ -67,7 +67,7 @@
 
 (defn current-hour
   ; @description
-  ; Returns the actual hour.
+  ; Returns the actual hour value.
   ;
   ; @usage
   ; (current-hour)
@@ -91,7 +91,7 @@
 
 (defn current-minute
   ; @description
-  ; Returns the actual minute.
+  ; Returns the actual minute value.
   ;
   ; @usage
   ; (current-minute)
@@ -115,7 +115,7 @@
 
 (defn current-second
   ; @description
-  ; Returns the actual second.
+  ; Returns the actual second value.
   ;
   ; @usage
   ; (current-second)
@@ -139,7 +139,7 @@
 
 (defn current-millisecond
   ; @description
-  ; Returns the actual millisecond.
+  ; Returns the actual millisecond value.
   ;
   ; @usage
   ; (current-millisecond)

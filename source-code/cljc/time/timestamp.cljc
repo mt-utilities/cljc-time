@@ -137,7 +137,7 @@
 
 (defn timestamp-string->year
   ; @description
-  ; Converts the given timestamp string to year.
+  ; Converts the given timestamp string into a year value.
   ;
   ; @param (string) n
   ;
@@ -152,7 +152,7 @@
 
 (defn timestamp-object->year
   ; @description
-  ; Converts the given timestamp object to year.
+  ; Converts the given timestamp object into a year value.
   ;
   ; @param (object) n
   ;
@@ -168,7 +168,7 @@
 
 (defn timestamp-string->month
   ; @description
-  ; Converts the given timestamp string to month.
+  ; Converts the given timestamp string into a month value.
   ;
   ; @param (string) n
   ;
@@ -183,7 +183,7 @@
 
 (defn timestamp-object->month
   ; @description
-  ; Converts the given timestamp object to month.
+  ; Converts the given timestamp object into a month value.
   ;
   ; @param (object) n
   ;
@@ -199,7 +199,7 @@
 
 (defn timestamp-string->week
   ; @description
-  ; Converts the given timestamp string to week.
+  ; Converts the given timestamp string into a week value.
   ;
   ; @param (string) n
   ;
@@ -214,7 +214,7 @@
 
 (defn timestamp-object->week
   ; @description
-  ; Converts the given timestamp object to week.
+  ; Converts the given timestamp object into a week value.
   ;
   ; @param (object) n
   ;
@@ -230,7 +230,7 @@
 
 (defn timestamp-string->day
   ; @description
-  ; Converts the given timestamp string to day.
+  ; Converts the given timestamp string into a day value.
   ;
   ; @param (string) n
   ;
@@ -245,7 +245,7 @@
 
 (defn timestamp-object->day
   ; @description
-  ; Converts the given timestamp object to day.
+  ; Converts the given timestamp object into a day value.
   ;
   ; @param (object) n
   ;
@@ -261,7 +261,7 @@
 
 (defn timestamp-string->hours
   ; @description
-  ; Converts the given timestamp string to hours.
+  ; Converts the given timestamp string into an hours value.
   ;
   ; @param (string) n
   ;
@@ -276,7 +276,7 @@
 
 (defn timestamp-object->hours
   ; @description
-  ; Converts the given timestamp object to hours.
+  ; Converts the given timestamp object into an hours value.
   ;
   ; @param (object) n
   ;
@@ -292,7 +292,7 @@
 
 (defn timestamp-string->minutes
   ; @description
-  ; Converts the given timestamp string to minutes.
+  ; Converts the given timestamp string into a minutes value.
   ;
   ; @param (string) n
   ;
@@ -307,7 +307,7 @@
 
 (defn timestamp-object->minutes
   ; @description
-  ; Converts the given timestamp object to minutes.
+  ; Converts the given timestamp object into a minutes value.
   ;
   ; @param (object) n
   ;
@@ -323,7 +323,7 @@
 
 (defn timestamp-string->seconds
   ; @description
-  ; Converts the given timestamp string to seconds.
+  ; Converts the given timestamp string into a seconds value.
   ;
   ; @param (string) n
   ;
@@ -338,7 +338,7 @@
 
 (defn timestamp-object->seconds
   ; @description
-  ; Converts the given timestamp object to seconds.
+  ; Converts the given timestamp object into a seconds value.
   ;
   ; @param (object) n
   ;
@@ -354,7 +354,7 @@
 
 (defn timestamp-string->milliseconds
   ; @description
-  ; Converts the given timestamp string to milliseconds.
+  ; Converts the given timestamp string into a milliseconds value.
   ;
   ; @param (string) n
   ;
@@ -369,7 +369,7 @@
 
 (defn timestamp-object->milliseconds
   ; @description
-  ; Converts the given timestamp object to milliseconds.
+  ; Converts the given timestamp object into a milliseconds value.
   ;
   ; @param (object) n
   ;
@@ -388,7 +388,7 @@
 
 (defn timestamp-string->date
   ; @description
-  ; Converts the given timestamp string to date string.
+  ; Converts the given timestamp string into a formatted date string.
   ;
   ; @param (string) n
   ; @param (keyword)(opt) format
@@ -405,7 +405,7 @@
    (timestamp-string->date n :yyyymmdd))
 
   ([n format]
-   (if (string/nonblank? n)
+   (if (string/nonempty? n)
        (let [year                        (timestamp-string->year  n)
              month (format/leading-zeros (timestamp-string->month n) 2)
              day   (format/leading-zeros (timestamp-string->day   n) 2)]
@@ -417,7 +417,7 @@
 
 (defn timestamp-string->time
   ; @description
-  ; Converts the given timestamp string to time string.
+  ; Converts the given timestamp string into a formatted time string.
   ;
   ; @param (string) n
   ; @param (keyword)(opt) format
@@ -434,7 +434,7 @@
    (timestamp-string->time n :hhmmss))
 
   ([n format]
-   (if (string/nonblank? n)
+   (if (string/nonempty? n)
        (let [hours        (format/leading-zeros (timestamp-string->hours        n) 2)
              minutes      (format/leading-zeros (timestamp-string->minutes      n) 2)
              seconds      (format/leading-zeros (timestamp-string->seconds      n) 2)
@@ -446,7 +446,7 @@
 
 (defn timestamp-string->date-time
   ; @description
-  ; Converts the given timestamp string to date and time string.
+  ; Converts the given timestamp string into a formatted date and time string.
   ;
   ; @param (string) n
   ; @param (keyword)(opt) date-format
@@ -469,7 +469,7 @@
    (timestamp-string->date-time n :yyyymmdd time-format))
 
   ([n date-format time-format]
-   (if (string/nonblank? n)
+   (if (string/nonempty? n)
        (let [date (timestamp-string->date n date-format)
              time (timestamp-string->time n time-format)]
             (str date" - "time)))))

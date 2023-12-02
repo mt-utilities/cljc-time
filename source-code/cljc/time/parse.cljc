@@ -10,7 +10,7 @@
 
 (defn parse-date
   ; @description
-  ; Converts the given date string to timestamp object.
+  ; Converts the given date string into a timestamp object.
   ;
   ; @param (string) n
   ;
@@ -27,7 +27,7 @@
 
 (defn parse-timestamp
   ; @description
-  ; Converts the given timestamp string to timestamp object.
+  ; Converts the given timestamp string into a timestamp object.
   ;
   ; @param (string) n
   ;
@@ -44,7 +44,7 @@
 
 (defn unparse-timestamp
   ; @description
-  ; Converts the given timestamp object to timestamp string.
+  ; Converts the given timestamp object into a timestamp string.
   ;
   ; @param (object) n
   ;
@@ -62,7 +62,7 @@
 
 (defn parse-timestamps
   ; @description
-  ; Converts the timestamp strings in the given data structure to timestamp objects.
+  ; Converts the timestamp strings in the given data structure into timestamp objects.
   ;
   ; @param (*) n
   ;
@@ -81,7 +81,7 @@
 
 (defn unparse-timestamps
   ; @description
-  ; Converts the timestamp objects in the given data structure to timestamp strings.
+  ; Converts the timestamp objects in the given data structure into timestamp strings.
   ;
   ; @param (*) n
   ;
