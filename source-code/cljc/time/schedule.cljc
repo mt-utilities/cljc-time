@@ -1,7 +1,8 @@
 
 (ns time.schedule
-    (:require #?(:clj [tea-time.core])
-              [time.convert :as convert]))
+    #?(:clj  (:require [tea-time.core]
+                       [time.convert :as convert])
+       :cljs (:require [time.convert :as convert])))
 
 ;; -- aphyr/tea-time ----------------------------------------------------------
 ;; ----------------------------------------------------------------------------

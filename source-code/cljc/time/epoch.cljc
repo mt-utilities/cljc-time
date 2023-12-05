@@ -1,9 +1,11 @@
 
 (ns time.epoch
-    (:require #?(:clj [clj-time.coerce])
-              #?(:clj [clj-time.core])
-              [string.api   :as string]
-              [time.convert :as convert]))
+    #?(:clj  (:require [clj-time.coerce]
+                       [clj-time.core]
+                       [string.api   :as string]
+                       [time.convert :as convert])
+       :cljs (:require [string.api   :as string]
+                       [time.convert :as convert])))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

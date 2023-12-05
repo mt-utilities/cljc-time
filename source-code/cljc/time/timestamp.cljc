@@ -1,13 +1,17 @@
 
 (ns time.timestamp
-    #?(:clj (:import org.joda.time.DateTime org.bson.types.BSONTimestamp))
-    (:require #?(:clj  [clj-time.core])
-              #?(:cljs [cljs-time.core])
-              #?(:cljs [cljs-time.format])
-              [format.api   :as format]
-              [string.api   :as string]
-              [time.convert :as convert]
-              [time.epoch   :as epoch]))
+    #?(:clj  (:import org.joda.time.DateTime org.bson.types.BSONTimestamp))
+    #?(:clj  (:require [clj-time.core]
+                       [format.api   :as format]
+                       [string.api   :as string]
+                       [time.convert :as convert]
+                       [time.epoch   :as epoch])
+       :cljs (:require [cljs-time.core]
+                       [cljs-time.format]
+                       [format.api   :as format]
+                       [string.api   :as string]
+                       [time.convert :as convert]
+                       [time.epoch   :as epoch])))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
