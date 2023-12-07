@@ -1,12 +1,12 @@
 
 (ns time.parse
     #?(:clj  (:require [clj-time.format]
-                       [map.api        :as map]
+                       [fruits.map.api        :as map]
                        [time.timestamp :as timestamp]
-                       [vector.api     :as vector])
-       :cljs (:require [map.api        :as map]
+                       [fruits.vector.api     :as vector])
+       :cljs (:require [fruits.map.api        :as map]
                        [time.timestamp :as timestamp]
-                       [vector.api     :as vector])))
+                       [fruits.vector.api     :as vector])))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

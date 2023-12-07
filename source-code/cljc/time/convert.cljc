@@ -1,7 +1,7 @@
 
 (ns time.convert
-    (:require [format.api :as format]
-              [math.api   :as math]))
+    (:require [fruits.format.api :as format]
+              [fruits.math.api   :as math]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

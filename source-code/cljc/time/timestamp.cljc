@@ -2,14 +2,14 @@
 (ns time.timestamp
     #?(:clj  (:import org.joda.time.DateTime org.bson.types.BSONTimestamp))
     #?(:clj  (:require [clj-time.core]
-                       [format.api   :as format]
-                       [string.api   :as string]
+                       [fruits.format.api   :as format]
+                       [fruits.string.api   :as string]
                        [time.convert :as convert]
                        [time.epoch   :as epoch])
        :cljs (:require [cljs-time.core]
                        [cljs-time.format]
-                       [format.api   :as format]
-                       [string.api   :as string]
+                       [fruits.format.api   :as format]
+                       [fruits.string.api   :as string]
                        [time.convert :as convert]
                        [time.epoch   :as epoch])))
 
