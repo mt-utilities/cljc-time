@@ -13,7 +13,7 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
-; time.convert
+; @redirect (time.convert)
 (def ms->s    convert/ms->s)
 (def ms->m    convert/ms->m)
 (def ms->h    convert/ms->h)
@@ -36,12 +36,12 @@
 (def h->W     convert/h->W)
 (def ms->time convert/ms->time)
 
-; time.core
+; @redirect (time.core)
 (def days  core/days)
 (def minus core/minus)
 (def plus  core/plus)
 
-; time.current
+; @redirect (time.current)
 (def current-year                          current/current-year)
 (def current-month                         current/current-month)
 (def current-week                          current/current-week)
@@ -57,7 +57,7 @@
 (def milliseconds-left-from-current-second current/milliseconds-left-from-current-second)
 (def milliseconds-left-from-current-minute current/milliseconds-left-from-current-minute)
 
-; time.epoch
+; @redirect (time.epoch)
 (def epoch-ms                     epoch/epoch-ms)
 (def epoch-s                      epoch/epoch-s)
 (def epoch-ms-age                 epoch/epoch-ms-age)
@@ -76,25 +76,25 @@
 (def date-ends-before-epoch-ms?   epoch/date-ends-before-epoch-ms?)
 (def date-ends-after-epoch-ms?    epoch/date-ends-after-epoch-ms?)
 
-; time.loop
+; @redirect (time.loop)
 (def reduce-interval loop/reduce-interval)
 
-; time.now
+; @redirect (time.now)
 (def elapsed now/elapsed)
 
-; time.parse
+; @redirect (time.parse)
 (def parse-date         parse/parse-date)
 (def parse-timestamp    parse/parse-timestamp)
 (def unparse-timestamp  parse/unparse-timestamp)
 (def parse-timestamps   parse/parse-timestamps)
 (def unparse-timestamps parse/unparse-timestamps)
 
-; time.schedule
+; @redirect (time.schedule)
 (def set-timeout!    schedule/set-timeout!)
 (def set-interval!   schedule/set-interval!)
 (def clear-interval! schedule/clear-interval!)
 
-; time.timestamp
+; @redirect (time.timestamp)
 (def timestamp-object               timestamp/timestamp-object)
 (def timestamp-string               timestamp/timestamp-string)
 (def timestamp-string?              timestamp/timestamp-string?)
