@@ -10,7 +10,7 @@ functions including schedulers, converters, parsers, etc.
 
 ```
 {:deps {bithandshake/cljc-time {:git/url "https://github.com/bithandshake/cljc-time"
-                                :sha     "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}}
+                                :sha     "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}}}
 ```
 
 ### Current version
