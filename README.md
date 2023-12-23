@@ -3,8 +3,8 @@
 
 ### Overview
 
-The <strong>cljc-time</strong> is a set of Clojure/ClojureScript time/timestamp handling
-functions including schedulers, converters, parsers, etc.
+The <strong>cljc-time</strong> is a set of time/timestamp utility functions for Clojure projects.
+This library includes schedulers, converters, parsers, etc.
 
 ### deps.edn
 
