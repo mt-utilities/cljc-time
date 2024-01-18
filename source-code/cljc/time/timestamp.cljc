@@ -2,16 +2,16 @@
 (ns time.timestamp
     #?(:clj  (:import org.joda.time.DateTime org.bson.types.BSONTimestamp))
     #?(:clj  (:require [clj-time.core]
-                       [fruits.format.api   :as format]
-                       [fruits.string.api   :as string]
-                       [time.convert :as convert]
-                       [time.epoch   :as epoch])
+                       [fruits.format.api :as format]
+                       [fruits.string.api :as string]
+                       [time.convert      :as convert]
+                       [time.epoch        :as epoch])
        :cljs (:require [cljs-time.core]
                        [cljs-time.format]
-                       [fruits.format.api   :as format]
-                       [fruits.string.api   :as string]
-                       [time.convert :as convert]
-                       [time.epoch   :as epoch])))
+                       [fruits.format.api :as format]
+                       [fruits.string.api :as string]
+                       [time.convert      :as convert]
+                       [time.epoch        :as epoch])))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -409,7 +409,7 @@
    (timestamp-string->date n :yyyymmdd))
 
   ([n format]
-   (if (string/nonempty? n)
+   (if (string/not-empty? n)
        (let [year                        (timestamp-string->year  n)
              month (format/leading-zeros (timestamp-string->month n) 2)
              day   (format/leading-zeros (timestamp-string->day   n) 2)]
@@ -438,7 +438,7 @@
    (timestamp-string->time n :hhmmss))
 
   ([n format]
-   (if (string/nonempty? n)
+   (if (string/not-empty? n)
        (let [hours        (format/leading-zeros (timestamp-string->hours        n) 2)
              minutes      (format/leading-zeros (timestamp-string->minutes      n) 2)
              seconds      (format/leading-zeros (timestamp-string->seconds      n) 2)
@@ -473,7 +473,7 @@
    (timestamp-string->date-time n :yyyymmdd time-format))
 
   ([n date-format time-format]
-   (if (string/nonempty? n)
+   (if (string/not-empty? n)
        (let [date (timestamp-string->date n date-format)
              time (timestamp-string->time n time-format)]
             (str date" - "time)))))
