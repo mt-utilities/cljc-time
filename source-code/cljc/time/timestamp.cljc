@@ -202,6 +202,9 @@
      :cljs (cljs-time.core/month n)))
 
 (defn timestamp-string->week
+  ; @important
+  ; This function is incomplete and may not behave as expected.
+  ;
   ; @description
   ; Converts the given timestamp string into a week value.
   ;
