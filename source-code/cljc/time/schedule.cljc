@@ -40,6 +40,10 @@
 (defn clear-interval!
   ; @param (integer) interval-id
   ;
+  ; @usage
+  ; (let [interval-id (set-interval! #(println "3 sec") 3000)]
+  ;      (clear-interval! interval-id))
+  ;
   ; @return (clj: ?, cljs: integer)
   [interval-id]
   #?(:cljs (.clearInterval js/window interval-id)))

@@ -98,7 +98,7 @@
 
 (defn s->m
   ; @description
-  ; Converts the given seconds value into milliseconds value.
+  ; Converts the given seconds value into minutes value.
   ;
   ; @param (s) n
   ;
@@ -113,7 +113,7 @@
 
 (defn s->h
   ; @description
-  ; Converts the given seconds value into milliseconds value.
+  ; Converts the given seconds value into hours value.
   ;
   ; @param (s) n
   ;
@@ -128,7 +128,7 @@
 
 (defn s->D
   ; @description
-  ; Converts the given seconds value into milliseconds value.
+  ; Converts the given seconds value into days value.
   ;
   ; @param (s) n
   ;
@@ -143,7 +143,7 @@
 
 (defn s->W
   ; @description
-  ; Converts the given seconds value into milliseconds value.
+  ; Converts the given seconds value into weeks value.
   ;
   ; @param (s) n
   ;
