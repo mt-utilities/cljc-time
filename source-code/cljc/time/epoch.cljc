@@ -139,7 +139,7 @@
 
 (defn timestamp-object->epoch-ms
   ; @description
-  ; Converts the given timestamp object into epoch milliseconds value.
+  ; Converts the given DateTime object into epoch milliseconds value.
   ;
   ; @param (string) n
   ;
@@ -154,7 +154,7 @@
 
 (defn timestamp-object->epoch-s
   ; @description
-  ; Converts the given timestamp object into epoch seconds value.
+  ; Converts the given DateTime object into epoch seconds value.
   ;
   ; @param (string) n
   ;

@@ -18,7 +18,7 @@
 
 (defn timestamp-object
   ; @description
-  ; Returns a timestamp object.
+  ; Returns a DateTime object.
   ;
   ; @param (string)(opt) time-zone
   ;
@@ -61,7 +61,7 @@
   ; @return (string)
   ([]
    ; In CLJS namespaces, the timestamp format is the same as the format used for converting
-   ; Java timestamp objects to strings ("2020-04-20T16:20:00.123Z").
+   ; Java DateTime objects to strings ("2020-04-20T16:20:00.123Z").
    ; Therefore, in CLJS and CLJ namespaces, the format of timestamp strings is the same.
    #?(:clj  (let [timestamp-object (timestamp-object)]
                  (str timestamp-object))
@@ -106,7 +106,7 @@
 
 (defn timestamp-object?
   ; @description
-  ; Returns TRUE if the given 'n' value is a timestamp object.
+  ; Returns TRUE if the given 'n' value is a DateTime object.
   ;
   ; @param (*) n
   ;
@@ -156,7 +156,7 @@
 
 (defn timestamp-object->year
   ; @description
-  ; Converts the given timestamp object into year value.
+  ; Converts the given DateTime object into year value.
   ;
   ; @param (object) n
   ;
@@ -187,7 +187,7 @@
 
 (defn timestamp-object->month
   ; @description
-  ; Converts the given timestamp object into month value.
+  ; Converts the given DateTime object into month value.
   ;
   ; @param (object) n
   ;
@@ -221,7 +221,7 @@
 
 (defn timestamp-object->week
   ; @description
-  ; Converts the given timestamp object into week value.
+  ; Converts the given DateTime object into week value.
   ;
   ; @param (object) n
   ;
@@ -252,7 +252,7 @@
 
 (defn timestamp-object->day
   ; @description
-  ; Converts the given timestamp object into day value.
+  ; Converts the given DateTime object into day value.
   ;
   ; @param (object) n
   ;
@@ -283,7 +283,7 @@
 
 (defn timestamp-object->hours
   ; @description
-  ; Converts the given timestamp object into hours value.
+  ; Converts the given DateTime object into hours value.
   ;
   ; @param (object) n
   ;
@@ -314,7 +314,7 @@
 
 (defn timestamp-object->minutes
   ; @description
-  ; Converts the given timestamp object into minutes value.
+  ; Converts the given DateTime object into minutes value.
   ;
   ; @param (object) n
   ;
@@ -345,7 +345,7 @@
 
 (defn timestamp-object->seconds
   ; @description
-  ; Converts the given timestamp object into seconds value.
+  ; Converts the given DateTime object into seconds value.
   ;
   ; @param (object) n
   ;
@@ -376,7 +376,7 @@
 
 (defn timestamp-object->milliseconds
   ; @description
-  ; Converts the given timestamp object into milliseconds value.
+  ; Converts the given DateTime object into milliseconds value.
   ;
   ; @param (object) n
   ;
@@ -520,7 +520,7 @@
 
 (defn timestamp-object->elapsed-ms
   ; @description
-  ; Returns how many milliseconds elapsed since the given timestamp object.
+  ; Returns how many milliseconds elapsed since the given DateTime object.
   ;
   ; @param (string) n
   ;
@@ -548,7 +548,7 @@
 
 (defn timestamp-object->elapsed-s
   ; @description
-  ; Returns how many seconds elapsed since the given timestamp object.
+  ; Returns how many seconds elapsed since the given DateTime object.
   ;
   ; @param (string) n
   ;
