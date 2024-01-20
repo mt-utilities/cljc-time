@@ -73,7 +73,7 @@
 
 (defn epoch-ms->timestamp-string
   ; @description
-  ; Converts the given epoch milliseconds into a timestamp string.
+  ; Converts the given epoch milliseconds into timestamp string.
   ;
   ; @param (ms) n
   ;
@@ -88,7 +88,7 @@
 
 (defn epoch-s->timestamp-string
   ; @description
-  ; Converts the given epoch seconds into a timestamp string.
+  ; Converts the given epoch seconds into timestamp string.
   ;
   ; @param (s) n
   ;
@@ -106,7 +106,7 @@
 
 (defn timestamp-string->epoch-ms
   ; @description
-  ; Converts the given timestamp string into an epoch milliseconds value.
+  ; Converts the given timestamp string into epoch milliseconds value.
   ;
   ; @param (string) n
   ;
@@ -121,7 +121,7 @@
 
 (defn timestamp-string->epoch-s
   ; @description
-  ; Converts the given timestamp string into an epoch seconds value.
+  ; Converts the given timestamp string into epoch seconds value.
   ;
   ; @param (string) n
   ;
@@ -139,7 +139,7 @@
 
 (defn timestamp-object->epoch-ms
   ; @description
-  ; Converts the given timestamp object into an epoch milliseconds value.
+  ; Converts the given timestamp object into epoch milliseconds value.
   ;
   ; @param (string) n
   ;
@@ -154,7 +154,7 @@
 
 (defn timestamp-object->epoch-s
   ; @description
-  ; Converts the given timestamp object into an epoch seconds value.
+  ; Converts the given timestamp object into epoch seconds value.
   ;
   ; @param (string) n
   ;
@@ -172,7 +172,7 @@
 
 (defn date->epoch-ms
   ; @description
-  ; Converts the given date string into an epoch milliseconds value.
+  ; Converts the given date string into epoch milliseconds value.
   ;
   ; @param (string) date
   ;
@@ -191,7 +191,7 @@
 
 (defn epoch-ms->date
   ; @description
-  ; Converts the given epoch milliseconds value into a date string.
+  ; Converts the given epoch milliseconds value into date string.
   ;
   ; @param (ms) epoch-ms
   ;

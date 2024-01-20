@@ -141,7 +141,7 @@
 
 (defn timestamp-string->year
   ; @description
-  ; Converts the given timestamp string into a year value.
+  ; Converts the given timestamp string into year value.
   ;
   ; @param (string) n
   ;
@@ -156,7 +156,7 @@
 
 (defn timestamp-object->year
   ; @description
-  ; Converts the given timestamp object into a year value.
+  ; Converts the given timestamp object into year value.
   ;
   ; @param (object) n
   ;
@@ -172,7 +172,7 @@
 
 (defn timestamp-string->month
   ; @description
-  ; Converts the given timestamp string into a month value.
+  ; Converts the given timestamp string into month value.
   ;
   ; @param (string) n
   ;
@@ -187,7 +187,7 @@
 
 (defn timestamp-object->month
   ; @description
-  ; Converts the given timestamp object into a month value.
+  ; Converts the given timestamp object into month value.
   ;
   ; @param (object) n
   ;
@@ -206,7 +206,7 @@
   ; This function is incomplete and may not behave as expected.
   ;
   ; @description
-  ; Converts the given timestamp string into a week value.
+  ; Converts the given timestamp string into week value.
   ;
   ; @param (string) n
   ;
@@ -221,7 +221,7 @@
 
 (defn timestamp-object->week
   ; @description
-  ; Converts the given timestamp object into a week value.
+  ; Converts the given timestamp object into week value.
   ;
   ; @param (object) n
   ;
@@ -237,7 +237,7 @@
 
 (defn timestamp-string->day
   ; @description
-  ; Converts the given timestamp string into a day value.
+  ; Converts the given timestamp string into day value.
   ;
   ; @param (string) n
   ;
@@ -252,7 +252,7 @@
 
 (defn timestamp-object->day
   ; @description
-  ; Converts the given timestamp object into a day value.
+  ; Converts the given timestamp object into day value.
   ;
   ; @param (object) n
   ;
@@ -268,7 +268,7 @@
 
 (defn timestamp-string->hours
   ; @description
-  ; Converts the given timestamp string into an hours value.
+  ; Converts the given timestamp string into hours value.
   ;
   ; @param (string) n
   ;
@@ -283,7 +283,7 @@
 
 (defn timestamp-object->hours
   ; @description
-  ; Converts the given timestamp object into an hours value.
+  ; Converts the given timestamp object into hours value.
   ;
   ; @param (object) n
   ;
@@ -299,7 +299,7 @@
 
 (defn timestamp-string->minutes
   ; @description
-  ; Converts the given timestamp string into a minutes value.
+  ; Converts the given timestamp string into minutes value.
   ;
   ; @param (string) n
   ;
@@ -314,7 +314,7 @@
 
 (defn timestamp-object->minutes
   ; @description
-  ; Converts the given timestamp object into a minutes value.
+  ; Converts the given timestamp object into minutes value.
   ;
   ; @param (object) n
   ;
@@ -330,7 +330,7 @@
 
 (defn timestamp-string->seconds
   ; @description
-  ; Converts the given timestamp string into a seconds value.
+  ; Converts the given timestamp string into seconds value.
   ;
   ; @param (string) n
   ;
@@ -345,7 +345,7 @@
 
 (defn timestamp-object->seconds
   ; @description
-  ; Converts the given timestamp object into a seconds value.
+  ; Converts the given timestamp object into seconds value.
   ;
   ; @param (object) n
   ;
@@ -361,7 +361,7 @@
 
 (defn timestamp-string->milliseconds
   ; @description
-  ; Converts the given timestamp string into a milliseconds value.
+  ; Converts the given timestamp string into milliseconds value.
   ;
   ; @param (string) n
   ;
@@ -376,7 +376,7 @@
 
 (defn timestamp-object->milliseconds
   ; @description
-  ; Converts the given timestamp object into a milliseconds value.
+  ; Converts the given timestamp object into milliseconds value.
   ;
   ; @param (object) n
   ;
@@ -395,7 +395,7 @@
 
 (defn timestamp-string->date
   ; @description
-  ; Converts the given timestamp string into a formatted date string.
+  ; Converts the given timestamp string into formatted date string.
   ;
   ; @param (string) n
   ; @param (keyword)(opt) format
@@ -424,7 +424,7 @@
 
 (defn timestamp-string->time
   ; @description
-  ; Converts the given timestamp string into a formatted time string.
+  ; Converts the given timestamp string into formatted time string.
   ;
   ; @param (string) n
   ; @param (keyword)(opt) format
@@ -453,7 +453,7 @@
 
 (defn timestamp-string->date-time
   ; @description
-  ; Converts the given timestamp string into a formatted date and time string.
+  ; Converts the given timestamp string into formatted date and time string.
   ;
   ; @param (string) n
   ; @param (keyword)(opt) date-format
