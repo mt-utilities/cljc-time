@@ -14,7 +14,8 @@
   ; @param (collection) coll
   ; @param (integer) interval
   ;
-  ; @example
+  ; @usage
+  ; (defn my-function [%] ...)
   ; (reduce-interval my-function [:a :b :c] 500)
   ; =>
   ; (set-timeout! #(my-function :a)    0)

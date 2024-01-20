@@ -11,6 +11,8 @@
   ;
   ; @usage
   ; (current-year)
+  ; =>
+  ; 2020
   ;
   ; @return (Y)
   []
@@ -23,6 +25,8 @@
   ;
   ; @usage
   ; (current-month)
+  ; =>
+  ; 4
   ;
   ; @return (M)
   []
@@ -35,6 +39,8 @@
   ;
   ; @usage
   ; (current-week)
+  ; =>
+  ; 17
   ;
   ; @return (W)
   []
@@ -47,6 +53,8 @@
   ;
   ; @usage
   ; (current-day)
+  ; =>
+  ; 20
   ;
   ; @return (D)
   []
@@ -59,6 +67,8 @@
   ;
   ; @usage
   ; (current-date)
+  ; =>
+  ; "2020-04-20"
   ;
   ; @return (string)
   []
@@ -71,6 +81,8 @@
   ;
   ; @usage
   ; (current-hour)
+  ; =>
+  ; 16
   ;
   ; @return (h)
   []
@@ -83,11 +95,23 @@
   ;
   ; @usage
   ; (hours-left-from-current-day)
+  ; =>
+  ; 7.66'
   ;
   ; @return (h)
   []
-  (let [current-hour (current-hour)]
-       (- 24 current-hour)))
+  ; The output is not always a whole number. Therefore, it has to be converted into double.
+  (let [timestamp-object    (timestamp/timestamp-object)
+        current-hour        (timestamp/timestamp-object->hours        timestamp-object)
+        current-minute      (timestamp/timestamp-object->minutes      timestamp-object)
+        current-second      (timestamp/timestamp-object->seconds      timestamp-object)
+        current-millisecond (timestamp/timestamp-object->milliseconds timestamp-object)]
+       (-> 86400000 (- (* current-hour  3600000)
+                       (* current-minute  60000)
+                       (* current-second   1000)
+                       (* current-millisecond 1))
+                    (/ 3600000)
+                    (double))))
 
 (defn current-minute
   ; @description
@@ -95,6 +119,8 @@
   ;
   ; @usage
   ; (current-minute)
+  ; =>
+  ; 20
   ;
   ; @return (m)
   []
@@ -107,11 +133,21 @@
   ;
   ; @usage
   ; (minutes-left-from-current-hour)
+  ; =>
+  ; 40
   ;
   ; @return (m)
   []
-  (let [current-minute (current-minute)]
-       (- 60 current-minute)))
+  ; The output is not always a whole number. Therefore, it has to be converted into double.
+  (let [timestamp-object    (timestamp/timestamp-object)
+        current-minute      (timestamp/timestamp-object->minutes      timestamp-object)
+        current-second      (timestamp/timestamp-object->seconds      timestamp-object)
+        current-millisecond (timestamp/timestamp-object->milliseconds timestamp-object)]
+       (-> 3600000 (- (* current-minute  60000)
+                      (* current-second   1000)
+                      (* current-millisecond 1))
+                   (/ 60000)
+                   (double))))
 
 (defn current-second
   ; @description
@@ -119,6 +155,8 @@
   ;
   ; @usage
   ; (current-second)
+  ; =>
+  ; 0
   ;
   ; @return (s)
   []
@@ -131,11 +169,19 @@
   ;
   ; @usage
   ; (seconds-left-from-current-minute)
+  ; =>
+  ; 60
   ;
   ; @return (s)
   []
-  (let [current-second (current-second)]
-       (- 60 current-second)))
+  ; The output is not always a whole number. Therefore, it has to be converted into double.
+  (let [timestamp-object    (timestamp/timestamp-object)
+        current-second      (timestamp/timestamp-object->seconds      timestamp-object)
+        current-millisecond (timestamp/timestamp-object->milliseconds timestamp-object)]
+       (-> 60000 (- (* current-second   1000)
+                    (* current-millisecond 1))
+                 (/ 1000)
+                 (double))))
 
 (defn current-millisecond
   ; @description
@@ -143,23 +189,13 @@
   ;
   ; @usage
   ; (current-millisecond)
+  ; =>
+  ; 0
   ;
   ; @return (ms)
   []
   (-> (timestamp/timestamp-object)
       (timestamp/timestamp-object->milliseconds)))
-
-(defn milliseconds-left-from-current-second
-  ; @description
-  ; Returns how many milliseconds left from the actual second.
-  ;
-  ; @usage
-  ; (milliseconds-left-from-current-second)
-  ;
-  ; @return (ms)
-  []
-  (let [current-millisecond (current-millisecond)]
-       (- 1000 current-millisecond)))
 
 (defn milliseconds-left-from-current-minute
   ; @description
@@ -167,8 +203,30 @@
   ;
   ; @usage
   ; (milliseconds-left-from-current-minute)
+  ; =>
+  ; 60000
   ;
   ; @return (ms)
   []
-  (let [seconds-left-from-current-minute (seconds-left-from-current-minute)]
-       (* 1000 seconds-left-from-current-minute)))
+  ; The output is always a whole number. Therefore, there is no need to convert it into double.
+  (let [timestamp-object    (timestamp/timestamp-object)
+        current-second      (timestamp/timestamp-object->seconds      timestamp-object)
+        current-millisecond (timestamp/timestamp-object->milliseconds timestamp-object)]
+       (-> 60000 (- (* current-second   1000)
+                    (* current-millisecond 1)))))
+
+(defn milliseconds-left-from-current-second
+  ; @description
+  ; Returns how many milliseconds left from the actual second.
+  ;
+  ; @usage
+  ; (milliseconds-left-from-current-second)
+  ; =>
+  ; 1000
+  ;
+  ; @return (ms)
+  []
+  ; The output is always a whole number. Therefore, there is no need to convert it into double.
+  (let [timestamp-object    (timestamp/timestamp-object)
+        current-millisecond (timestamp/timestamp-object->milliseconds timestamp-object)]
+       (- 1000 current-millisecond)))

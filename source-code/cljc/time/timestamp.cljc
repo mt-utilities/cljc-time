@@ -22,12 +22,12 @@
   ;
   ; @param (string)(opt) time-zone
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object)
   ; =>
   ; #<DateTime 2020-04-20T16:20:00.123Z>
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object "Europe/Budapest")
   ; =>
   ; #<DateTime 2020-04-20T16:20:00.123+02:00>
@@ -48,12 +48,12 @@
   ;
   ; @param (string)(opt) time-zone
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string)
   ; =>
   ; "2020-04-20T16:20:00.123Z"
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string "Europe/Budapest")
   ; =>
   ; "2020-04-20T16:20:00.123+02:00"
@@ -82,17 +82,17 @@
   ;
   ; @param (*) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string? "2020-04-20T20:00.123+00:00")
   ; =>
   ; true
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string? "2020-04-20T16:20:00.123Z")
   ; =>
   ; true
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string? "2020-04-20T16:20:00.123")
   ; =>
   ; true
@@ -110,7 +110,7 @@
   ;
   ; @param (*) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object? #<DateTime 2020-04-20T16:20:00.123+02:00>)
   ; =>
   ; true
@@ -126,7 +126,7 @@
   ;
   ; @param (*) n
   ;
-  ; @example
+  ; @usage
   ; (date-string? "2020-04-20")
   ; =>
   ; true
@@ -145,7 +145,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->year "2020-04-20T16:20:00.123Z")
   ; =>
   ; "2020"
@@ -160,7 +160,7 @@
   ;
   ; @param (object) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->year #<DateTime 2020-04-20T16:20:00.123Z>)
   ; =>
   ; 2020
@@ -176,7 +176,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->month "2020-04-20T16:20:00.123Z")
   ; =>
   ; "04"
@@ -191,7 +191,7 @@
   ;
   ; @param (object) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->month #<DateTime 2020-04-20T16:20:00.123Z>)
   ; =>
   ; 4
@@ -210,7 +210,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->week "2020-04-20T16:20:00.123Z")
   ; =>
   ; "4"
@@ -225,7 +225,7 @@
   ;
   ; @param (object) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->week #<DateTime 2020-04-20T16:20:00.123Z>)
   ; =>
   ; 4
@@ -241,7 +241,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->day "2020-04-20T16:20:00.123Z")
   ; =>
   ; "20"
@@ -256,7 +256,7 @@
   ;
   ; @param (object) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->day #<DateTime 2020-04-20T16:20:00.123Z>)
   ; =>
   ; 20
@@ -272,7 +272,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->hours "2020-04-20T16:20:00.123Z")
   ; =>
   ; "16"
@@ -287,14 +287,14 @@
   ;
   ; @param (object) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->hours #<DateTime 2020-04-20T16:20:00.123Z>)
   ; =>
   ; 16
   ;
   ; @return (h)
   [n]
-  #?(:clj  (clj-time.core/hours n)
+  #?(:clj  (clj-time.core/hour  n)
      :cljs (cljs-time.core/hour n)))
 
 (defn timestamp-string->minutes
@@ -303,7 +303,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->minutes "2020-04-20T16:20:00.123Z")
   ; =>
   ; "20"
@@ -318,14 +318,14 @@
   ;
   ; @param (object) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->minutes #<DateTime 2020-04-20T16:20:00.123Z>)
   ; =>
   ; 20
   ;
   ; @return (m)
   [n]
-  #?(:clj  (clj-time.core/minutes n)
+  #?(:clj  (clj-time.core/minute  n)
      :cljs (cljs-time.core/minute n)))
 
 (defn timestamp-string->seconds
@@ -334,7 +334,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->seconds "2020-04-20T16:20:00.123Z")
   ; =>
   ; "00"
@@ -349,15 +349,15 @@
   ;
   ; @param (object) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->seconds #<DateTime 2020-04-20T16:20:00.123Z>)
   ; =>
   ; 0
   ;
   ; @return (s)
   [n]
-  #?(:clj  (clj-time.core/seconds n)
-     :cljs (cljs-time.core/sec    n)))
+  #?(:clj  (clj-time.core/second n)
+     :cljs (cljs-time.core/sec   n)))
 
 (defn timestamp-string->milliseconds
   ; @description
@@ -365,7 +365,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->milliseconds "2020-04-20T16:20:00.123Z")
   ; =>
   ; "123"
@@ -380,7 +380,7 @@
   ;
   ; @param (object) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->milliseconds #<DateTime 2020-04-20T16:20:00.123Z>)
   ; =>
   ; 123
@@ -402,7 +402,7 @@
   ; :mmdd, :yymmdd, :yyyymmdd
   ; Default: :yyyymmdd
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->date "2020-04-20T16:20:00.123Z" :yyyymmdd)
   ; =>
   ; "2020-04-20"
@@ -431,7 +431,7 @@
   ; :hhmm, :hhmmss, :hhmmssmmm
   ; Default: :hhmmss
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->time "2020-04-20T16:20:00.123Z" :hhmmss)
   ; =>
   ; "16:20:00"
@@ -463,7 +463,7 @@
   ; :hhmm, :hhmmss, :hhmmssmmm
   ; Default: :hhmmss
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->date-time "2020-04-20T16:20:00.123Z" :yyyymmdd :hhmmss)
   ; =>
   ; "2020-04-20 - 16:20:00"
@@ -490,7 +490,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->today "2020-04-20T16:20:00.123Z")
   ; =>
   ; true

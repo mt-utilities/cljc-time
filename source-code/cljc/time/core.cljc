@@ -7,7 +7,7 @@
 
 (defn years
   ; @description
-  ; Returns a PeriodType object or a Years object in case the 'n' parameter is provided.
+  ; Returns a PeriodType object, or a Years object (in case the 'n' parameter is provided).
   ;
   ; @param (number)(opt) n
   ;
@@ -36,7 +36,7 @@
 
 (defn months
   ; @description
-  ; Returns a PeriodType object or a Months object in case the 'n' parameter is provided.
+  ; Returns a PeriodType object, or a Months object (in case the 'n' parameter is provided).
   ;
   ; @param (number)(opt) n
   ;
@@ -65,7 +65,7 @@
 
 (defn weeks
   ; @description
-  ; Returns a PeriodType object or a Weeks object in case the 'n' parameter is provided.
+  ; Returns a PeriodType object, or a Weeks object (in case the 'n' parameter is provided).
   ;
   ; @param (number)(opt) n
   ;
@@ -94,7 +94,7 @@
 
 (defn days
   ; @description
-  ; Returns a PeriodType object or a Days object in case the 'n' parameter is provided.
+  ; Returns a PeriodType object, or a Days object (in case the 'n' parameter is provided).
   ;
   ; @param (number)(opt) n
   ;
@@ -123,7 +123,7 @@
 
 (defn hours
   ; @description
-  ; Returns a PeriodType object or an Hours object in case the 'n' parameter is provided.
+  ; Returns a PeriodType object, or an Hours object (in case the 'n' parameter is provided).
   ;
   ; @param (number)(opt) n
   ;
@@ -152,7 +152,7 @@
 
 (defn minutes
   ; @description
-  ; Returns a PeriodType object or an Minutes object in case the 'n' parameter is provided.
+  ; Returns a PeriodType object, or an Minutes object (in case the 'n' parameter is provided).
   ;
   ; @param (number)(opt) n
   ;
@@ -181,7 +181,7 @@
 
 (defn seconds
   ; @description
-  ; Returns a PeriodType object or an Seconds object in case the 'n' parameter is provided.
+  ; Returns a PeriodType object, or an Seconds object (in case the 'n' parameter is provided).
   ;
   ; @param (number)(opt) n
   ;
@@ -210,7 +210,7 @@
 
 (defn millseconds
   ; @description
-  ; Returns a PeriodType object or an Millis object in case the 'n' parameter is provided.
+  ; Returns a PeriodType object, or an Millis object (in case the 'n' parameter is provided).
   ;
   ; @param (number)(opt) n
   ;

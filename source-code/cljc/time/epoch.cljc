@@ -44,7 +44,7 @@
   ;
   ; @param (ms) n
   ;
-  ; @example
+  ; @usage
   ; (epoch-ms-age 1640800860000)
   ; =>
   ; 420000
@@ -59,7 +59,7 @@
   ;
   ; @param (s) n
   ;
-  ; @example
+  ; @usage
   ; (epoch-s-age 1640800860)
   ; =>
   ; 420
@@ -77,7 +77,7 @@
   ;
   ; @param (ms) n
   ;
-  ; @example
+  ; @usage
   ; (epoch-ms->timestamp-string 1640800860000)
   ; =>
   ; "2021-12-29T18:01:00.000Z"
@@ -92,7 +92,7 @@
   ;
   ; @param (s) n
   ;
-  ; @example
+  ; @usage
   ; (epoch-s->timestamp-string 1640800860)
   ; =>
   ; "2021-12-29T18:01:00.000Z"
@@ -110,7 +110,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->epoch-ms "2021-12-29T18:01:00.000Z")
   ; =>
   ; 1640800860000
@@ -125,7 +125,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-string->epoch-s "2021-12-29T18:01:00.000Z")
   ; =>
   ; 1640800860
@@ -143,7 +143,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->epoch-ms #<DateTime 2021-12-29T18:01:00.000+02:00>)
   ; =>
   ; 1640800860000
@@ -158,7 +158,7 @@
   ;
   ; @param (string) n
   ;
-  ; @example
+  ; @usage
   ; (timestamp-object->epoch-s #<DateTime 2021-12-29T18:01:00.000+02:00>)
   ; =>
   ; 1640800860
@@ -178,9 +178,6 @@
   ;
   ; @usage
   ; (date->epoch-ms "2020-04-20")
-  ;
-  ; @example
-  ; (date->epoch-ms "2020-04-20")
   ; =>
   ; 1587340800000
   ;
@@ -196,9 +193,6 @@
   ; @param (ms) epoch-ms
   ;
   ; @usage
-  ; (epoch-ms->date 1587340800000)
-  ;
-  ; @example
   ; (epoch-ms->date 1587340800000)
   ; =>
   ; "2020-04-20"
@@ -222,9 +216,6 @@
   ;
   ; @usage
   ; (date-contains-epoch-ms? "2020-04-20" 1587344200000)
-  ;
-  ; @example
-  ; (date-contains-epoch-ms? "2020-04-20" 1587344200000)
   ; =>
   ; true
   ;
@@ -245,9 +236,6 @@
   ;
   ; @usage
   ; (date-starts-before-epoch-ms? "2020-04-20" 1587344200000)
-  ;
-  ; @example
-  ; (date-starts-before-epoch-ms? "2020-04-20" 1587344200000)
   ; =>
   ; true
   ;
@@ -265,9 +253,6 @@
   ; @param (ms) epoch-ms
   ;
   ; @usage
-  ; (date-starts-after-epoch-ms? "2020-04-21" 1587344200000)
-  ;
-  ; @example
   ; (date-starts-after-epoch-ms? "2020-04-21" 1587344200000)
   ; =>
   ; true
@@ -287,9 +272,6 @@
   ;
   ; @usage
   ; (date-ends-before-epoch-ms? "2020-04-19" 1587344200000)
-  ;
-  ; @example
-  ; (date-ends-before-epoch-ms? "2020-04-19" 1587344200000)
   ; =>
   ; true
   ;
@@ -308,9 +290,6 @@
   ; @param (ms) epoch-ms
   ;
   ; @usage
-  ; (date-ends-after-epoch-ms? "2020-04-20" 1587344200000)
-  ;
-  ; @example
   ; (date-ends-after-epoch-ms? "2020-04-20" 1587344200000)
   ; =>
   ; true
