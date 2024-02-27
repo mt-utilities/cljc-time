@@ -22,8 +22,9 @@
   ;
   ; @return (clj: tea_time.core.Once object, cljs: integer)
   [f timeout]
-  #?(:clj  (tea-time.core/after! (convert/ms->s timeout) f)
-     :cljs (.setTimeout js/window f timeout)))
+  ; CLJS: In case the given 'timeout' value is 0, there is no need to apply the given 'f' function asynchron and setting up a timeout with 0ms value.
+  #?(:clj  (if (-> timeout zero?) (f) (tea-time.core/after! (convert/ms->s timeout) f))
+     :cljs (if (-> timeout zero?) (f) (.setTimeout js/window f timeout))))
 
 (defn set-interval!
   ; @param (function) f
