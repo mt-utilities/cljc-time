@@ -17,10 +17,10 @@ This library includes schedulers, converters, parsers, etc.
 
 Check out the latest commit on the [release branch](https://github.com/bithandshake/cljc-time/tree/release).
 
-### Documentation
-
-The <strong>cljc-time</strong> functional documentation is [available here](https://bithandshake.github.io/cljc-time).
-
 ### Changelog
 
 You can track the changes of the <strong>cljc-time</strong> library [here](CHANGES.md).
+
+# Documentation
+
+The <strong>cljc-time</strong> functional documentation is [available here](https://bithandshake.github.io/cljc-time).
