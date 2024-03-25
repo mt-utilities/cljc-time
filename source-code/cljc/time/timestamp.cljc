@@ -393,6 +393,23 @@
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
+(defn timestamp-string->today?
+  ; @description
+  ; Returns TRUE if the given timestamp string corresponds to the actual day.
+  ;
+  ; @param (string) n
+  ;
+  ; @usage
+  ; (timestamp-string->today "2020-04-20T16:20:00.123Z")
+  ; =>
+  ; true
+  ;
+  ; @return (boolean)
+  [n]
+  (let [x (timestamp-string)]
+       (= (string/keep-range n 0 10)
+          (string/keep-range x 0 10))))
+
 (defn timestamp-string->date
   ; @description
   ; Converts the given timestamp string into formatted date string.
@@ -481,25 +498,54 @@
              time (timestamp-string->time n time-format)]
             (str date" - "time)))))
 
-;; ----------------------------------------------------------------------------
-;; ----------------------------------------------------------------------------
-
-(defn timestamp-string->today?
+(defn timestamp-string->actual-timestamp
   ; @description
-  ; Returns TRUE if the given timestamp string corresponds to the actual day.
+  ; Returns a formatted timestamp as a string, either "Today, HH:MM" if the input
+  ; timestamp corresponds to the current day, or "YYYY/MM/DD" if it's a different day.
+  ;
+  ; @param (string) timestamp
+  ; @param (string) today
+  ; Default: "Today"
+  ;
+  ; @usage
+  ; (timestamp-string->actual-timestamp "2020-04-20T16:20:00.123Z" "Today")
+  ; =>
+  ; "Today, 16:20"
+  ;
+  ; @usage
+  ; (timestamp-string->actual-timestamp "2020-04-20T16:20:00.123Z" "Today")
+  ; =>
+  ; "2020/04/20"
+  ;
+  ; @return (string)
+  ([n]
+   (timestamp-string->actual-timestamp n "Today"))
+
+  ([n today]
+   (if (timestamp-string->today? n)
+       (let [time (timestamp-string->time n :hhmm)]
+            (str today ", " time))
+       (timestamp-string->date n :yyyymmdd))))
+
+(defn timestamp-string->elapsed-time
+  ; @description
+  ; Returns the elapsed time in a user-friendly format based on the given timestamp string.
   ;
   ; @param (string) n
   ;
   ; @usage
-  ; (timestamp-string->today "2020-04-20T16:20:00.123Z")
+  ; (timestamp-string->elapsed-time "2020-04-20T16:20:00.123Z")
   ; =>
-  ; true
+  ; "5m"
   ;
-  ; @return (boolean)
-  [n]
-  (let [x (timestamp-string)]
-       (= (string/keep-range n 0 10)
-          (string/keep-range x 0 10))))
+  ; @usage
+  ; (timestamp-string->elapsed-time "2020-04-20T16:20:00.123Z")
+  ; =>
+  ; "7d"
+  ;
+  ; @return (string)
+  [n])
+  ; TODO
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
