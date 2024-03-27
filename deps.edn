@@ -3,7 +3,7 @@
  :deps  {clj-time/clj-time           {:mvn/version "0.15.1"}
          com.andrewmcveigh/cljs-time {:mvn/version "0.5.2"}
          bithandshake/cljc-fruits    {:git/url "https://github.com/bithandshake/cljc-fruits"
-                                      :sha     "fc7f9978b1b8a5e6c75bc6523fb6c8631cfab4bc"}
+                                      :sha     "289bfaa76c90632b4332e89a226eb657e7eb4107"}
          org.clojure/clojure         {:mvn/version "1.10.1"}
          org.clojure/clojurescript   {:mvn/version "1.10.891"}
          tea-time/tea-time           {:mvn/version "1.0.1"}}}
