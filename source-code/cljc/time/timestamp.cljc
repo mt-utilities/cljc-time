@@ -430,9 +430,9 @@
 
   ([n format]
    (if (string/not-empty? n)
-       (let [year                        (timestamp-string->year  n)
-             month (format/leading-zeros (timestamp-string->month n) 2)
-             day   (format/leading-zeros (timestamp-string->day   n) 2)]
+       (let [year                             (timestamp-string->year  n)
+             month (format/fill-leading-zeros (timestamp-string->month n) 2)
+             day   (format/fill-leading-zeros (timestamp-string->day   n) 2)]
             (case format :yyyymmdd (str year"-"month"-"day)
                          :yymmdd   (let [year (string/keep-range year 2 4)]
                                         (str year"-"month"-"day))
@@ -459,10 +459,10 @@
 
   ([n format]
    (if (string/not-empty? n)
-       (let [hours        (format/leading-zeros (timestamp-string->hours        n) 2)
-             minutes      (format/leading-zeros (timestamp-string->minutes      n) 2)
-             seconds      (format/leading-zeros (timestamp-string->seconds      n) 2)
-             milliseconds (format/leading-zeros (timestamp-string->milliseconds n) 3)]
+       (let [hours        (format/fill-leading-zeros (timestamp-string->hours        n) 2)
+             minutes      (format/fill-leading-zeros (timestamp-string->minutes      n) 2)
+             seconds      (format/fill-leading-zeros (timestamp-string->seconds      n) 2)
+             milliseconds (format/fill-leading-zeros (timestamp-string->milliseconds n) 3)]
             (case format :hhmmssmmm (str hours":"minutes":"seconds"."milliseconds)
                          :hhmmss    (str hours":"minutes":"seconds)
                          :hhmm      (str hours":"minutes)
